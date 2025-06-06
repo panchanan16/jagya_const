@@ -12,7 +12,7 @@ const { eventlogger } = require('@/middleware/logEvents');
 const credentials = require('@/middleware/credentials');
 const jwt_authenticationVerify = require('@/middleware/verifyJWT');
 
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3050;
 require('@/config/dbConfig');
 
 ///
