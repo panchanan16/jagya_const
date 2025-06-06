@@ -14,10 +14,10 @@ const roleControllerMap = {
    'branch': branchControllers,
 };
 Object.entries(roleControllerMap).forEach(([role, controller]) => {
-   authRouter.post(`/auth/create/${role}`, controller.create);
-   authRouter.post(`/auth/login/${role}`, controller.handleLogin);
-   authRouter.get(`/auth/refresh/${role}`, controller.handleRefreshToken);
-   authRouter.get(`/auth/logout/${role}`, controller.handleLogout);
+   authRouter.post(`/core/${role}/create/credentials`, controller.create);
+   authRouter.post(`/core/${role}/login`, controller.handleLogin);
+   authRouter.get(`/core/${role}/refresh/credentials`, controller.handleRefreshToken);
+   authRouter.get(`/core/${role}/logout`, controller.handleLogout);
 });
 
 // authRouter.post('/auth/create/super-admin', superAdminControllers.create)

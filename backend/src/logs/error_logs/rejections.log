@@ -897,3 +897,1326 @@ ReferenceError: clientData is not defined
   ],
   [Symbol(level)]: 'error'
 }
+2025-05-29 16:36:10 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:36:10 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 13208,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 105328640,
+      heapTotal: 71245824,
+      heapUsed: 40302056,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8352.656 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}
+2025-05-29 16:38:41 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:38:41 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 8308,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 106291200,
+      heapTotal: 72384512,
+      heapUsed: 41140144,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8504.546 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}
+2025-05-29 16:39:11 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:39:11 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 5536,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 106332160,
+      heapTotal: 72441856,
+      heapUsed: 41160352,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8534.609 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}
+2025-05-29 16:42:04 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:42:04 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 10928,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 105848832,
+      heapTotal: 71974912,
+      heapUsed: 40853240,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8707.015 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}
+2025-05-29 16:42:11 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:42:11 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 12688,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 107032576,
+      heapTotal: 72908800,
+      heapUsed: 41973880,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8714.109 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}
+2025-05-29 16:42:15 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:42:15 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 8964,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 105328640,
+      heapTotal: 71450624,
+      heapUsed: 40446664,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8718.609 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}
+2025-05-29 16:42:48 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:42:48 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 10592,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 106262528,
+      heapTotal: 72499200,
+      heapUsed: 41029240,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8750.781 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}
+2025-05-29 16:42:51 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:42:51 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 9148,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 106524672,
+      heapTotal: 72294400,
+      heapUsed: 40964952,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8753.703 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}
+2025-05-29 16:43:36 [ERROR] unhandledRejection: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+    at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+    at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+    at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+    at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+    at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+    at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+{
+  error: Error: Access denied for user 'reynrel01'@'localhost' (using password: YES)
+      at Packet.asError (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packets\packet.js:740:17)
+      at ClientHandshake.execute (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\commands\command.js:29:26)
+      at PoolConnection.handlePacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:475:34)
+      at PacketParser.onPacket (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:93:12)
+      at PacketParser.executeStart (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\packet_parser.js:75:16)
+      at Socket.<anonymous> (Z:\Visual_Codes\jagya_const\backend\node_modules\mysql2\lib\base\connection.js:100:25)
+      at Socket.emit (node:events:518:28)
+      at addChunk (node:internal/streams/readable:561:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+      at Readable.push (node:internal/streams/readable:392:5) {
+    code: 'ER_ACCESS_DENIED_ERROR',
+    errno: 1045,
+    sqlState: '28000',
+    sqlMessage: "Access denied for user 'reynrel01'@'localhost' (using password: YES)",
+    sql: undefined
+  },
+  rejection: true,
+  date: 'Thu May 29 2025 16:43:36 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 10164,
+    uid: null,
+    gid: null,
+    cwd: 'Z:\\Visual_Codes\\jagya_const\\backend',
+    execPath: 'C:\\Program Files\\nodejs\\node.exe',
+    version: 'v22.11.0',
+    argv: [
+      'C:\\Program Files\\nodejs\\node.exe',
+      'Z:\\Visual_Codes\\jagya_const\\backend\\app.js'
+    ],
+    memoryUsage: {
+      rss: 106020864,
+      heapTotal: 71770112,
+      heapUsed: 40829616,
+      external: 2334497,
+      arrayBuffers: 17437
+    }
+  },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 8799.437 },
+  trace: [
+    {
+      column: 17,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packets\\packet.js',
+      function: 'Packet.asError',
+      line: 740,
+      method: 'asError',
+      native: false
+    },
+    {
+      column: 26,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\commands\\command.js',
+      function: 'ClientHandshake.execute',
+      line: 29,
+      method: 'execute',
+      native: false
+    },
+    {
+      column: 34,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PoolConnection.handlePacket',
+      line: 475,
+      method: 'handlePacket',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: 'PacketParser.onPacket',
+      line: 93,
+      method: 'onPacket',
+      native: false
+    },
+    {
+      column: 16,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\packet_parser.js',
+      function: 'PacketParser.executeStart',
+      line: 75,
+      method: 'executeStart',
+      native: false
+    },
+    {
+      column: 25,
+      file: 'Z:\\Visual_Codes\\jagya_const\\backend\\node_modules\\mysql2\\lib\\base\\connection.js',
+      function: null,
+      line: 100,
+      method: null,
+      native: false
+    },
+    {
+      column: 28,
+      file: 'node:events',
+      function: 'Socket.emit',
+      line: 518,
+      method: 'emit',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/streams/readable',
+      function: 'addChunk',
+      line: 561,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: 'node:internal/streams/readable',
+      function: 'readableAddChunkPushByteMode',
+      line: 512,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: 'node:internal/streams/readable',
+      function: 'Readable.push',
+      line: 392,
+      method: 'push',
+      native: false
+    }
+  ],
+  [Symbol(level)]: 'error'
+}

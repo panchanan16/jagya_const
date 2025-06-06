@@ -1,5 +1,5 @@
 require('module-alias/register');
-require('dotenv').config({ path: '.env.production' });
+require('dotenv').config({ path: '.env.development' });
 
 const express = require('express');
 const app = express();
@@ -43,7 +43,7 @@ const appRoutes_pagination = require('@/routers/paginationApi');
 const authRoutes = require('@/routers/authApi');
 
 ////// auth routes
-app.use('/api', authRoutes);
+app.use('/api/v1', authRoutes);
 // app.use(jwt_authenticationVerify)
 
 ////// api routes

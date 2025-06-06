@@ -5,13 +5,11 @@ meta {
 }
 
 get {
-  url: {{URL.Core}}vendor/get_vendor_payment_purchase
+  url: {{URL.Core}}vendor/get_vendor_payment_purchase?vendor_id=25
   body: json
   auth: none
 }
 
-body:json {
-  {
-    "vendor_id":10
-  }
+params:query {
+  vendor_id: 25
 }
