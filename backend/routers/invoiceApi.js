@@ -5,7 +5,7 @@ const InvoiceController = require('@/controllers/invoice');
 
 router.get('/get/config', InvoiceController.getInvoiceConfigDetails);
 router.post('/create', InvoiceController.create);
-router.get('/list', InvoiceController.findAll);
+router.get('/readAll', InvoiceController.findAll);
 router.get('/:invoice_id', InvoiceController.findOne);
 router.put('/update/:invoice_id', InvoiceController.update);
 router.delete('/delete/:invoice_id', InvoiceController.remove);
