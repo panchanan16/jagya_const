@@ -6702,3 +6702,4 @@
 20250712	10:59:16	b6ca897e-3275-4669-8d46-902b97ecb938	GET	undefined	/api/v1/invoice/create
 20250712	10:59:33	f969367e-7fa8-40a7-973e-a6bcf2d5103b	GET	undefined	/api/v1/invoice/get/config
 20250712	11:00:17	df99db0a-29dd-41a9-b4a5-19d5f71f9a80	GET	undefined	/api/v1/invoice/get/config
+20250712	21:18:10	b5e65570-fd51-4e8b-a4c7-699136086a4c	GET	undefined	/api/v1/core/project/get_project_detail/9
