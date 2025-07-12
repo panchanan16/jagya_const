@@ -1,0 +1,15 @@
+meta {
+  name: recent-activities
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{URL.Core}}dashboard/recent-activities
+  body: none
+  auth: inherit
+}
+
+body:multipart-form {
+  image: @file(C:\Users\BS\Pictures\3.jpeg)
+}

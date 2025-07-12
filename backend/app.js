@@ -18,7 +18,7 @@ require('@/config/dbConfig');
 ///
 ////
 ///// DEV imports =================
-// const { print } = require('@/_dev/route.reader');
+const { print } = require('@/_dev/route.reader');
 // const testRoute = require('@/routers/test.route.js');
 ////////////////////////////////
 
@@ -51,14 +51,14 @@ app.use('/api/v1', appRoutes_entity);
 app.use('/api/v1', appRoutes_core);
 app.use('/api/v1', appRoutes_core_file);
 app.use('/api/v1/notification', appRoutes_notification);
-app.use('/api/v1/invoice', appRoutes_invoice);
+app.use('/api/v1/entity/invoice', appRoutes_invoice);
 app.use('/api/v1', appRoutes_search);
 app.use('/api/v1', appRoutes_pagination);
 
 ///
 ////
 ///// DEV Executions =================
-// app._router.stack.forEach(print.bind(null, []));
+app._router.stack.forEach(print.bind(null, []));
 // app.use(require('express-status-monitor')());
 ////////////////////////////////
 

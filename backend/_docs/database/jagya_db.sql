@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2025 at 01:00 PM
+-- Generation Time: Jun 26, 2025 at 05:34 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,6 @@ CREATE TABLE `branch_auth` (
 INSERT INTO `branch_auth` (`br_a_id`, `br_r_id`, `br_user_id`, `br_password`, `br_token`, `br_isactive`) VALUES
 (9, 3, 'deka@example.com', '$2a$12$T1Z8isdBMC/zf.2OQ9rsnOfO65Mif54GxjIiGBMC6BzydBGxycMIy', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDc1ODg3ODEsImV4cCI6MTc0ODAyMDc4MX0.2N4f4zTw0oDW1j31h7pT7yZvyCOslERjY5y1qsyo7vs', 1);
 
-
 -- --------------------------------------------------------
 
 --
@@ -54,7 +53,6 @@ CREATE TABLE `branch_clients` (
   `b_client_id` bigint(20) NOT NULL,
   `b_r_id` int(11) NOT NULL,
   `b_client_name` varchar(200) DEFAULT NULL,
-
   `b_client_ref_no` varchar(200) DEFAULT NULL,
   `b_client_contact` varchar(15) DEFAULT NULL,
   `b_client_alt_contact` varchar(15) DEFAULT NULL,
@@ -160,6 +158,16 @@ INSERT INTO `clients` (`client_id`, `client_name`, `client_ref_no`, `client_cont
 (39, 'Wave Industries pvt. ltd.', 'JGCC0005', '88008095', NULL, 'Dibrugarh, assam', 'contact@betaind.net'),
 (40, 'Wave Industries pvt. ltd.', 'JGCC0006', '88008095', NULL, 'Dibrugarh, assam', 'contact@betaind.net'),
 (41, 'Wave Industries pvt. ltd.', 'JGCC0007', '88008095', '9401069337', 'Dibrugarh, assam', 'contact@betaind.net'),
+(42, 'Mintu Sharma', 'JGCC0008', '9401069337', '9401069337', 'siwan', 'msi2gmail@gaf.com'),
+(43, 'Wave Industries pvt. ltd.', 'JGCC0009', '88008095', '9401069337', 'Dibrugarh, assam', 'contact@betaind.net'),
+(44, 'Wave Industries pvt. ltd.', 'JGCC00010', '88008095', '9401069337', 'Dibrugarh, assam', 'contact@betaind.net'),
+(45, 'Acme Corporation', 'ACME-2023-00d15', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', 'info@acmecorp.com'),
+(46, 'Acme Corporation', 'ACME-2023-00d5', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', 'info@acmecorp.com'),
+(47, 'Acme Corporation', 'ACME-2023-005', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', 'info@acmecorp.com'),
+(50, 'Acme Corporation 2563', 'ACME-202376', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', 'info@acmecorp.com'),
+(51, 'Acme Corporation 2563', 'ACME-202375', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', 'info@acmecorp.com'),
+(52, 'Acme Corporation 2563', 'ACME-202374', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', 'info@acmecorp.com'),
+(53, 'Acme Corporation 2563', 'ACME-202373', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', 'info@acmecorp.com');
 
 -- --------------------------------------------------------
 
@@ -489,28 +497,10 @@ CREATE TABLE `material_item_list` (
 --
 
 INSERT INTO `material_item_list` (`mr_item_id`, `mr_r_id`, `mr_project_r_id`, `mr_item_name`, `mr_item_quantity`, `mr_item_amount`, `mr_item_date`, `md_approval`, `fd_approval`, `vendor_id`, `mr_delivery_status`) VALUES
-(15, 9, 9, 'Cement', '20', '2000', '2025-04-03', 1, 1, 9, 1),
-(16, 9, 9, 'Sand', '50', '1500', '2025-04-03', 0, 0, 9, 0),
-(17, 9, 10, 'Cement', '20', '2000', '2025-04-03', 0, 0, 9, 0),
-(18, 9, 10, 'Sand', '50', '1500', '2025-04-03', 0, 0, 9, 0),
-(19, 9, 11, 'Cement', '20', '2000', '2025-04-03', 0, 0, 9, 0),
-(20, 9, 11, 'Sand', '50', '1500', '2025-04-03', 0, 0, 9, 0),
-(21, 9, 12, 'Cement', '20', '2000', '2025-04-03', 0, 0, 9, 0),
-(22, 9, 12, 'Sand', '50', '1500', '2025-04-03', 0, 0, 9, 0),
 (37, 13, 11, 'Cement', '20', NULL, NULL, 0, 0, NULL, 0),
 (38, 13, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0),
 (39, 13, 11, 'Cement', '20', NULL, NULL, 0, 0, NULL, 0),
-(40, 13, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0),
-(75, 14, 10, 'sandy', '50', '1600', '2025-04-03', 0, 0, 10, 0),
-(76, 14, 10, 'Sand', '50', '1500', '2025-04-03', 0, 0, 10, 0),
-(77, 14, 10, 'Sandad', '50', '1500', '2025-04-03', 0, 0, 10, 0),
-(94, 10, 9, 'Cement 44', '20', '2000', '2025-04-03', 1, 1, 9, 1),
-(95, 10, 9, 'Sand', '50', '1500', '2025-04-03', 0, 1, 9, 0),
-(96, 10, 9, 'Cement', '20', '2000', '2025-04-03', 0, 1, 9, 0),
-(97, 10, 9, 'Sand', '50', '1500', '2025-04-03', 0, 1, 9, 0),
-(98, 10, 9, 'Cement', '20', '2000', '2025-04-03', 0, 1, 9, 0),
-(99, 10, 9, 'Sand', '50', '1500', '2025-04-03', 0, 1, 9, 0),
-
+(40, 13, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -707,15 +697,15 @@ CREATE TABLE `project_docs` (
 -- Dumping data for table `project_docs`
 --
 
-
-INSERT INTO `project_docs` (`pro_doc_id`, `pro_r_id`, `pro_doc_url`, `pro_doc_type`) VALUES
-(3, 9, 'public/project/files/file-86ca5128-2b99-44c4-8e87-9b029b805b41-1747033432513.pdf', '0'),
-(7, 9, 'public/project/files/file-f0aa20a7-4a43-4a85-b32b-2adb1369d79f-1747034744129.pdf', NULL),
-(8, 9, 'public/project/files/file-6f2e0810-4d9b-4ee8-a087-303faea57edc-1747034744280.pdf', NULL),
-(9, 9, 'public/project/files/file-7c36bbaa-867b-4294-971b-48277fe7897a-1747034744352.pdf', NULL),
-(10, 9, 'public/project/files/file-470b5035-2187-43b5-afe4-0c24e0a0df7f-1747034744493.pdf', NULL),
-(11, 9, 'public/project/files/file-bb095eba-bb46-4011-b883-6708e6f05339-1747034744592.pdf', NULL),
-(13, 9, 'public/project/images/image-34a17113-af97-4cc2-a081-60dab46dfa57-1747035464281.jpg', NULL);
+INSERT INTO `project_docs` (`pro_doc_id`, `pro_r_id`, `pro_doc_url`, `pro_doc_name`, `pro_doc_type`) VALUES
+(3, 9, 'public/project/files/file-86ca5128-2b99-44c4-8e87-9b029b805b41-1747033432513.pdf', NULL, '0'),
+(7, 9, 'public/project/files/file-f0aa20a7-4a43-4a85-b32b-2adb1369d79f-1747034744129.pdf', NULL, NULL),
+(8, 9, 'public/project/files/file-6f2e0810-4d9b-4ee8-a087-303faea57edc-1747034744280.pdf', NULL, NULL),
+(9, 9, 'public/project/files/file-7c36bbaa-867b-4294-971b-48277fe7897a-1747034744352.pdf', NULL, NULL),
+(10, 9, 'public/project/files/file-470b5035-2187-43b5-afe4-0c24e0a0df7f-1747034744493.pdf', NULL, NULL),
+(11, 9, 'public/project/files/file-bb095eba-bb46-4011-b883-6708e6f05339-1747034744592.pdf', NULL, NULL),
+(13, 9, 'public/project/images/image-34a17113-af97-4cc2-a081-60dab46dfa57-1747035464281.jpg', NULL, NULL),
+(14, 9, 'public/project/images/image-3ede4f51-4719-43b8-8303-c066bfda3732-1747631257823.jpg', 'WhatsApp Image  at', 'doc_image');
 
 -- --------------------------------------------------------
 
@@ -737,7 +727,7 @@ CREATE TABLE `project_phase` (
 --
 
 INSERT INTO `project_phase` (`pro_phase_id`, `phase_id`, `pro_id`, `pro_phase_status`, `pro_phase_deadline`, `created_at`) VALUES
-(5, 3, 9, 'In Progress', '2025-06-30', '2025-05-09 16:09:11'),
+(5, 3, 9, 'In-progsress', '2025-06-30', '2025-05-09 16:09:11'),
 (6, 3, 9, 'Completed', '2025-06-30', '2025-05-09 17:03:06'),
 (7, 3, 9, 'Not Started', '2025-06-30', '2025-05-09 17:03:15'),
 (8, 3, 9, 'Not Started', '2025-06-30', '2025-05-10 14:03:34'),
@@ -929,11 +919,6 @@ CREATE TABLE `vendors` (
 --
 
 INSERT INTO `vendors` (`vendor_id`, `vendor_ref_no`, `vendor_name`, `vendor_contact`, `vendor_alt_contact`, `vendor_address`, `vendor_email`, `vendor_status`) VALUES
-(9, NULL, 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
-(10, NULL, 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
-(11, NULL, 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
-(12, NULL, 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
-(13, NULL, 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
 (14, 'JGCV0001', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
 (16, 'JGCV0001', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
 (17, 'JGCV0001', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
@@ -974,42 +959,10 @@ CREATE TABLE `vendor_payments` (
 --
 
 INSERT INTO `vendor_payments` (`pay_id`, `pay_vendor_id`, `pay_project_id`, `pay_amount`, `pay_mode`, `pay_note`, `pay_exp_id`) VALUES
-(25, 12, 11, '4574', NULL, '748574', 20),
-(26, 13, 11, '4574', NULL, '748574', 20),
 (27, 14, 11, '4574', NULL, '748574', 20),
-(28, 13, 11, '4574', NULL, '748574', 21),
-(29, 12, 11, '4574', NULL, '748574', 21),
 (30, 14, 11, '4574', NULL, '748574', 21),
-(37, 10, 9, '50000', 'UPI', 'fo 3 truck red soil', 31),
-(38, 11, 9, '20000', 'UPI', 'for item purchase', 31),
-(39, 11, 9, '20000', 'UPI', 'for item purchase', 32),
-(40, 10, 9, '50000', 'UPI', 'fo 3 truck red soil', 32),
-(41, 11, 9, '20000', 'UPI', 'for item purchase', 35),
-(42, 10, 9, '50000', 'UPI', 'fo 3 truck red soil', 35),
-(43, 11, 9, '20000', 'UPI', 'for item purchase', 36),
-(44, 10, 9, '50000', 'UPI', 'fo 3 truck red soil', 36),
-(45, 11, 9, '20000', NULL, 'for item purchase', NULL),
-(46, 10, 9, '50000', NULL, 'fo 3 truck red soil', NULL),
-(47, 11, 9, '20000', NULL, 'for item purchase', NULL),
-(48, 10, 9, '50000', NULL, 'fo 3 truck red soil', NULL),
-(51, 11, 9, '20000', NULL, 'for item purchase', NULL),
-(52, 10, 9, '50000', NULL, 'fo 3 truck red soil', NULL),
-(138, 11, 10, '5000', NULL, 'nafdgadfg', 24),
-(139, 11, 10, '500', NULL, 'sdasdfa', 24),
-(140, 10, 10, '10000', NULL, 'nafdgadfg', 25),
-(141, 11, 9, '20000', NULL, 'for item purchase', 9),
-(142, 10, 9, '50000', NULL, 'fo 3 truck red soil', 9),
 (143, NULL, 9, '50000', NULL, 'fo 3 truck red soil', 9),
-(150, 11, 9, '20000', NULL, 'for item purchase', 10),
-(151, 10, 9, '50000', NULL, 'fo 3 truck red soil', 10),
 (152, NULL, 9, '50000', NULL, 'fo 3 truck red soil', 10),
-(166, 11, 9, '20000', 'UPI', 'for item purchase', 37),
-(167, 10, 9, '50000', 'UPI', 'fo 3 truck red soil', 37),
-(171, 9, NULL, '5000', NULL, 'Payment for materials supplied for PRJ1001', NULL),
-(172, 11, 9, '20000', 'UPI', 'for item purchase', 39),
-(173, 10, 9, '50000', 'UPI', 'fo 3 truck red soil', 39),
-(174, 11, 9, '20000', NULL, 'for item purchase', 11),
-(175, 10, 9, '50000', NULL, 'fo 3 truck red soil', 11),
 (176, NULL, 9, '50000', NULL, 'fo 3 truck red soil', 11);
 
 --
@@ -1248,7 +1201,6 @@ ALTER TABLE `branch_auth`
 ALTER TABLE `branch_clients`
   MODIFY `b_client_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
-
 --
 -- AUTO_INCREMENT for table `branch_data`
 --
@@ -1260,8 +1212,6 @@ ALTER TABLE `branch_data`
 --
 ALTER TABLE `clients`
   MODIFY `client_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
-
-
 
 --
 -- AUTO_INCREMENT for table `collections`
@@ -1323,7 +1273,6 @@ ALTER TABLE `labours`
 ALTER TABLE `material_item_list`
   MODIFY `mr_item_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
-
 --
 -- AUTO_INCREMENT for table `material_requests`
 --
@@ -1360,7 +1309,6 @@ ALTER TABLE `phases`
 ALTER TABLE `projects`
   MODIFY `pro_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
-
 --
 -- AUTO_INCREMENT for table `project_contractor`
 --
@@ -1371,8 +1319,7 @@ ALTER TABLE `project_contractor`
 -- AUTO_INCREMENT for table `project_docs`
 --
 ALTER TABLE `project_docs`
-  MODIFY `pro_doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
+  MODIFY `pro_doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `project_phase`

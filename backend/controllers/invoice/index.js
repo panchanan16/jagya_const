@@ -1,4 +1,5 @@
 const InvoiceModel = require('@/models/invoice');
+const InvoiceConfigDetails =require('@/config/invoice.cofig')
 
 const InvoiceController = {
    async create(req, res) {
@@ -56,9 +57,9 @@ const InvoiceController = {
       const invoice_item_id = req.params.invoice_item_id;
       try {
          const result = await InvoiceModel.updateInvoiceItem(invoice_item_id, req.body);
-         res.json({ message: 'Invoice item updated successfully', result });
+         res.json({ msg: 'Invoice item updated successfully', result });
       } catch (err) {
-         res.status(500).json({ message: 'Error updating invoice item', error: err });
+         res.status(500).json({ msg: 'Error updating invoice item', error: err });
       }
    },
 
@@ -66,23 +67,21 @@ const InvoiceController = {
       const invoice_item_id = req.params.invoice_item_id;
       try {
          const result = await InvoiceModel.deleteInvoiceItem(invoice_item_id);
-         res.json({ message: 'Invoice item deleted successfully', result });
+         res.json({ msg: 'Invoice item deleted successfully', result });
       } catch (err) {
-         res.status(500).json({ message: 'Error deleting invoice item', error: err });
+         res.status(500).json({ msg: 'Error deleting invoice item', error: err });
       }
    },
 
-   //    async paginate(req, res) {
-   //       try {
-   //          const limit = parseInt(req.query.limit) || 10;
-   //          const offset = parseInt(req.query.offset) || 0;
-   //          const data = await InvoiceModel.paginate(limit, offset);
-   //          res.status(200).send({ status: true, msg: 'Paginated data fetched', data });
-   //       } catch (err) {
-   //          console.error('Error in pagination:', err);
-   //          res.status(500).send({ status: false, msg: 'Server error', data: null });
-   //       }
-   //    },
+   async getInvoiceConfigDetails(req, res) {
+      try {
+         res.json({ status:true,  msg: 'Invoice item deleted successfully', data: InvoiceConfigDetails});
+      } catch (err) {
+         res.status(500).json({status:true, msg: 'Error deleting invoice item', error: err });
+      }
+   },
+
+
 };
 
 module.exports = InvoiceController;

@@ -1,4 +1,5 @@
-let Invoice_config = {
+
+Invoice_config = {
    invoice_prifix: 'JGCINV-GHK',
    authorize_signatory_url: '/public/invoice/signatory.png',
    logo_url: '/public/invoice/logo.png',
@@ -12,3 +13,5 @@ let Invoice_config = {
       con: '',
    },
 };
+
+module.exports=Invoice_config;
