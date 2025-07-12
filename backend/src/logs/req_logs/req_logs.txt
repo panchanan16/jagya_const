@@ -6134,3 +6134,12 @@
 20250712	10:59:16	b6ca897e-3275-4669-8d46-902b97ecb938	GET	undefined	/api/v1/invoice/create
 20250712	10:59:33	f969367e-7fa8-40a7-973e-a6bcf2d5103b	GET	undefined	/api/v1/invoice/get/config
 20250712	11:00:17	df99db0a-29dd-41a9-b4a5-19d5f71f9a80	GET	undefined	/api/v1/invoice/get/config
+20250712	20:20:18	f08c36d1-44cd-4f88-8853-1066eac41d6b	POST	undefined	/api/v1/core/material_req/create
+20250712	20:20:26	24d9f7b5-428f-4b6c-bb61-b7cd6b35ef80	GET	undefined	/api/v1/core/material_req/readAll
+20250712	20:20:31	0e457584-b81c-436a-a755-16c88dd90bc2	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/15
+20250712	20:21:53	c9565556-82c2-4827-983b-12f083df8d3c	PUT	undefined	/api/v1/core/material_req/update
+20250712	20:44:34	cf6b10d1-8cf4-4869-859d-6606283affd6	POST	undefined	/api/v1/core/material_req/create
+20250712	20:45:15	23317af5-3be2-4438-9c9e-a7b8b6b609e8	POST	undefined	/api/v1/core/material_req/create
+20250712	20:45:19	cb4bf0dc-67d5-4c2f-a9ae-245905f786fd	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/15
+20250712	20:45:21	e37f0ec0-2dc0-474d-baff-8426c909ebe5	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/16
+20250712	20:45:25	e49d918b-fb29-4cf0-9877-9f4e4e6972be	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
