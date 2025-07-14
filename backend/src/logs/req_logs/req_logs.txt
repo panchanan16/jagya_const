@@ -6722,3 +6722,5 @@
 20250712	21:34:54	265e9fd9-1b4c-4350-9a32-93d682152a7c	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/14
 20250712	21:34:55	a95c856c-0442-4160-b943-c6558990c179	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/14
 20250712	21:36:50	38e1e2cd-a376-4e93-b4b9-26db1bdbec16	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/15
+20250714	16:15:16	41c3ae27-892a-489d-a286-472dfcd08109	POST	undefined	/api/v1/entity/collection/create
+20250714	16:16:44	50123cef-bf4f-4709-b9dc-87c3ce3437e4	POST	undefined	/api/v1/entity/collection/create

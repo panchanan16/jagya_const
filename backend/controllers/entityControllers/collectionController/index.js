@@ -29,12 +29,12 @@ class CollectionController {
 
    // Create a new collection
    static async create(req, res) {
-      const { col_amount, col_mode, col_remark, col_date, col_project_id } = req.body;
+      const { col_amount, col_mode, col_remark, col_date, col_project_id, col_project_phase } = req.body;
       if (!col_amount || !col_mode || !col_date || !col_project_id) {
          return res.status(400).send({ status: false, msg: 'All required fields must be provided', data: null });
       }
       try {
-         const newCollection = await collectionModel.create(col_amount, col_mode, col_remark, col_date, col_project_id);
+         const newCollection = await collectionModel.create(col_amount, col_mode, col_remark, col_date, col_project_id,col_project_phase);
          return res.status(201).send({ status: true, msg: 'Collection created successfully', data: newCollection });
       } catch (error) {
          console.error('Error creating collection:', error);
@@ -56,7 +56,8 @@ class CollectionController {
             col_mode,
             col_remark,
             col_date,
-            col_project_id
+            col_project_id,
+            col_project_phase
          );
          if (!isUpdated) {
             return res.status(404).send({ status: false, msg: 'Collection not found', data: null });
@@ -76,7 +77,7 @@ class CollectionController {
          if (!isDeleted) {
             return res.status(404).send({ status: false, msg: 'Collection not found', data: null });
          }
-         return res.status(200).send({ status: true, msg: 'Collection deleted successfully', data: {col_id: id} });
+         return res.status(200).send({ status: true, msg: 'Collection deleted successfully', data: { col_id: id } });
       } catch (error) {
          console.error(`Error deleting collection with ID ${id}:`, error);
          return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
