@@ -5,14 +5,14 @@ meta {
 }
 
 post {
-  url: {{URL.auth}}login/branch
+  url: {{URL.Core}}branch/login
   body: json
   auth: none
 }
 
 body:json {
   {
-    "user_id": "deka@example.com",
+    "user_id": "branch@example.com",
     "password": "1234567"
   }
 }
