@@ -6724,3 +6724,7 @@
 20250712	21:36:50	38e1e2cd-a376-4e93-b4b9-26db1bdbec16	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/15
 20250714	16:15:16	41c3ae27-892a-489d-a286-472dfcd08109	POST	undefined	/api/v1/entity/collection/create
 20250714	16:16:44	50123cef-bf4f-4709-b9dc-87c3ce3437e4	POST	undefined	/api/v1/entity/collection/create
+20250714	16:17:41	6408acc1-eded-4a6a-ac3c-65755fa2c4e7	POST	undefined	/api/v1/entity/contractorPayment/create
+20250714	16:17:50	fb053e5c-5733-4a91-9091-a056a98dd74c	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=8
+20250714	16:17:54	4e2a57e0-70dd-4442-964c-7654a5b92a69	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=9
+20250714	16:18:04	81958b42-5af2-4002-ab66-998444f6ccac	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
