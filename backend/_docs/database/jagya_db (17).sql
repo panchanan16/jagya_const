@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2025 at 05:34 PM
+-- Generation Time: Jul 14, 2025 at 12:54 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -181,22 +181,24 @@ CREATE TABLE `collections` (
   `col_mode` varchar(55) DEFAULT NULL,
   `col_remark` varchar(255) DEFAULT NULL,
   `col_date` varchar(20) DEFAULT NULL,
-  `col_project_id` varchar(55) NOT NULL
+  `col_project_id` varchar(55) NOT NULL,
+  `col_project_phase` varchar(155) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `collections`
 --
 
-INSERT INTO `collections` (`col_id`, `col_amount`, `col_mode`, `col_remark`, `col_date`, `col_project_id`) VALUES
-(2, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'JGCP0005'),
-(3, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'JGCP0005'),
-(4, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001'),
-(5, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001'),
-(6, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001'),
-(7, '5000', 'upi', '', '2025-04-06', '35'),
-(8, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001'),
-(9, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001');
+INSERT INTO `collections` (`col_id`, `col_amount`, `col_mode`, `col_remark`, `col_date`, `col_project_id`, `col_project_phase`) VALUES
+(2, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'JGCP0005', NULL),
+(3, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'JGCP0005', NULL),
+(4, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
+(5, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
+(6, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
+(7, '5000', 'upi', '', '2025-04-06', '35', NULL),
+(8, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
+(9, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
+(10, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', 'phase1');
 
 -- --------------------------------------------------------
 
@@ -270,7 +272,8 @@ INSERT INTO `contractor_payments` (`pay_id`, `pay_con_id`, `pay_project_id`, `pa
 (104, 2, 9, '30000', NULL, 'for arun da ', 10),
 (111, 2, 9, '30000', 'UPI', 'for arun da ', 37),
 (114, 2, 9, '30000', 'UPI', 'for arun da ', 39),
-(115, 2, 9, '30000', NULL, 'for arun da ', 11);
+(115, 2, 9, '30000', NULL, 'for arun da ', 11),
+(116, 1, NULL, '2000', NULL, 'First installment for project PRJ1001', NULL);
 
 -- --------------------------------------------------------
 
@@ -374,6 +377,13 @@ CREATE TABLE `finance_dep` (
   `fd_email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `finance_dep`
+--
+
+INSERT INTO `finance_dep` (`fd_id`, `fd_name`, `fd_contact`, `fd_alt_contact`, `fd_address`, `fd_email`) VALUES
+(1, 'Acme Food Distributors', '9876543210', '8765432109', '123 Main Street, Anytown, USA', 'info@acmefood.com');
+
 -- --------------------------------------------------------
 
 --
@@ -384,10 +394,17 @@ CREATE TABLE `finance_dep_auth` (
   `fd_a_id` int(11) NOT NULL,
   `fd_r_id` int(11) NOT NULL,
   `fd_user_id` varchar(100) DEFAULT NULL,
-  `fd_password` varchar(255) NOT NULL,
-  `fd_token` varchar(455) NOT NULL,
+  `fd_password` varchar(255) DEFAULT NULL,
+  `fd_token` varchar(455) DEFAULT NULL,
   `fd_isactive` int(2) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `finance_dep_auth`
+--
+
+INSERT INTO `finance_dep_auth` (`fd_a_id`, `fd_r_id`, `fd_user_id`, `fd_password`, `fd_token`, `fd_isactive`) VALUES
+(1, 1, 'deka@example.com', '$2a$12$wSS23sgAJNbqN7cDlSAuweOv/AKJvzETTBNla/Dov3N09RgVvz6EG', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGVrYUBleGFtcGxlLmNvbSIsImlhdCI6MTc1MjQ4OTA2NCwiZXhwIjoxNzUyOTIxMDY0fQ.Fb6d3q-SQaJe8ssLaagv9Lsw3eq0I5oekdAOaCMOweQ', 1);
 
 -- --------------------------------------------------------
 
@@ -497,10 +514,18 @@ CREATE TABLE `material_item_list` (
 --
 
 INSERT INTO `material_item_list` (`mr_item_id`, `mr_r_id`, `mr_project_r_id`, `mr_item_name`, `mr_item_quantity`, `mr_item_amount`, `mr_item_date`, `md_approval`, `fd_approval`, `vendor_id`, `mr_delivery_status`) VALUES
-(37, 13, 11, 'Cement', '20', NULL, NULL, 0, 0, NULL, 0),
-(38, 13, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0),
-(39, 13, 11, 'Cement', '20', NULL, NULL, 0, 0, NULL, 0),
-(40, 13, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0);
+(37, 13, 11, 'Cement', '20', NULL, NULL, 0, 0, 14, 0),
+(38, 13, 11, 'atta', '20', NULL, NULL, 0, 0, 14, 0),
+(39, 13, 11, 'Cement', '20', NULL, NULL, 0, 0, 14, 0),
+(40, 13, 11, 'atta', '20', NULL, NULL, 0, 0, 14, 0),
+(102, 15, 11, 'Cement', '20', NULL, NULL, 0, 0, NULL, 0),
+(103, 15, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0),
+(104, 15, 11, 'Cement', '20', NULL, NULL, 0, 0, NULL, 0),
+(105, 15, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0),
+(113, 17, 11, 'Cement', '20', NULL, NULL, 0, 0, 14, 0),
+(114, 17, 11, 'atta', '20', NULL, NULL, 0, 0, 14, 0),
+(115, 17, 11, 'Cement', '20', NULL, NULL, 0, 0, 14, 0),
+(116, 17, 11, 'atta', '20', NULL, NULL, 0, 0, 14, 0);
 
 -- --------------------------------------------------------
 
@@ -528,7 +553,9 @@ INSERT INTO `material_requests` (`mr_r_id`, `material_ref_no`, `mr_project_id`, 
 (11, 'JGCMRQ0002', 9, 'Phase 1', '2025-04-03', '2025-04-06 13:49:59'),
 (12, 'JGCMRQ0003', 9, 'Phase 1', '2025-04-03', '2025-04-08 02:04:00'),
 (13, 'JGCMRQ0004', 11, 'Phase 1', '2025-04-03', '2025-05-11 08:05:36'),
-(14, 'JGCMRQ0005', 11, 'Phase 1', '2025-04-03', '2025-05-11 08:06:53');
+(14, 'JGCMRQ0005', 11, 'Phase 1', '2025-04-03', '2025-05-11 08:06:53'),
+(15, 'JGCMRQ0006', 11, 'Phase 1', '2025-04-03', '2025-07-12 14:50:18'),
+(17, 'JGCMRQ0007', 11, 'Phase 1', '2025-04-03', '2025-07-12 15:15:15');
 
 -- --------------------------------------------------------
 
@@ -816,7 +843,8 @@ INSERT INTO `superviser` (`sup_id`, `sup_name`, `sup_email`, `sup_contact`, `sup
 (5, 'Supervise Supplies', NULL, '555-123-4567', '555-987-6543', '123 Main St, Anytown, CA 91234'),
 (6, 'Supervise Supplies', NULL, '555-123-4567', '555-987-6543', '123 Main St, Anytown, CA 91234'),
 (7, 'Supervise Supplies', NULL, '555-123-4567', '555-987-6543', '123 Main St, Anytown, CA 91234'),
-(8, 'Supervise Supplies', NULL, '555-123-4567', '555-987-6543', '123 Main St, Anytown, CA 91234');
+(8, 'Supervise Supplies', NULL, '555-123-4567', '555-987-6543', '123 Main St, Anytown, CA 91234'),
+(10, 'Rajesh Sharma', 'rajesh.sharma@example.com', '9876543210', '8765432109', 'A-102, Green Valley Apartments, Guwahati');
 
 -- --------------------------------------------------------
 
@@ -827,11 +855,18 @@ INSERT INTO `superviser` (`sup_id`, `sup_name`, `sup_email`, `sup_contact`, `sup
 CREATE TABLE `superviser_auth` (
   `sup_a_id` int(11) NOT NULL,
   `sup_r_id` int(11) NOT NULL,
-  `sup_user_id` varchar(100) NOT NULL,
-  `sup_password` varchar(300) NOT NULL,
+  `sup_user_id` varchar(100) DEFAULT NULL,
+  `sup_password` varchar(300) DEFAULT NULL,
   `sup_token` varchar(300) DEFAULT NULL,
   `sup_isactive` int(2) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `superviser_auth`
+--
+
+INSERT INTO `superviser_auth` (`sup_a_id`, `sup_r_id`, `sup_user_id`, `sup_password`, `sup_token`, `sup_isactive`) VALUES
+(1, 10, 'deka@example.com', '$2a$12$mzRcIeqXdGHxBQPqOrNkDufA5qxAkwGg14T6pFrWF4mhfi5IfYJ36', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZGVrYUBleGFtcGxlLmNvbSIsImlhdCI6MTc1MjQ4ODYwOCwiZXhwIjoxNzUyNTc1MDA4fQ.QJwR7BUa_0ZhAHGGmnYHU8QFR_MY2VD8IFMNBD6Jpr8', 1);
 
 -- --------------------------------------------------------
 
@@ -1064,7 +1099,8 @@ ALTER TABLE `labours`
 ALTER TABLE `material_item_list`
   ADD PRIMARY KEY (`mr_item_id`),
   ADD KEY `material_item_list_ibfk_1` (`mr_project_r_id`),
-  ADD KEY `vendor_id` (`vendor_id`);
+  ADD KEY `vendor_id` (`vendor_id`),
+  ADD KEY `mr_r_id` (`mr_r_id`);
 
 --
 -- Indexes for table `material_requests`
@@ -1217,7 +1253,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `col_id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `col_id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `contractors`
@@ -1229,7 +1265,7 @@ ALTER TABLE `contractors`
 -- AUTO_INCREMENT for table `contractor_payments`
 --
 ALTER TABLE `contractor_payments`
-  MODIFY `pay_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+  MODIFY `pay_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `expenses`
@@ -1247,13 +1283,13 @@ ALTER TABLE `expense_item`
 -- AUTO_INCREMENT for table `finance_dep`
 --
 ALTER TABLE `finance_dep`
-  MODIFY `fd_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `fd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `finance_dep_auth`
 --
 ALTER TABLE `finance_dep_auth`
-  MODIFY `fd_a_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `fd_a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `invoice`
@@ -1271,13 +1307,13 @@ ALTER TABLE `labours`
 -- AUTO_INCREMENT for table `material_item_list`
 --
 ALTER TABLE `material_item_list`
-  MODIFY `mr_item_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `mr_item_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `material_requests`
 --
 ALTER TABLE `material_requests`
-  MODIFY `mr_r_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `mr_r_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -1343,13 +1379,13 @@ ALTER TABLE `sub_phases`
 -- AUTO_INCREMENT for table `superviser`
 --
 ALTER TABLE `superviser`
-  MODIFY `sup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `superviser_auth`
 --
 ALTER TABLE `superviser_auth`
-  MODIFY `sup_a_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sup_a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `super_admin`
@@ -1416,7 +1452,8 @@ ALTER TABLE `finance_dep_auth`
 --
 ALTER TABLE `material_item_list`
   ADD CONSTRAINT `material_item_list_ibfk_1` FOREIGN KEY (`mr_project_r_id`) REFERENCES `projects` (`pro_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `material_item_list_ibfk_2` FOREIGN KEY (`vendor_id`) REFERENCES `vendors` (`vendor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `material_item_list_ibfk_2` FOREIGN KEY (`vendor_id`) REFERENCES `vendors` (`vendor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `material_item_list_ibfk_3` FOREIGN KEY (`mr_r_id`) REFERENCES `material_requests` (`mr_r_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `material_requests`

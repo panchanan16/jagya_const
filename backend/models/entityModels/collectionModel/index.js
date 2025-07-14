@@ -42,11 +42,11 @@ class CollectionsModel {
    }
 
    // Create a new collections
-   static async create(col_amount, col_mode, col_remark, col_date, col_project_id) {
-      const query = `INSERT INTO collections (col_amount, col_mode, col_remark, col_date, col_project_id) VALUES (?, ?, ?, ?, ?)`;
+   static async create(col_amount, col_mode, col_remark, col_date, col_project_id,col_project_phase) {
+      const query = `INSERT INTO collections (col_amount, col_mode, col_remark, col_date, col_project_id,col_project_phase) VALUES (?, ?, ?, ?, ?,?)`;
       const connPool = await pool.getConnection();
       try {
-         const [result] = await connPool.query(query, [col_amount, col_mode, col_remark, col_date, col_project_id]);
+         const [result] = await connPool.query(query, [col_amount, col_mode, col_remark, col_date, col_project_id,col_project_phase]);
          if (result.affectedRows > 0) {
             return {
                col_id: result.insertId,
@@ -55,6 +55,7 @@ class CollectionsModel {
                col_remark,
                col_date,
                col_project_id,
+               col_project_phase,
             };
          }
       } catch (error) {
@@ -66,9 +67,9 @@ class CollectionsModel {
    }
 
    // Update an existing collections
-   static async update(col_id, col_amount, col_mode, col_remark, col_date, col_project_id) {
+   static async update(col_id, col_amount, col_mode, col_remark, col_date, col_project_id,col_project_phase) {
       const query = `UPDATE collections 
-                     SET col_amount = ?, col_mode = ?, col_remark = ?, col_date = ?, col_project_id = ? 
+                     SET col_amount = ?, col_mode = ?, col_remark = ?, col_date = ?, col_project_id = ? ,col_project_phase=?
                      WHERE col_id = ?`;
       const connPool = await pool.getConnection();
       try {
@@ -78,6 +79,7 @@ class CollectionsModel {
             col_remark,
             col_date,
             col_project_id,
+            col_project_phase,
             col_id,
          ]);
          return result.affectedRows > 0;

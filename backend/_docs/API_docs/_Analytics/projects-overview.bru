@@ -1,0 +1,15 @@
+meta {
+  name: projects-overview
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL.Core}}dashboard/projects-overview
+  body: none
+  auth: inherit
+}
+
+body:multipart-form {
+  image: @file(C:\Users\BS\Pictures\3.jpeg)
+}

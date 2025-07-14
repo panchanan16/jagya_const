@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{URL.Core}}branch/create/credentials
+  url: {{URL.auth}}finance/create/credentials
   body: json
   auth: bearer
 }
@@ -16,7 +16,7 @@ auth:bearer {
 
 body:json {
   {
-    "id":3,
+    "id":1,
     "user_id": "deka@example.com",
     "password": "1234567",
     "cpassword": "1234567"
