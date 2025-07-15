@@ -6728,3 +6728,8 @@
 20250714	16:17:50	fb053e5c-5733-4a91-9091-a056a98dd74c	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=8
 20250714	16:17:54	4e2a57e0-70dd-4442-964c-7654a5b92a69	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=9
 20250714	16:18:04	81958b42-5af2-4002-ab66-998444f6ccac	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
+20250715	14:11:51	9a927e05-1c6b-4487-a783-cabc189039fd	POST	undefined	/api/v1/core/project/upload/file/10
+20250715	14:13:10	7b299947-2b2d-444d-a468-4d2ab4ab03ce	POST	undefined	/api/v1/core/project/upload/file/10
+20250715	14:14:31	8d19e7c8-7d51-4527-a288-f272082c4676	POST	undefined	/api/v1/core/super-admin/login
+20250715	14:15:40	eed5499f-245d-428d-a9f3-e119b3ce9eca	POST	undefined	/api/v1/core/super-admin/login
+20250715	14:15:45	1f2b9369-976b-4fbd-a043-febe2bf4406f	POST	undefined	/api/v1/core/finance/login

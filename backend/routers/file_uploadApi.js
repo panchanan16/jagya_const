@@ -44,6 +44,9 @@ coreRouter.post('/core/project/upload/file/:pro_r_id', uploadProject_Files, asyn
          msg: 'Project File uploaded and path stored successfully',
          filePath,
          insertedId,
+         file_name,
+         file_type:  req.query.type||'doc_file'
+
       });
    } catch (error) {
       console.error('Error uploading project file:', error);
@@ -65,6 +68,8 @@ coreRouter.post('/core/project/upload/image/:pro_r_id', uploadProject_Images, as
          msg: 'Project Image uploaded and stored successfully',
          imagePath,
          insertedId,
+         file_name,
+         file_type:  req.query.type||'doc_image'
       });
    } catch (error) {
       console.error('Error uploading project image:', error);

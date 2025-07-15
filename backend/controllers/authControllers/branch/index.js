@@ -125,7 +125,7 @@ exports.handleRefreshToken = async (req, res) => {
       if (err || foundUser.email !== decoded.email)
          return res.status(403).json({ status: true, msg: 'User Not Found !' });
       // const roles = Object.values(foundUser.roles);
-      const roles = ROLES_LIST.SuperAdmin;
+      const roles = ROLES_LIST.Branch;
       const accessToken = jwt.sign(
          {
             UserInfo: {
