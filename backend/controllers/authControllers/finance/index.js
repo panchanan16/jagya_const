@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const ROLES_LIST = require('@/config/roles_list.js');
 const financeDepModel = require('@/models/authModels/finance');
+const financeDepInfoModel = require('@/models/entityModels/financeModel');
 
 exports.create = async (req, res) => {
    const schema = Joi.object({
@@ -99,7 +100,7 @@ exports.handleLogin = async (req, res) => {
             maxAge: 24 * 60 * 60 * 1000,
          });
 
-         return res.status(200).json({ status: true, msg: 'Successfully Logged In!', accessToken });
+         return res.status(200).json({ status: true, msg: 'Successfully Logged In!', data: { role: 'finance', accessToken, refreshToken } });
       } else {
          return res.status(401).json({ status: false, msg: 'Invalid user_id or password!' });
       }
@@ -123,7 +124,7 @@ exports.handleRefreshToken = async (req, res) => {
       if (err || foundUser.user_id !== decoded.user_id)
          return res.status(403).json({ status: true, msg: 'User Not Found !' });
       // const roles = Object.values(foundUser.roles);
-      const roles = ROLES_LIST.SuperAdmin;
+      const roles = ROLES_LIST.FinanceDep;
       const accessToken = jwt.sign(
          {
             UserInfo: {

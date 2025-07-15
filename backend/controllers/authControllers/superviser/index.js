@@ -79,7 +79,7 @@ exports.handleLogin = async (req, res) => {
 
       const match = await bcrypt.compare(password, result.password);
       if (match) {
-         const roles = ROLES_LIST.Admin;
+         const roles = ROLES_LIST.Superviser;
          const accessToken = jwt.sign(
             {
                UserInfo: {
@@ -104,7 +104,7 @@ exports.handleLogin = async (req, res) => {
             maxAge: 24 * 60 * 60 * 1000,
          });
 
-         return res.status(200).json({ status: true, msg: 'Successfully Logged In!', accessToken });
+         return res.status(200).json({ status: true, msg: 'Successfully Logged In!', data: { role: 'superviser', accessToken, refreshToken }  });
       } else {
          return res.status(401).json({ status: false, msg: 'Invalid user_id or password!' });
       }
@@ -128,7 +128,7 @@ exports.handleRefreshToken = async (req, res) => {
       if (err || foundUser.user_id !== decoded.user_id)
          return res.status(403).json({ status: true, msg: 'User Not Found !' });
       // const roles = Object.values(foundUser.roles);
-      const roles = ROLES_LIST.SuperAdmin;
+      const roles = ROLES_LIST.Superviser;
       const accessToken = jwt.sign(
          {
             UserInfo: {
