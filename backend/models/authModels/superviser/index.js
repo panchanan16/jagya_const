@@ -36,11 +36,12 @@ class SuperviserAuthModel {
    }
 
    static async create(sup_r_id, sup_user_id, sup_password) {
-      const query = 'INSERT INTO superviser_auth (sup_r_id, sup_user_id, sup_password) VALUES (?, ?, ?)';
+      const query = 'UPDATE superviser_auth SET sup_user_id=?, sup_password=? WHERE sup_r_id=?';
       const connPool = await pool.getConnection();
       try {
-         const [result] = await connPool.query(query, [sup_r_id, sup_user_id, sup_password]);
-         return result.insertId;
+         const [result] = await connPool.query(query, [sup_user_id, sup_password,sup_r_id]);
+         return result.affectedRows>0;
+         
       } catch (error) {
          console.error('Error creating superviser auth record:', error);
       } finally {

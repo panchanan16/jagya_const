@@ -5,17 +5,15 @@ meta {
 }
 
 get {
-  url: {{URL.Entity}}projectDocs/readAll
+  url: {{URL.Entity}}projectDocs/readAll?pro_r_id=10
   body: json
   auth: bearer
 }
 
-auth:bearer {
-  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VyX2lkIjo2LCJlbWFpbCI6Im1zaUBnbWFpbC5jb20iLCJyb2xlcyI6NTE5MH0sImlhdCI6MTczODEzNjM2OSwiZXhwIjoxNzQwNzI4MzY5fQ.zCBTamWE5KdubO7HMj4Pw-5EuLA9j1Jqj13eG2l0Nlw
+params:query {
+  pro_r_id: 10
 }
 
-body:json {
-  {
-    "pro_r_id": 9
-  }
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySW5mbyI6eyJ1c2VyX2lkIjo2LCJlbWFpbCI6Im1zaUBnbWFpbC5jb20iLCJyb2xlcyI6NTE5MH0sImlhdCI6MTczODEzNjM2OSwiZXhwIjoxNzQwNzI4MzY5fQ.zCBTamWE5KdubO7HMj4Pw-5EuLA9j1Jqj13eG2l0Nlw
 }

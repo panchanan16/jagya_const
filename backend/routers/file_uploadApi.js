@@ -84,7 +84,7 @@ coreRouter.delete('/core/project/file/delete/:pro_doc_id', async (req, res) => {
       if (fs.existsSync(resolvedPath)) {fs.unlinkSync(resolvedPath);
          deleted = await ProjectDocsModel.remove(pro_doc_id);
       }
-      if (deleted) {return res.status(200).json({status: true,msg: 'Project document and file deleted successfully',filePath,});
+      if (deleted) {return res.status(200).json({status: true,msg: 'Project document and file deleted successfully', data: filePath,});
       } else {
          return res.status(404).json({ status: false, msg: 'Document not found or already deleted' });
       }

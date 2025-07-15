@@ -5,7 +5,7 @@ class ProjectDocsController {
    // Get all project documents
    static async findAll(req, res) {
       try {
-         const { pro_r_id } = req.body;
+         const { pro_r_id } = req.query;
          const data = await ProjectDocsModel.findAll(pro_r_id);
          return res.status(200).send({ status: true, msg: 'Project documents retrieved successfully', data });
       } catch (error) {
@@ -62,7 +62,7 @@ class ProjectDocsController {
    // Delete a project document
    static async remove(req, res) {
       try {
-         const { pro_doc_id } = req.body;
+         const { pro_doc_id } = req.query;
          const deleted = await ProjectDocsModel.remove(pro_doc_id);
          if (!deleted) {
             return res.status(404).send({ status: false, msg: 'Project document not found' });

@@ -5,6 +5,7 @@ const ROLES_LIST = require('@/config/roles_list.js');
 const superviserModel = require('@/models/authModels/superviser/index.js');
 exports.create = async (req, res) => {
    const schema = Joi.object({
+      id: Joi.required(),
       user_id: Joi.string().min(3).max(30).required(),
       password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')).required(),
       cpassword: Joi.string().valid(Joi.ref('password')).required().messages({
@@ -14,8 +15,8 @@ exports.create = async (req, res) => {
    });
 
    try {
-      const { user_id, password, cpassword } = req.body;
-      const { error } = schema.validate({ user_id, password, cpassword });
+      const {id, user_id, password, cpassword } = req.body;
+      const { error } = schema.validate({id, user_id, password, cpassword });
       if (error) {
          return res.status(400).json({
             err: error,
@@ -25,9 +26,9 @@ exports.create = async (req, res) => {
       }
       const salt = bcrypt.genSaltSync(12);
       const hash = bcrypt.hashSync(password, salt);
-      const result = await superviserModel.create(user_id, password);
+      const result = await superviserModel.create(id,user_id, hash);
 
-      if (!result.status) {
+      if (!result) {
          return res.status(500).json({
             status: false,
             msg: 'Something Went Wrong!',
