@@ -7112,3 +7112,11 @@
 20250715	16:22:54	cc33b42a-cf58-4168-b835-216751cc8d56	DELETE	http://127.0.0.1:5173	/api/v1/entity/users/remove
 20250715	16:22:56	914d359b-5fbd-4828-bd21-d40245b8e5dd	GET	http://127.0.0.1:5173	/api/v1/core/users/readAll/super_admin
 20250715	16:23:21	66a67a0b-d690-4aee-9d8a-62ef37f0b242	GET	http://127.0.0.1:5173	/api/v1/core/users/readAll/super_admin
+20250715	16:29:28	c314e165-b68d-429b-8069-bd1e2579b389	GET	http://127.0.0.1:5173	/api/v1/api/project?page=1&pageSize=5
+20250715	16:29:30	c1a8118e-c61c-42de-8b52-3213ff06bd9b	GET	http://127.0.0.1:5173	/api/v1/core/project/get_project_detail/9
+20250715	16:29:37	8e57e3e0-62e6-46dc-8704-410c7f644d42	GET	http://127.0.0.1:5173	/api/v1/entity/phase/readAll
+20250715	16:29:38	397fdcc9-156e-4d94-b055-bcc659ebce50	GET	http://127.0.0.1:5173	/api/v1/entity/contractor/readAll
+20250715	16:30:05	18e1c141-8bd3-4ae8-9df3-a8943e9495c2	GET	http://127.0.0.1:5173	/api/v1/entity/client/readAll
+20250715	16:31:12	6b07074e-12c1-4fb5-a4c2-29311d870e3c	GET	http://127.0.0.1:5173	/api/v1/core/project/get_project_detail/9
+20250715	16:31:18	077a34a1-3746-4fdf-bf2d-aead50a6300b	GET	http://127.0.0.1:5173	/api/v1/entity/phase/readAll
+20250715	16:31:25	366eddcc-c5da-46a6-99a1-1d9623028398	POST	http://127.0.0.1:5173	/api/v1/entity/project_contractor/create
