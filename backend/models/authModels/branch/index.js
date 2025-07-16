@@ -37,12 +37,11 @@ class BranchAuthModel {
    }
 
    static async create(br_r_id, br_user_id, br_password) {
-      // const query = 'INSERT INTO branch_auth (br_r_id, br_user_id, br_password) VALUES (?, ?, ?)';
       const query = ' UPDATE branch_auth SET  br_user_id = ?, br_password = ? WHERE br_r_id = ?';
       const connPool = await pool.getConnection();
       try {
          const [result] = await connPool.query(query, [br_user_id, br_password, br_r_id]);
-         return result.affectedRows>0;
+         return result.affectedRows > 0;
       } catch (error) {
          console.error('Error creating branch auth record:', error);
       } finally {
@@ -75,6 +74,8 @@ class BranchAuthModel {
          return null;
       } catch (error) {
          console.error(`Error Finding Info  br_admin with br_user_id: ${br_user_id}:`, error);
+      } finally {
+         connPool.release();
       }
    }
 
@@ -139,6 +140,8 @@ class BranchAuthModel {
          return null;
       } catch (error) {
          console.error(`Error retrieve userInfo branch_auth !`, error);
+      } finally {
+         connPool.release();
       }
    }
    static async DeleteToken(refreshToken) {
@@ -152,6 +155,8 @@ class BranchAuthModel {
          return null;
       } catch (error) {
          console.error(`Error Updating refreshToken branch_auth with ID:`, error);
+      } finally {
+         connPool.release();
       }
    }
 }

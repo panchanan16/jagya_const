@@ -5,13 +5,17 @@ meta {
 }
 
 delete {
-  url: {{URL.Core}}project/file/delete/:pro_r_id
+  url: {{URL.Core}}project/file/delete/:pro_doc_id
   body: multipartForm
   auth: inherit
 }
 
 params:path {
-  pro_r_id: 6
+<<<<<<< HEAD
+  pro_doc_id: 
+=======
+  pro_doc_id: 6
+>>>>>>> 997039967eff66442e8aefb4b4e536281e37a716
 }
 
 body:multipart-form {
