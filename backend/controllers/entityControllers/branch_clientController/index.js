@@ -55,10 +55,10 @@ class BranchClientsController {
          }
          let [data] = await BranchCoreClientsModel.getLastBranchRef();
          let newBranch_Id;
-          if (data) {
-        let lastNum = parseInt(data['b_client_ref_no'].slice(-4));
-         newBranch_Id = data['b_client_ref_no'].replace(lastNum, lastNum + 1);
-      } else { newBranch_Id = 'JGCC_BR0001'; }
+         if (data) {
+            let lastNum = parseInt(data['b_client_ref_no'].slice(-4));
+            newBranch_Id = data['b_client_ref_no'].replace(lastNum, lastNum + 1);
+         } else { newBranch_Id = 'JGCC_BR0001'; }
          const newId = await BranchClientsModel.create({
             b_r_id,
             b_client_name,
@@ -157,12 +157,12 @@ class BranchClientsController {
    // Delete a branch client
    static async remove(req, res) {
       try {
-         const { b_client_id } = req.body;
-         const deleted = await BranchClientsModel.remove(b_client_id);
+         const { id } = req.body;
+         const deleted = await BranchClientsModel.remove(id);
          if (!deleted) {
             return res.status(404).send({ status: false, msg: 'Branch client not found' });
          }
-         return res.status(200).send({ status: true, msg: 'Branch client deleted successfully' });
+         return res.status(200).send({ status: true, msg: 'Branch client deleted successfully', data: { b_client_id: id } });
       } catch (error) {
          console.error('Error deleting branch client:', error);
          return res.status(500).send({ status: false, msg: 'Internal Server Error' });
