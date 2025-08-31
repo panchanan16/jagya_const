@@ -49,7 +49,7 @@ class PhasesController {
       const { id } = req.body;
       const success = await PhasesModel.delete(id);
       if (!success) return res.status(404).send({ status: false, msg: 'Phase not found', data: null });
-      res.status(200).send({ status: true, msg: 'Phase deleted successfully', data: null });
+      res.status(200).send({ status: true, msg: 'Phase deleted successfully', data: {phase_id: id} });
     } catch (error) {
       res.status(500).send({ status: false, msg: 'Failed to delete phase', data: null });
     }
