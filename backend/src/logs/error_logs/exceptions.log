@@ -2751,7 +2751,7 @@ Error: listen EADDRINUSE: address already in use :::3500
   ],
   [Symbol(level)]: 'error'
 }
-2025-07-31 11:15:12 [ERROR] uncaughtException: listen EADDRINUSE: address already in use :::3500
+2025-09-03 22:45:35 [ERROR] uncaughtException: listen EADDRINUSE: address already in use :::3500
 Error: listen EADDRINUSE: address already in use :::3500
     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
     at listenInCluster (node:net:1969:12)
@@ -2793,9 +2793,9 @@ Error: listen EADDRINUSE: address already in use :::3500
     port: 3500
   },
   exception: true,
-  date: 'Thu Jul 31 2025 11:15:12 GMT+0530 (India Standard Time)',
+  date: 'Wed Sep 03 2025 22:45:35 GMT+0530 (India Standard Time)',
   process: {
-    pid: 24516,
+    pid: 24228,
     uid: null,
     gid: null,
     cwd: 'M:\\jagya-contruction\\jagya_const\\backend',
@@ -2806,14 +2806,14 @@ Error: listen EADDRINUSE: address already in use :::3500
       'M:\\jagya-contruction\\jagya_const\\backend\\app.js'
     ],
     memoryUsage: {
-      rss: 114008064,
-      heapTotal: 69718016,
-      heapUsed: 50442696,
+      rss: 111734784,
+      heapTotal: 69980160,
+      heapUsed: 50713968,
       external: 2358768,
       arrayBuffers: 21664
     }
   },
-  os: { loadavg: [ 0, 0, 0 ], uptime: 693600.234 },
+  os: { loadavg: [ 0, 0, 0 ], uptime: 696731.187 },
   trace: [
     {
       column: 16,

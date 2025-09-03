@@ -58,6 +58,7 @@ class projectCoreController {
                }, []) || [],
             documents: rawData[2],
             client: rawData[3],
+            project: rawData[4][0],
          };
 
          res.status(200).send({
