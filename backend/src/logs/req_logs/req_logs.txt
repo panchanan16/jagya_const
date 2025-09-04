@@ -7087,17 +7087,3 @@
 20250715	14:14:31	8d19e7c8-7d51-4527-a288-f272082c4676	POST	undefined	/api/v1/core/super-admin/login
 20250715	14:15:40	eed5499f-245d-428d-a9f3-e119b3ce9eca	POST	undefined	/api/v1/core/super-admin/login
 20250715	14:15:45	1f2b9369-976b-4fbd-a043-febe2bf4406f	POST	undefined	/api/v1/core/finance/login
-20250904	22:16:57	ac705fb2-e7e4-46ad-8f0e-8dd8a7b1365f	GET	undefined	/api/v1/core/dashboard/projects-overview
-20250904	22:17:06	877c80ac-1e49-4ea6-9089-bca404eb9bed	GET	undefined	/api/v1/core/dashboard/summary
-20250904	22:17:12	3f144836-cd55-46cd-b3af-cc9c048b2931	GET	undefined	/api/v1/core/dashboard/financial-overview
-20250904	22:17:41	aa06ee8c-536d-46eb-8d3a-62006a070067	GET	undefined	/api/v1/core/dashboard/recent-activities
-20250904	22:27:23	748c6616-6cf1-4f86-af63-52ee5cfc2a16	GET	undefined	/api/v1/entity/contractor/readAll
-20250904	22:27:34	95b261ed-de8b-4947-8ff5-b5abf782c41e	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
-20250904	22:35:21	f230d2c9-7bcf-4403-a2ba-af366cc89708	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
-20250904	22:35:44	f0ab514c-61fb-4f46-9f67-c2a45cdcc899	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
-20250904	22:37:22	b1df8f5f-bbcf-442b-811d-71b177ebaa7f	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
-20250904	22:37:35	7c54e151-16df-4b24-b5e2-a928d833d3bb	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
-20250904	22:41:42	9cc7f305-eb60-4890-a907-c14b504f6707	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
-20250904	22:41:43	d722d54d-e797-4682-9cb1-c6159a0730d6	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
-20250904	22:42:27	28e9860e-c090-4a0e-af7f-f0544d7f2e77	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=1
-20250904	22:43:17	766e549c-f1c2-45e9-b234-51445b4c0cff	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=5
