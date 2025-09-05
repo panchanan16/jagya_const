@@ -32,4 +32,16 @@ module.exports = {
       sql: `SELECT * FROM projects`,
       countSql: `SELECT COUNT(*) AS total FROM projects`,
    },
+   vendor_payment: {
+      sql: `SELECT * FROM vendor_payments`,
+      countSql: `SELECT COUNT(*) AS total FROM vendor_payments`,
+   },
+   vendor_purchase: {
+      sql: `SELECT * FROM projects`,
+      countSql: `SELECT COUNT(*) AS total FROM projects`,
+   },
+   contractor_payment: {
+      sql: `SELECT * FROM contractor_payments`,
+      countSql: `SELECT COUNT(*) AS total FROM contractor_payments`,
+   },
 };

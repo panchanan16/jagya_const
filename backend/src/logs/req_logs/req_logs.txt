@@ -7095,3 +7095,14 @@
 20250905	11:20:32	be31b5bb-a352-46ce-a48b-8a11669a2692	GET	undefined	/api/v1/entity/invoice/readAll
 20250905	11:20:52	7c84c533-c067-4ecf-9a73-2bf52d455be1	GET	undefined	/api/v1/entity/invoice/1
 20250905	11:59:40	105d4571-8434-412d-981f-ea0db30e4d2c	GET	undefined	/api/v1/entity/invoice/1
+20250905	22:07:20	670afdae-63e9-4163-8553-02ddc5d9d8eb	GET	undefined	/api/v1/entity/invoice/1
+20250905	22:09:14	a7c0392d-626a-49ad-bbff-faa8f23a0b25	GET	undefined	/api/v1/entity/invoice/1
+20250905	22:09:31	306754ea-4dad-4eaa-b889-a0a57b5d3086	GET	undefined	/api/v1/entity/invoice/1
+20250905	22:20:10	702bf3c0-230f-4b9c-accc-fc12db0fe699	GET	undefined	/api/v1/core/project/get_contactor_project/9
+20250905	22:20:12	7c1eb389-1950-4ccf-83e9-514602df3517	GET	undefined	/api/v1/core/project/get_contactor_project/9
+20250905	22:20:18	d8dd689f-563b-4a2c-b3d1-231112ddb1d6	GET	undefined	/api/v1/core/project/get_contactor_project/5
+20250905	22:27:30	4614243d-50ef-4a41-84ff-33ade445f46c	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=2
+20250905	22:27:34	11e0f9be-8120-4a1b-af92-e55214634877	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5
+20250905	22:28:04	58c2f7b8-8ef2-4e16-be1d-9ea1956b548c	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5
+20250905	22:28:09	5cfdbf9d-41a4-4c2b-8e90-999599757afa	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5
+20250905	22:28:36	84a56e75-bf64-4183-9642-5fae86c62a82	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5

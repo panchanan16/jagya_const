@@ -29,6 +29,7 @@ coreRouter.put('/core/expense/update', ExpenseCoreController.updateExpense);
 
 // [PROJECTS]-----------
 coreRouter.get('/core/project/get_project_detail/:pro_id', ProjectCoreController.getFullProject_OtherDetails_);
+coreRouter.get('/core/project/get_contactor_project/:con_id', ProjectCoreController.getContractorProjects);
 
 // [Material]-----------
 coreRouter.post('/core/material_req/create', MaterialCoreController.insertMaterialRequestWithItems);

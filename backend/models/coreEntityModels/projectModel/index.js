@@ -35,11 +35,11 @@ class projectModel {
          connPool.release();
       }
    }
-     static async getContractorProjects() {
-      const query = 'SELECT pro_ref_no FROM projects ORDER BY pro_id DESC LIMIT 1';
+     static async getContractorProjects(con_id) {
+      const query = 'SELECT pc.*,p.pro_name,p.pro_ref_no FROM project_contractor pc LEFT JOIN projects p ON p.pro_id =pc.pro_id WHERE con_id =?';
       const connPool = await pool.getConnection();
       try {
-         const [rows] = await connPool.query(query);
+         const [rows] = await connPool.query(query,[con_id]);
          return rows;
       } catch (error) {
          console.error('Error retrieving all clients:', error);
