@@ -10,7 +10,6 @@ class InvoiceModel {
       const conn = await pool.getConnection();
       try {
          await conn.beginTransaction();
-
          const invoiceQuery = `INSERT INTO invoice (invoice_no, invoice_date, payment_status, amount, gst_rate, discount, total, client_contact, client_address, client_id) 
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
          const [invoiceRes] = await conn.query(invoiceQuery, [
@@ -25,9 +24,7 @@ class InvoiceModel {
             invoiceData.client_address,
             invoiceData.client_id,
          ]);
-
          const invoiceId = invoiceRes.insertId;
-
          for (const item of items) {
             const itemQuery = `INSERT INTO invoice_items (inv_item_name, inv_item_quantity, inv_item_rate, inv_item_amount, invoice_id)
             VALUES (?, ?, ?, ?, ?)`;
@@ -39,7 +36,6 @@ class InvoiceModel {
                invoiceId,
             ]);
          }
-
          await conn.commit();
          return { invoice_id: invoiceId, ...invoiceData, items };
       } catch (error) {
@@ -49,11 +45,12 @@ class InvoiceModel {
          conn.release();
       }
    }
-
    static async findAll() {
       const conn = await pool.getConnection();
       try {
-         const [invoices] = await conn.query(`SELECT * FROM invoice ORDER BY created_at DESC`);
+         const [invoices] = await conn.query(
+            `SELECT c.client_name, c.client_ref_no ,i.* FROM invoice i LEFT JOIN clients c on c.client_id = i.client_id ORDER BY i.created_at DESC`
+         );
          return invoices;
       } finally {
          conn.release();
@@ -63,7 +60,7 @@ class InvoiceModel {
    static async findOne(id) {
       const conn = await pool.getConnection();
       try {
-         const [invoice] = await conn.query(`SELECT * FROM invoice WHERE invoice_id = ?`, [id]);
+         const [invoice] = await conn.query(` SELECT c.client_name, c.client_ref_no ,i.* FROM invoice i LEFT JOIN clients c on c.client_id = i.client_id WHERE i.invoice_id = ?`, [id]);
          const [items] = await conn.query(`SELECT * FROM invoice_items WHERE invoice_id = ?`, [id]);
          return { ...invoice[0], items };
       } finally {
