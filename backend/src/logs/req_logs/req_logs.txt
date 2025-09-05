@@ -7087,3 +7087,11 @@
 20250715	14:14:31	8d19e7c8-7d51-4527-a288-f272082c4676	POST	undefined	/api/v1/core/super-admin/login
 20250715	14:15:40	eed5499f-245d-428d-a9f3-e119b3ce9eca	POST	undefined	/api/v1/core/super-admin/login
 20250715	14:15:45	1f2b9369-976b-4fbd-a043-febe2bf4406f	POST	undefined	/api/v1/core/finance/login
+20250905	10:48:08	885ab426-a3e9-41e3-a20b-7cb651d8a17f	GET	undefined	/api/v1/api/expense?page1&pageSize=2
+20250905	10:48:39	7e8fe602-0f6e-4142-8dbb-efaffad36fbb	GET	undefined	/api/v1/api/expense?page1&pageSize=2
+20250905	10:48:40	b39e6bf6-182c-48cb-b517-54aa15e1b8db	GET	undefined	/api/v1/api/expense?page1&pageSize=2
+20250905	10:48:52	386f51d8-e8ad-4b1e-956c-eae02f3c4d3c	GET	undefined	/api/v1/api/expense?page1&pageSize=2
+20250905	11:16:08	3e5b50e8-34fc-47b8-801b-0fdfa4326e26	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=5
+20250905	11:20:32	be31b5bb-a352-46ce-a48b-8a11669a2692	GET	undefined	/api/v1/entity/invoice/readAll
+20250905	11:20:52	7c84c533-c067-4ecf-9a73-2bf52d455be1	GET	undefined	/api/v1/entity/invoice/1
+20250905	11:59:40	105d4571-8434-412d-981f-ea0db30e4d2c	GET	undefined	/api/v1/entity/invoice/1
