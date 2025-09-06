@@ -7209,3 +7209,4 @@
 20250906	13:55:43	63efbb73-546e-4913-8edb-c15fbea837e0	GET	undefined	/api/v1/api/vendor_payment?page=2&pageSize=2&entity_id=14
 20250906	13:55:47	ee8e2326-8e32-4712-b236-54f32f225c7a	GET	undefined	/api/v1/api/vendor_payment?page=1&pageSize=2&entity_id=14
 20250906	13:56:04	6046107d-b4d7-49d2-9b34-92690dfb0c07	GET	undefined	/api/v1/api/vendor_purchase?page=1&pageSize=2&entity_id=14
+20250906	16:44:06	f55ffe3e-fc0e-479e-846a-b165814b1a5e	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
