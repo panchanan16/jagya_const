@@ -8,7 +8,7 @@ class ContractorsCorePaymentController {
       try {
          const data = await ContractorsPaymentModel.findAll_ByID(pay_con_id);
          let details={
-            contractor:data[0][0],
+            contractor:{...data[0][0],...data[3][0]},
             payments:data[1],
             projects:data[2],
          }

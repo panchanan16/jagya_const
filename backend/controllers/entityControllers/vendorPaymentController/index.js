@@ -4,8 +4,12 @@ class vendorPayController {
    static async findAll(req, res) {
       const { pay_vendor_id } = req.body;
       try {
-         const payments = await vendorPayModel.findAll(pay_vendor_id);
-         return res.status(200).send({ status: true, msg: 'Payments retrieved successfully', data: payments });
+         const result = await vendorPayModel.findAll(pay_vendor_id);
+         let vendor_payments ={
+            vendor:result[1][0],
+            payments:result[0]
+         }
+         return res.status(200).send({ status: true, msg: 'Payments retrieved successfully', data: vendor_payments });
       } catch (error) {
          console.error('Error fetching payments:', error);
          return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
