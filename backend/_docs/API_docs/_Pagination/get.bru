@@ -5,16 +5,16 @@ meta {
 }
 
 get {
-  url: http://localhost:3500/api/v1/api/:entity?page1&pageSize=2
+  url: http://localhost:3500/api/v1/api/:entity?page1&pageSize=5
   body: none
   auth: inherit
 }
 
 params:query {
   page1: 
-  pageSize: 2
+  pageSize: 5
 }
 
 params:path {
-  entity: expense
+  entity: vendor_payment
 }

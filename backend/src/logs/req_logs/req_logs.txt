@@ -7088,6 +7088,7 @@
 20250715	14:15:40	eed5499f-245d-428d-a9f3-e119b3ce9eca	POST	undefined	/api/v1/core/super-admin/login
 20250715	14:15:45	1f2b9369-976b-4fbd-a043-febe2bf4406f	POST	undefined	/api/v1/core/finance/login
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 997039967eff66442e8aefb4b4e536281e37a716
 20250715	16:08:01	01a980ad-1721-479e-970e-c1351a00d046	POST	undefined	/api/v1/core/project/upload/file/13
 20250715	16:11:37	7484b6e4-8011-4c06-94c1-73390be1b301	POST	undefined	/api/v1/core/project/upload/file/13
@@ -8596,3 +8597,32 @@
 20250905	01:07:45	77413dd6-ed16-435a-a302-3099e50fa843	GET	http://localhost:5173	/api/v1/entity/invoice/readAll
 20250905	01:11:46	6e78e151-03ea-428a-bcf1-d201b195d895	GET	http://localhost:5173	/api/v1/entity/invoice/readAll
 20250905	01:13:04	b6adb48d-9efd-48be-8c4b-fc7e1aefc4fa	GET	http://localhost:5173	/api/v1/entity/invoice/readAll
+=======
+20250905	10:48:08	885ab426-a3e9-41e3-a20b-7cb651d8a17f	GET	undefined	/api/v1/api/expense?page1&pageSize=2
+20250905	10:48:39	7e8fe602-0f6e-4142-8dbb-efaffad36fbb	GET	undefined	/api/v1/api/expense?page1&pageSize=2
+20250905	10:48:40	b39e6bf6-182c-48cb-b517-54aa15e1b8db	GET	undefined	/api/v1/api/expense?page1&pageSize=2
+20250905	10:48:52	386f51d8-e8ad-4b1e-956c-eae02f3c4d3c	GET	undefined	/api/v1/api/expense?page1&pageSize=2
+20250905	11:16:08	3e5b50e8-34fc-47b8-801b-0fdfa4326e26	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=5
+20250905	11:20:32	be31b5bb-a352-46ce-a48b-8a11669a2692	GET	undefined	/api/v1/entity/invoice/readAll
+20250905	11:20:52	7c84c533-c067-4ecf-9a73-2bf52d455be1	GET	undefined	/api/v1/entity/invoice/1
+20250905	11:59:40	105d4571-8434-412d-981f-ea0db30e4d2c	GET	undefined	/api/v1/entity/invoice/1
+20250905	22:07:20	670afdae-63e9-4163-8553-02ddc5d9d8eb	GET	undefined	/api/v1/entity/invoice/1
+20250905	22:09:14	a7c0392d-626a-49ad-bbff-faa8f23a0b25	GET	undefined	/api/v1/entity/invoice/1
+20250905	22:09:31	306754ea-4dad-4eaa-b889-a0a57b5d3086	GET	undefined	/api/v1/entity/invoice/1
+20250905	22:20:10	702bf3c0-230f-4b9c-accc-fc12db0fe699	GET	undefined	/api/v1/core/project/get_contactor_project/9
+20250905	22:20:12	7c1eb389-1950-4ccf-83e9-514602df3517	GET	undefined	/api/v1/core/project/get_contactor_project/9
+20250905	22:20:18	d8dd689f-563b-4a2c-b3d1-231112ddb1d6	GET	undefined	/api/v1/core/project/get_contactor_project/5
+20250905	22:27:30	4614243d-50ef-4a41-84ff-33ade445f46c	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=2
+20250905	22:27:34	11e0f9be-8120-4a1b-af92-e55214634877	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5
+20250905	22:28:04	58c2f7b8-8ef2-4e16-be1d-9ea1956b548c	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5
+20250905	22:28:09	5cfdbf9d-41a4-4c2b-8e90-999599757afa	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5
+20250905	22:28:36	84a56e75-bf64-4183-9642-5fae86c62a82	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5
+>>>>>>> 8bd2e876b60fd9e05d676d4cbd2a31b4fcfedc2a
+20250906	11:13:07	1cdbef79-812a-4be8-afe7-efe6e49029ff	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=5
+20250906	11:16:05	3a2a40ac-043d-4e70-a347-6f24c21b1008	GET	undefined	/api/v1/entity/vendorPayment/readAll
+20250906	11:18:30	bc677f81-a7bd-4185-a887-dfa091ed5b88	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5
+20250906	11:20:50	b8e566aa-94f7-4089-9835-c7f584a8ed6f	GET	undefined	/api/v1/core/project/get_contactor_project/9
+20250906	11:21:09	4a6c426b-735d-4971-870b-78c82f567faf	GET	undefined	/api/v1/entity/project_contractor/readAll
+20250906	11:21:17	9883d758-c0d5-43d8-b227-7601074a32ef	GET	undefined	/api/v1/core/project/get_contactor_project/5
+20250906	11:22:13	d63e9be7-f471-4306-9fee-465761c6cb06	GET	undefined	/api/v1/entity/vendorPayment/readAll
+20250906	11:22:24	9adcb9b2-67d9-4a02-96bb-93e2b356754f	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=25

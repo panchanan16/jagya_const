@@ -7,7 +7,12 @@ class ContractorsCorePaymentController {
       const { pay_con_id } = req.query;
       try {
          const data = await ContractorsPaymentModel.findAll_ByID(pay_con_id);
-         return res.status(200).send({ status: true, msg: 'Contractors retrieved successfully', data });
+         let details={
+            contractor:data[0][0],
+            payments:data[1],
+            projects:data[2],
+         }
+         return res.status(200).send({ status: true, msg: 'Contractors retrieved successfully', details });
       } catch (error) {
          console.error('Error fetching contractors:', error);
          return res.status(500).send({ status: false, msg: 'Internal Server Error' });

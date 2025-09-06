@@ -75,6 +75,25 @@ class projectCoreController {
          });
       }
    }
+   // Get All Users (already provided)
+   static async getContractorProjects(req, res) {
+      const { con_id } = req.params;
+      try {
+         const data = await projectCoreModel.getContractorProjects(con_id);
+         res.status(200).json({
+            status: true,
+            message: 'Users fetched successfully',
+            data,
+         });
+      } catch (error) {
+         console.error('FindAll Error:', error);
+         res.status(500).json({
+            status: false,
+            message: 'Error fetching users',
+            error: error.message,
+         });
+      }
+   }
 }
 
 module.exports = projectCoreController;

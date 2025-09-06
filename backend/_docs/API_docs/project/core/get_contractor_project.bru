@@ -1,0 +1,15 @@
+meta {
+  name: get_contractor_project
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL.Core}}project/get_contactor_project/:con_id
+  body: none
+  auth: none
+}
+
+params:path {
+  con_id: 9
+}
