@@ -7199,3 +7199,13 @@
 20250906	13:22:47	92ca950e-5871-49fc-8e5e-93e010936e09	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
 20250906	13:23:39	eb00c16b-b735-4721-b3b1-5431ed02869c	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
 20250906	13:23:47	a27b41a7-723c-4256-a5e0-459f94607fb7	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
+20250906	13:46:34	a6546342-d47c-4311-ab15-ff1c3cbafa23	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5&entity_id=14
+20250906	13:47:16	6ea6e17e-f245-4318-877c-f34d946ebf42	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5&entity_id=14
+20250906	13:53:30	c23f50c5-b023-4295-b0b0-93ac82f170c7	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5&entity_id=14
+20250906	13:54:07	85b84944-65af-4b3c-80c1-f3d598cf569d	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=5&entity_id=14
+20250906	13:54:33	1ef428a9-beb3-4d99-b0a4-2df161f067bb	GET	undefined	/api/v1/api/vendor_payment?page1&pageSize=1&entity_id=14
+20250906	13:55:00	a801d8a0-3cf5-46ad-8dc7-b3c3722849d6	GET	undefined	/api/v1/api/vendor_payment?page=2&pageSize=1&entity_id=14
+20250906	13:55:38	edbea491-3974-4027-8f24-0a9f0ff6dd55	GET	undefined	/api/v1/api/vendor_payment?page=2&pageSize=1&entity_id=14
+20250906	13:55:43	63efbb73-546e-4913-8edb-c15fbea837e0	GET	undefined	/api/v1/api/vendor_payment?page=2&pageSize=2&entity_id=14
+20250906	13:55:47	ee8e2326-8e32-4712-b236-54f32f225c7a	GET	undefined	/api/v1/api/vendor_payment?page=1&pageSize=2&entity_id=14
+20250906	13:56:04	6046107d-b4d7-49d2-9b34-92690dfb0c07	GET	undefined	/api/v1/api/vendor_purchase?page=1&pageSize=2&entity_id=14

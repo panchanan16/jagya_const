@@ -8,7 +8,7 @@ class ExpenseModel {
       SELECT SUM(pay_amount) as total_amount FROM contractor_payments WHERE pay_con_id=?;`;
       const connPool = await pool.getConnection();
       try {
-         const [rows] = await connPool.query(query,[pay_con_id,pay_con_id,pay_con_id,pay_con_id]);
+         const [rows] = await connPool.query(query, [pay_con_id, pay_con_id, pay_con_id, pay_con_id]);
          return rows;
       } catch (error) {
          console.error('Error retrieving all expenses:', error);
