@@ -11,10 +11,10 @@ class PayModel {
    }
 
    static async findAll(pay_vendor_id) {
-      const query = 'SELECT * FROM vendor_payments WHERE pay_vendor_id = ?';
+      const query = 'SELECT * FROM vendor_payments WHERE pay_vendor_id = ?;SELECT * FROM vendors WHERE vendor_id = ?';
       const connPool = await pool.getConnection();
       try {
-         const [rows] = await connPool.query(query, [pay_vendor_id]);
+         const [rows] = await connPool.query(query, [pay_vendor_id,pay_vendor_id]);
          return rows;
       } catch (error) {
          console.error('Error retrieving all payments:', error);
