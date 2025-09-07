@@ -1,0 +1,37 @@
+meta {
+  name: invoice-update
+  type: http
+  seq: 2
+}
+
+put {
+  url: http://127.0.0.1:3500/api/v1/entity/invoice/update/:invoice_id
+  body: json
+  auth: bearer
+}
+
+params:path {
+  invoice_id: 1
+}
+
+auth:bearer {
+  token: <your_jwt_token>
+}
+
+body:json {
+      {
+        "invoice_id": 1,
+        "invoice_no": "INV-2024-001",
+        "invoice_date": "2024-05-06",
+        "payment_status": "unpaid",
+        "amount": "10000",
+        "gst_rate": "18",
+        "discount": "500",
+        "total": "11300",
+        "client_contact": "9876543210",
+        "client_address": "Guwahati, Assam",
+        "client_id": 35,
+        "cliend_ref_id": "adad",
+        "created_at": "2025-05-11T08:05:36.000Z"
+      }
+}
