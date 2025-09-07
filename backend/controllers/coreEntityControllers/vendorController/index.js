@@ -33,7 +33,7 @@ class VendorCoreController {
          return res.status(200).send({
             status: true,
             msg: 'Vendor` Purcheses_Payments retrieved successfully.',
-            data: { total_amount:financeData[2][0]
+            data: { total_amount:financeData[2][0],vendor:financeData[3][0]
                   ,  payments: financeData[0], purcheses: financeData[1] 
                   },
          });
