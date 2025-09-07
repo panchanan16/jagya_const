@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: 127.0.0.1:3500/api/v1/invoice/create
+  url: 127.0.0.1:3500/api/v1/entity/invoice/create
   body: json
   auth: bearer
 }
@@ -26,7 +26,8 @@ body:json {
       "total": "11300",
       "client_contact": "9876543210",
       "client_address": "Guwahati, Assam",
-      "client_id": 101
+      "client_id": 101,
+      "cliend_ref_id":"sasdf546"
     },
     "invoice_items": [
       {
