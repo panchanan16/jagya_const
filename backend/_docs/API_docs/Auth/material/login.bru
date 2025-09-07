@@ -5,14 +5,14 @@ meta {
 }
 
 post {
-  url: {{URL.Core}}super-admin/login
+  url: {{URL.Core}}branch/login
   body: json
   auth: none
 }
 
 body:json {
   {
-    "user_id": "user7@example.com",
+    "user_id": "branch@example.com",
     "password": "1234567"
   }
 }

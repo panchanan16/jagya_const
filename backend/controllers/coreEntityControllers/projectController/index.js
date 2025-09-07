@@ -58,6 +58,7 @@ class projectCoreController {
                }, []) || [],
             documents: rawData[2],
             client: rawData[3],
+            project: rawData[4][0],
          };
 
          res.status(200).send({
@@ -71,6 +72,25 @@ class projectCoreController {
             status: false,
             msg: 'Failed to get data',
             data: null,
+         });
+      }
+   }
+   // Get All Users (already provided)
+   static async getContractorProjects(req, res) {
+      const { con_id } = req.params;
+      try {
+         const data = await projectCoreModel.getContractorProjects(con_id);
+         res.status(200).json({
+            status: true,
+            message: 'Users fetched successfully',
+            data,
+         });
+      } catch (error) {
+         console.error('FindAll Error:', error);
+         res.status(500).json({
+            status: false,
+            message: 'Error fetching users',
+            error: error.message,
          });
       }
    }

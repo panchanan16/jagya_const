@@ -5,16 +5,44 @@ meta {
 }
 
 get {
-  url: http://localhost:3500/api/v1/api/:entity?page1&pageSize=2
+  url: http://localhost:3500/api/v1/api/:entity?page=1&pageSize=2&entity_id=14
   body: none
   auth: inherit
 }
 
 params:query {
-  page1: 
+  page: 1
   pageSize: 2
+  entity_id: 14
 }
 
 params:path {
-  entity: expense
+  entity: vendor_purchase
+}
+
+docs {
+  
+  ---
+  
+  ## Path Parameters
+  | Parameter | Type   | Required | Description |
+  |-----------|--------|----------|-------------|
+  | `entity`  | string |  Yes   | The entity/table name to paginate. Example: `users`, `vendors`, `projects`. |
+  
+  ---
+  
+  ## Query Parameters
+  | Parameter   | Type    | Required | Default | Description |
+  |-------------|---------|----------|---------|-------------|
+  | `page`      | number  | ❌ No    | `1`     | Current page number (for pagination). |
+  | `pageSize`  | number  | ❌ No    | `10`    | Number of records per page. |
+  | `entity_id` | number  | ❌ No    | —       | Filters results by entity ID (e.g., `vendor_id`, `vendor_id`, `con_id`depending on entity). |
+  | `search`    | string  | ❌ No    | —       | (Optional) Search term to filter results. *(if supported by entity)* |
+  
+  ---
+  
+  ## Example Request
+  ```http
+  GET http://localhost:3500/api/v1/api/vendors?page=1&pageSize=2&entity_id=14
+  
 }
