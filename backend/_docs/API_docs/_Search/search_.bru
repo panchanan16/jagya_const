@@ -5,14 +5,14 @@ meta {
 }
 
 get {
-  url: http://localhost:3500/api/v1/search?query=a&type=branch_clients&page=2&pageSize=2
+  url: http://localhost:3500/api/v1/search?query=m&type=client&pageSize=300
   body: none
   auth: inherit
 }
 
 params:query {
-  query: a
-  type: branch_clients
-  page: 2
-  pageSize: 2
+  query: m
+  type: client
+  pageSize: 300
+  ~page: 2
 }

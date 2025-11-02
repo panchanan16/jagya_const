@@ -11,7 +11,7 @@ class PayModel {
    }
 
    static async findAll(pay_vendor_id) {
-      const query = 'SELECT * FROM vendor_payments WHERE pay_vendor_id = ?;SELECT * FROM vendors WHERE vendor_id = ?';
+      const query = 'SELECT vp.*,p.pro_ref_no,p.pro_name FROM vendor_payments vp LEFT JOIN projects p ON p.pro_id = vp.pay_project_id WHERE pay_vendor_id = ?;SELECT * FROM vendors WHERE vendor_id = ?';
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query, [pay_vendor_id,pay_vendor_id]);

@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: http://localhost:3500/api/v1/api/:entity?page=1&pageSize=2&entity_id=14
+  url: http://localhost:3500/api/v1/api/:entity?page=1&pageSize=2
   body: none
   auth: inherit
 }
@@ -13,11 +13,11 @@ get {
 params:query {
   page: 1
   pageSize: 2
-  entity_id: 14
+  ~entity_id: 14
 }
 
 params:path {
-  entity: vendor_purchase
+  entity: project
 }
 
 docs {
