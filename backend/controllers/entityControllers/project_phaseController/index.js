@@ -12,7 +12,7 @@ const ProjectPhaseController = {
 
    async findOne(req, res) {
       try {
-         const data = await ProjectPhaseModel.findOne(req.params.id);
+         const data = await ProjectPhaseModel.findOne(req.query.pro_id);
          res.status(200).send({ status: true, msg: 'Project phase retrieved', data });
       } catch (err) {
          res.status(500).send({ status: false, msg: 'Error retrieving project phase', data: null });

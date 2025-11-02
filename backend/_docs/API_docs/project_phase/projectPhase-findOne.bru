@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{URL.Entity}}project_phase/readone
-  body: none
+  url: {{URL.Entity}}project_phase/readone?pro_id=11
+  body: json
   auth: bearer
+}
+
+params:query {
+  pro_id: 11
 }
 
 auth:bearer {

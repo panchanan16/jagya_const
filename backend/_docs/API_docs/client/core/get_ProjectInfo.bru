@@ -5,13 +5,17 @@ meta {
 }
 
 get {
-  url: {{URL.Core}}client/get_ProjectInfo
+  url: {{URL.Core}}client/get_ProjectInfo?pro_ref_id=JGCP0005
   body: json
   auth: none
 }
 
+params:query {
+  pro_ref_id: JGCP0005
+}
+
 body:json {
   {
-    "pro_ref_id":"JGCP0005"
+    "pro_ref_id":"ACME-202374"
   }
 }
