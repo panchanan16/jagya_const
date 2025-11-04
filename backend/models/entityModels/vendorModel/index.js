@@ -22,7 +22,7 @@ class VendorsModel {
    }
 
    static async findAll() {
-      const query = 'SELECT * FROM vendors';
+      const query = 'SELECT * FROM vendors ORDER BY vendor_id DESC';
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query);

@@ -125,6 +125,33 @@ class MaterialItemUpdateController {
          return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
       }
    }
+   static async updateMrPaymentStatus(req, res) {
+      const connPool = await pool.getConnection();
+
+      const { mr_item_id } = req.params;
+      const { payment_status, payment_date } = req.body;
+      try {
+         const affectedRows = await coreMaterialRequestModel.updateMrPaymentStatus(mr_item_id,payment_status, payment_date);
+         if (affectedRows === 0) {
+            return res.status(404).send({ status: false, msg: 'No records found to update.', data: null });
+         }
+         const [rows] = await connPool.query('SELECT mr_delivery_status FROM material_item_list WHERE mr_item_id = ?', [
+            mr_item_id,
+         ]);
+         const updatedStatus = rows[0].mr_delivery_status;
+         const message = updatedStatus === 1 ? 'mr_delivery_status approved' : 'mr_delivery_status not approved';
+
+         return res.status(200).send({
+            status: true,
+            msg: message,
+            data: { updatedStatus },
+         });
+      } catch (error) {
+         console.error('Error updating mr_delivery_status:', error);
+         return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
+      }
+   }
+
    static async findAllByMatrialReqId(req, res) {
       const { id } = req.params;
       try {

@@ -13,7 +13,7 @@ class CollectionsModel {
 
    // Get all collectionss
    static async findAll() {
-      const query = 'SELECT collections.*, projects.pro_name, c.client_name FROM collections JOIN projects ON collections.col_project_id = projects.pro_ref_no LEFT JOIN clients c ON c.client_id = projects.pro_client_r_id ORDER BY collections.col_date DESC;';
+      const query = 'SELECT collections.*, projects.pro_name, c.client_name FROM collections JOIN projects ON collections.col_project_id = projects.pro_ref_no LEFT JOIN clients c ON c.client_id = projects.pro_client_r_id ORDER BY collections.col_id DESC;';
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query);

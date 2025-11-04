@@ -82,6 +82,19 @@ class MaterialItemUpdateModel {
          connPool.release();
       }
    }
+   static async updateMrPaymentStatus(mr_item_id,payment_status, payment_date) {
+      const connPool = await pool.getConnection();
+      try {
+         const query = 'UPDATE material_item_list SET payment_status = ? , payment_date	=? WHERE mr_item_id = ?';
+         const [result] = await connPool.query(query, [newDeliveryStatus, mr_item_id,payment_status,payment_date]);
+         return result.affectedRows;
+      } catch (error) {
+         console.error('Error updating mr_delivery_status:', error);
+         throw error;
+      } finally {
+         connPool.release();
+      }
+   }
    static async getLastMaterialRef() {
       const query = 'SELECT material_ref_no FROM material_requests ORDER BY mr_r_id DESC LIMIT 1;';
       const connPool = await pool.getConnection();

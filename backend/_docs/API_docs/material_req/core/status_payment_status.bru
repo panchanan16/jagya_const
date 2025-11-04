@@ -1,0 +1,21 @@
+meta {
+  name: status_payment_status
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{URL.Core}}material_req/status/material_payment/:mr_item_id
+  body: json
+  auth: none
+}
+
+params:path {
+  mr_item_id: 17
+}
+
+body:json {
+  {
+    "mr"
+  }
+}

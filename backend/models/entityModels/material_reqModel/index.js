@@ -12,7 +12,7 @@ class MaterialRequestModel {
    }
 
    static async findAll() {
-      const query = 'SELECT mr.*,p.pro_name,p.pro_ref_no,c.* FROM material_requests mr LEFT JOIN projects p ON p.pro_id = mr.mr_project_id LEFT JOIN clients c ON c.client_id = p.pro_client_r_id;';
+      const query = 'SELECT mr.*,p.pro_name,p.pro_ref_no,c.* FROM material_requests mr LEFT JOIN projects p ON p.pro_id = mr.mr_project_id LEFT JOIN clients c ON c.client_id = p.pro_client_r_id ORDER BY mr.mr_r_id DESC';
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query);
@@ -26,7 +26,7 @@ class MaterialRequestModel {
    }
 
    static async findOne(mr_r_id) {
-      const query = 'SELECT * FROM material_requests WHERE mr_r_id = ?';
+      const query = 'SELECT mr.*,p.pro_name,p.pro_ref_no,c.* FROM material_requests mr LEFT JOIN projects p ON p.pro_id = mr.mr_project_id LEFT JOIN clients c ON c.client_id = p.pro_client_r_id WHERE mr_r_id = ?';
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query, [mr_r_id]);

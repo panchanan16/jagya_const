@@ -41,6 +41,9 @@ coreRouter.put('/core/material_req/update_by_materialId', MaterialCoreController
 coreRouter.get('/core/material_req/status/finance_dep/:mr_item_id', MaterialCoreController.updateFdApproval);
 coreRouter.get('/core/material_req/status/material_dep/:mr_item_id', MaterialCoreController.updateMdApproval);
 coreRouter.get('/core/material_req/status/material_delivery/:mr_item_id',MaterialCoreController.updateMrDeliveryStatus);
+coreRouter.put('/core/material_req/status/material_payment/:mr_item_id',MaterialCoreController.updateMrPaymentStatus);
+
+
 
 // [User]-----------
 coreRouter.post('/core/users/create/:role', UsersCoreController.create);
