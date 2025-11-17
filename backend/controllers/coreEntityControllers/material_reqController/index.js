@@ -125,32 +125,6 @@ class MaterialItemUpdateController {
          return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
       }
    }
-   static async updateMrPaymentStatus(req, res) {
-      const connPool = await pool.getConnection();
-
-      const { mr_item_id } = req.params;
-      const { payment_status, payment_date } = req.body;
-      try {
-         const affectedRows = await coreMaterialRequestModel.updateMrPaymentStatus(mr_item_id,payment_status, payment_date);
-         if (affectedRows === 0) {
-            return res.status(404).send({ status: false, msg: 'No records found to update.', data: null });
-         }
-         const [rows] = await connPool.query('SELECT mr_delivery_status FROM material_item_list WHERE mr_item_id = ?', [
-            mr_item_id,
-         ]);
-         const updatedStatus = rows[0].mr_delivery_status;
-         const message = updatedStatus === 1 ? 'mr_delivery_status approved' : 'mr_delivery_status not approved';
-
-         return res.status(200).send({
-            status: true,
-            msg: message,
-            data: { updatedStatus },
-         });
-      } catch (error) {
-         console.error('Error updating mr_delivery_status:', error);
-         return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
-      }
-   }
 
    static async findAllByMatrialReqId(req, res) {
       const { id } = req.params;
@@ -160,6 +134,49 @@ class MaterialItemUpdateController {
             status: true,
             msg: 'Material requests retrieved successfully',
             data: { ...requests[0][0], materialItemsData: requests[1] },
+         });
+      } catch (error) {
+         console.error('Error fetching material requests:', error);
+         return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
+      }
+   }
+   static async findAllMatrialReqByProjectId(req, res) {
+      const { id } = req.params;
+      try {
+         const requests = await coreMaterialRequestModel.findAllMatrialReqByProjectId(id);
+         const grouped = {};
+         requests.forEach((item) => {
+            const ref = item.material_ref_no;
+            if (!grouped[ref]) {
+               grouped[ref] = {
+                  material_ref_no: ref,
+                  mr_r_id: item.mr_r_id,
+                  mr_project_id: item.mr_project_id,
+                  mr_phase: item.mr_phase,
+                  mr_date: item.mr_date,
+                  created_at: item.created_at,
+                  updated_at: item.updated_at,
+                  items: [],
+               };
+            }
+            grouped[ref].items.push({
+               mr_item_id: item.mr_item_id,
+               mr_item_name: item.mr_item_name,
+               mr_item_quantity: item.mr_item_quantity,
+               mr_item_amount: item.mr_item_amount,
+               mr_item_date: item.mr_item_date,
+               md_approval: item.md_approval,
+               fd_approval: item.fd_approval,
+               vendor_id: item.vendor_id,
+               mr_delivery_status: item.mr_delivery_status,
+               payment_status: item.payment_status,
+               payment_date: item.payment_date,
+            });
+         });
+         return res.status(200).send({
+            status: true,
+            msg: 'Material and Items retrieved successfully',
+            data: grouped,
          });
       } catch (error) {
          console.error('Error fetching material requests:', error);
@@ -176,14 +193,12 @@ class MaterialItemUpdateController {
             data: null,
          });
       }
-
       try {
          const result = await coreMaterialRequestModel.replaceMaterialItemsByRequestId(
             mr_r_id,
             mr_project_id,
             materialItemsData
          );
-
          return res.status(200).send({
             status: true,
             msg: 'Material items updated successfully',

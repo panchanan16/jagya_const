@@ -1,0 +1,22 @@
+meta {
+  name: update_status_remaining
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{URL.Core}}material_req/remaining/update_status/:rm_id
+  body: json
+  auth: none
+}
+
+params:path {
+  rm_id: 4
+}
+
+body:json {
+  {
+    "rm_status": "completed",
+    "rm_date": "12/12/2025"
+  }
+}

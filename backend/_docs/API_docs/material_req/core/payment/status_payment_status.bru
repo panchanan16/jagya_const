@@ -1,7 +1,7 @@
 meta {
   name: status_payment_status
   type: http
-  seq: 8
+  seq: 1
 }
 
 put {
@@ -11,11 +11,12 @@ put {
 }
 
 params:path {
-  mr_item_id: 17
+  mr_item_id: 113
 }
 
 body:json {
   {
-    "mr"
+    "payment_status": "completed",
+    "payment_date":"13/20/2025"
   }
 }
