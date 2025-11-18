@@ -89,6 +89,22 @@ class MaterialRemainingModel {
       }
    }
    static async updateRemainingPaymentsStatus(rm_id, rm_status, rm_date) {
+      function formatItemData(rows) {
+         if (!rows || rows.length === 0) return '';
+         const names = new Set();
+         const vendorIds = new Set();
+         const mrIds = new Set();
+         rows.forEach((row) => {
+            names.add(row.mr_item_name || '');
+            vendorIds.add(row.vendor_id ?? '');
+            mrIds.add(row.mr_r_id ?? '');
+         });
+         return {
+            itemNames: [...names].join(', '),
+            vendorIds: [...vendorIds].join(', '),
+            mrIds: [...mrIds].join(', '),
+         };
+      }
       const connPool = await pool.getConnection();
       await connPool.beginTransaction();
       try {
@@ -97,28 +113,83 @@ class MaterialRemainingModel {
             const [result] = await connPool.execute(query, [rm_status]);
             return;
          }
-         const update_getSelectedItems =
-            'UPDATE material_payment_remaining SET rm_status = ?, rm_date =? WHERE rm_id = ?; SELECT item_id FROM material_payment_remaining_items WHERE rm_id = ?';
-         const [result] = await connPool.execute(update_getSelectedItems, [
+
+         await connPool.execute('UPDATE material_payment_remaining SET rm_status = ?, rm_date = ? WHERE rm_id = ?', [
             rm_status,
             rm_date || new Date(),
             rm_id,
-            rm_id,
          ]);
-         if (update_getSelectedItems?.length > 0) {
+         const [_getSelectedItems] = await connPool.execute(
+            'SELECT item_id FROM material_payment_remaining_items WHERE rm_id = ?',
+            [rm_id]
+         );
+         const itemIds = _getSelectedItems.map((i) => i.item_id);
+
+         const [_getSelectedItemsDetails] = await connPool.execute(
+            `SELECT mr_item_name,vendor_id,mr_r_id FROM material_item_list WHERE mr_item_id IN (${itemIds.join(',')} )`
+         );
+
+         if (_getSelectedItems?.length > 0) {
             const updateMaterialItemList =
                'UPDATE material_item_list SET payment_status = ?, payment_date=? WHERE mr_item_id = ?;';
-            const itemValues = result[1].map((i) => [rm_status, rm_date || new Date(), rm_id]);
+            const itemValues = _getSelectedItems.map((i) => [rm_status, rm_date || new Date(), i.item_id]);
             for (const values of itemValues) {
                await connPool.execute(updateMaterialItemList, values);
             }
          }
+         console.log(_getSelectedItemsDetails);
+         const out_SelectedItemsData = formatItemData(_getSelectedItemsDetails);
+
+         console.log(out_SelectedItemsData);
+
+         // Insert in expenses
+         // --------------------------------------------------
+         const expSql = `INSERT INTO expenses (exp_name, exp_amount, exp_mode, exp_remark, exp_date, exp_category, exp_project_ref) VALUES (?, ?, ?, ?, ?, ?, ?) `;
+         const [expResult] = await connPool.execute(expSql, [
+            `Auto-Created For ${out_SelectedItemsData.itemNames} To Vendor ${out_SelectedItemsData.vendorIds}`,
+            remaining,
+            payment_mode||'UPI',
+            note||`For Material request ID ${out_SelectedItemsData.mrIds}`,
+            rm_date || new Date(),
+            expense_category||"Material Payment",
+            project_id ||"Material Payment",
+         ]);
+         const expId = expResult.insertId;
+
+         //  vendor_payment entry
+         // ---------------------------------------------------
+         const vendorSql = `INSERT INTO vendor_payments (pay_vendor_id, pay_project_id, pay_amount, pay_mode, pay_note, pay_exp_id) VALUES (?, ?, ?, ?, ?, ?) `;
+         await connPool.execute(vendorSql, [
+           _getSelectedItemsDetails,
+            data.project_id,
+            data.remaining,
+            data.payment_mode,
+            data.note,
+            expId,
+         ]);
+
          await connPool.commit();
          connPool.release();
          return { success: true };
       } catch (error) {
          await connPool.rollback();
          console.error('Error updateRemainingPaymentsStatus:', error);
+         throw error;
+      } finally {
+         connPool.release();
+      }
+   }
+      static async removeRemainingForMaterial(rm_id) {
+      const connPool = await pool.getConnection();
+      // await connPool.beginTransaction();
+      try {
+         const query = 'DELETE FROM material_payment_remaining WHERE rm_id = ?;';
+         const [result] = await connPool.query(query, [rm_id]);
+         // await connPool.commit();
+         return { success: true };
+      } catch (error) {
+         // await connPool.rollback();
+         console.error('Error updating mr_delivery_status:', error);
          throw error;
       } finally {
          connPool.release();

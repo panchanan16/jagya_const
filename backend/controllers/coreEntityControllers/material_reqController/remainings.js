@@ -62,7 +62,7 @@ class MaterialRemainingController {
       const { rm_id } = req.params;
       const { rm_status } = req.body;
       try {
-         const affectedRows = await coreMaterialRequestRemainingModel.updateRemainingPaymentsStatus(rm_id,rm_status);
+         const affectedRows = await coreMaterialRequestRemainingModel.updateRemainingPaymentsStatus(rm_id, rm_status);
          if (!affectedRows) {
             return res.status(404).send({ status: false, msg: 'No records found to update.', data: null });
          }
@@ -73,6 +73,23 @@ class MaterialRemainingController {
          });
       } catch (error) {
          console.error('Error updating createRemainingForMaterial:', error);
+         return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
+      }
+   }
+   static async removeRemainingForMaterial(req, res) {
+      const { rm_id } = req.params;
+      try {
+         const affectedRows = await coreMaterialRequestRemainingModel.removeRemainingForMaterial(rm_id);
+         if (!affectedRows) {
+            return res.status(404).send({ status: false, msg: 'No records found to delete.', data: null });
+         }
+         return res.status(200).send({
+            status: true,
+            msg: 'Remaining removed successfully!',
+            data: null,
+         });
+      } catch (error) {
+         console.error('Error updating removeRemainingForMaterial:', error);
          return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
       }
    }
@@ -91,24 +108,6 @@ class MaterialRemainingController {
    //       });
    //    } catch (error) {
    //       console.error('Error updating addRemainingItems:', error);
-   //       return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
-   //    }
-   // }
-   //    static async removeRemainingItems(req, res) {
-   //    const { pro_id } = req.params;
-   //    const { mr_r_id, item_id, total_amount, amount_paid, date } = req.body;
-   //    try {
-   //       const affectedRows = await coreMaterialRequestRemainingModel.addRemainingItems(req.body);
-   //       if (!affectedRows) {
-   //          return res.status(404).send({ status: false, msg: 'No records found to update.', data: null });
-   //       }
-   //       return res.status(200).send({
-   //          status: true,
-   //          msg: 'Remaining created successfully!',
-   //          data: null,
-   //       });
-   //    } catch (error) {
-   //       console.error('Error updating removeRemainingItems:', error);
    //       return res.status(500).send({ status: false, msg: 'Internal Server Error', data: null });
    //    }
    // }

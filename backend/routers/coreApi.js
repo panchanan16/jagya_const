@@ -49,7 +49,8 @@ coreRouter.put('/core/material_req/status/material_payment/:mr_item_id', Materia
 
 coreRouter.get('/core/material_req/remaining/readAll/:pro_id', MaterialRemainCoreController.getRemainingByProject);
 coreRouter.post('/core/material_req/remaining/create/:pro_id', MaterialRemainCoreController.createRemainingForMaterial);
-coreRouter.put('/core/material_req/remaining/update_status/:pro_id', MaterialRemainCoreController.updateRemainingPaymentsStatus);
+coreRouter.put('/core/material_req/remaining/update_status/:rm_id', MaterialRemainCoreController.updateRemainingPaymentsStatus);
+coreRouter.delete('/core/material_req/remaining/remove/:rm_id', MaterialRemainCoreController.removeRemainingForMaterial);
 
 
 
