@@ -88,28 +88,31 @@ class MaterialRemainingModel {
          connPool.release();
       }
    }
-   static async updateRemainingPaymentsStatus(rm_id, rm_status,rm_date) {
+   static async updateRemainingPaymentsStatus(rm_id, rm_status, rm_date) {
       const connPool = await pool.getConnection();
       await connPool.beginTransaction();
-
       try {
          if (rm_status !== 'completed') {
             const query = 'UPDATE material_payment_remaining SET payment_status = ? , rm_date =? WHERE rm_id = ?;';
             const [result] = await connPool.execute(query, [rm_status]);
             return;
          }
-         const update_getSelectedItems = 'UPDATE material_payment_remaining SET rm_status = ?, rm_date =? WHERE rm_id = ?; SELECT item_id FROM material_payment_remaining_items WHERE rm_id = ?';
-         const [result] = await connPool.execute(update_getSelectedItems, [rm_status, rm_date || new Date(), rm_id, rm_id]);
-      
-
+         const update_getSelectedItems =
+            'UPDATE material_payment_remaining SET rm_status = ?, rm_date =? WHERE rm_id = ?; SELECT item_id FROM material_payment_remaining_items WHERE rm_id = ?';
+         const [result] = await connPool.execute(update_getSelectedItems, [
+            rm_status,
+            rm_date || new Date(),
+            rm_id,
+            rm_id,
+         ]);
          if (update_getSelectedItems?.length > 0) {
-            const updateMaterialItemList = 'UPDATE material_item_list SET payment_status = ?, payment_date=? WHERE mr_item_id = ?;';
+            const updateMaterialItemList =
+               'UPDATE material_item_list SET payment_status = ?, payment_date=? WHERE mr_item_id = ?;';
             const itemValues = result[1].map((i) => [rm_status, rm_date || new Date(), rm_id]);
             for (const values of itemValues) {
                await connPool.execute(updateMaterialItemList, values);
             }
          }
-
          await connPool.commit();
          connPool.release();
          return { success: true };
