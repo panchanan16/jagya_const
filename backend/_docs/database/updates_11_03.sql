@@ -33,3 +33,6 @@ CREATE TABLE `material_payment_remaining_items` (
  CONSTRAINT `material_payment_remaining_items_ibfk_2` FOREIGN KEY (`rm_id`) REFERENCES `material_payment_remaining` (`rm_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
 
+
+-- 20/11/2025-- 13:15
+ALTER TABLE `material_item_list` ADD `payment_mode` VARCHAR(55) NULL DEFAULT NULL AFTER `payment_status`;

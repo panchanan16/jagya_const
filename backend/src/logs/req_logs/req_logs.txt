@@ -9473,3 +9473,5 @@
 20251120	13:08:34	7e8d35a1-fd59-4e72-a465-a88f6a4c09fb	GET	undefined	/api/v1/core/material_req/realAll_by_ProId/11
 20251120	13:09:22	f0b082ff-797f-495a-9482-5da6ee7cc876	GET	undefined	/api/v1/core/material_req/realAll_by_ProId/11
 20251120	13:10:57	b3aef488-ca71-4f2b-97a0-79599ebe9efe	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
+20251120	13:18:51	e0d573f5-3814-4247-bb04-35531deda0b2	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
+20251120	13:19:30	a6dbed15-8696-44f2-b5fb-b557677b968a	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
