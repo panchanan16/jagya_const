@@ -19,6 +19,9 @@ class MaterialPaymentsController {
          if (affectedRows === 0) {
             return res.status(404).send({ status: false, msg: 'No records found to update.', data: null });
          }
+         if (affectedRows.success==false) {
+            return res.status(404).send({ status: false, msg: affectedRows.msg, data: null });
+         }
          return res.status(200).send({
             status: true,
             msg: 'Payment Made, also expense & vendor_payment updated',

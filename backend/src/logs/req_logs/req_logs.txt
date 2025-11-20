@@ -9475,3 +9475,9 @@
 20251120	13:10:57	b3aef488-ca71-4f2b-97a0-79599ebe9efe	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
 20251120	13:18:51	e0d573f5-3814-4247-bb04-35531deda0b2	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
 20251120	13:19:30	a6dbed15-8696-44f2-b5fb-b557677b968a	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
+20251120	13:23:23	14f937e3-1274-4d97-ba27-0f964d584a1b	GET	http://127.0.0.1:5173	/api/v1/entity/vendor/readAll
+20251120	13:23:32	dcb240a1-55d7-4880-b29f-b6e11c3dd32c	GET	http://127.0.0.1:5173	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
+20251120	13:23:51	f82896d3-d4cf-45f9-94ce-9836000a4bf8	GET	http://127.0.0.1:5173	/api/v1/api/project?page=1&pageSize=10
+20251120	13:27:23	9b431c4e-d541-4e06-a24b-8f6364984c8d	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
+20251120	13:27:31	c88bfeeb-3783-417b-801c-010cce62a1c5	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
+20251120	13:28:33	a78dc798-41db-4446-adee-603f8157cdfd	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
