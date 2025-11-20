@@ -168,6 +168,7 @@ class MaterialItemUpdateController {
                md_approval: item.md_approval,
                fd_approval: item.fd_approval,
                vendor_id: item.vendor_id,
+               vendor_name: item.vendor_name,
                mr_delivery_status: item.mr_delivery_status,
                payment_status: item.payment_status,
                payment_date: item.payment_date,

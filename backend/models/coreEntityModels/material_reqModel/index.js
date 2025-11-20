@@ -156,13 +156,7 @@ class MaterialItemUpdateModel {
       }
    }
    static async findAllMatrialReqByProjectId(pro_id) {
-      const query = `
-      SELECT
-      mr.*,
-      mi.*
-      FROM material_requests mr
-      JOIN material_item_list mi ON mi.mr_r_id=mr.mr_r_id 
-      WHERE mr.mr_project_id  =?;`;
+      const query = ` SELECT mr.*, mi.*,v.vendor_name FROM material_requests mr LEFT JOIN material_item_list mi ON mi.mr_r_id=mr.mr_r_id LEFT JOIN vendors v ON v.vendor_id = mi.vendor_id WHERE mr.mr_project_id = ?;`;
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query, [pro_id]);

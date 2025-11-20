@@ -9469,3 +9469,7 @@
 20251120	12:55:54	3ede0cd3-d573-4351-ab0c-21ac2f993627	POST	undefined	/api/v1/core/material_req/remaining/create/17
 20251120	12:58:42	663b1e53-2d49-4460-97fd-78cd4485aa12	POST	undefined	/api/v1/core/material_req/remaining/create/17
 20251120	12:59:30	ac56cb71-263f-4e4f-a35d-78a305ad1c29	POST	undefined	/api/v1/core/material_req/remaining/create/17
+20251120	13:04:45	7024d980-f3ab-472c-854b-d55d42345411	GET	undefined	/api/v1/core/material_req/realAll_by_ProId/11
+20251120	13:08:34	7e8d35a1-fd59-4e72-a465-a88f6a4c09fb	GET	undefined	/api/v1/core/material_req/realAll_by_ProId/11
+20251120	13:09:22	f0b082ff-797f-495a-9482-5da6ee7cc876	GET	undefined	/api/v1/core/material_req/realAll_by_ProId/11
+20251120	13:10:57	b3aef488-ca71-4f2b-97a0-79599ebe9efe	PUT	undefined	/api/v1/core/material_req/status/material_payment/113
