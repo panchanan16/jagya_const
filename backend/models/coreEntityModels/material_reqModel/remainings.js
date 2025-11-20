@@ -1,6 +1,22 @@
 const pool = require('@/config/dbConfig');
 
 class MaterialRemainingModel {
+   static async formatItemData(rows) {
+      if (!rows || rows.length === 0) return '';
+      const names = new Set();
+      const vendorIds = new Set();
+      const mrIds = new Set();
+      rows.forEach((row) => {
+         names.add(row.mr_item_name || '');
+         vendorIds.add(row.vendor_id ?? '');
+         mrIds.add(row.mr_r_id ?? '');
+      });
+      return {
+         itemNames: [...names].join(', '),
+         vendorIds: [...vendorIds].join(', '),
+         mrIds: [...mrIds].join(', '),
+      };
+   }
    static async createRemainingForMaterial(data) {
       const connPool = await pool.getConnection();
       await connPool.beginTransaction();
@@ -9,8 +25,6 @@ class MaterialRemainingModel {
          // select from material_item_list
          // ---------------------------------------------------
          const sql = `SELECT * FROM material_item_list WHERE mr_item_id IN (${data.items.join(',')} )`;
-         console.log(data.items, sql);
-
          const [AllItemDetails] = await connPool.execute(sql);
          if (AllItemDetails.length === 0) {
             throw new Error('No items found for given item_ids');
@@ -38,35 +52,40 @@ class MaterialRemainingModel {
             await connPool.query(itemSql, [itemValues]);
          }
 
+         const formatedItemDetails = await this.formatItemData(AllItemDetails);
+
          // Insert in expenses
          // --------------------------------------------------
-         // const expSql = `INSERT INTO expenses (exp_name, exp_amount, exp_mode, exp_remark, exp_date, exp_category, exp_project_ref) VALUES (?, ?, ?, ?, ?, ?, ?) `;
-         // const [expResult] = await connPool.execute(expSql, [
-         //    data.expense_name,
-         //    data.remaining,
-         //    data.payment_mode,
-         //    data.note,
-         //    data.rm_date,
-         //    data.expense_category,
-         //    data.project_id,
-         // ]);
-         // const expId = expResult.insertId;
+         const expSql = `INSERT INTO expenses (exp_name, exp_amount, exp_mode, exp_remark, exp_date, exp_category, exp_project_ref) VALUES (?, ?, ?, ?, ?, ?, ?) `;
+         const [expResult] = await connPool.execute(expSql, [
+            `${formatedItemDetails.itemNames} purchase`,
+            data.paid_amount,
+            data.payment_mode || 'UPI',
+            `Paid to Vendor ${formatedItemDetails.vendorIds} for mr_id ${formatedItemDetails.mrIds}`,
+            data.payment_date,
+            data.expense_category || 'Material Payment',
+            data.pro_id,
+         ]);
+         const expId = expResult.insertId;
 
          //  vendor_payment entry
          // ---------------------------------------------------
-         // const vendorSql = `INSERT INTO vendor_payments (pay_vendor_id, pay_project_id, pay_amount, pay_mode, pay_note, pay_exp_id) VALUES (?, ?, ?, ?, ?, ?) `;
-         // await connPool.execute(vendorSql, [
-         //    data.vendor_id,
-         //    data.project_id,
-         //    data.remaining,
-         //    data.payment_mode,
-         //    data.note,
-         //    expId,
-         // ]);
-
+         const vendorSql = `INSERT INTO vendor_payments (pay_vendor_id, pay_project_id, pay_amount, pay_mode, pay_note, pay_exp_id) VALUES (?, ?, ?, ?, ?, ?) `;
+         await connPool.execute(vendorSql, [
+            AllItemDetails[0].vendor_id,
+            data.pro_id,
+            data.paid_amount,
+            data.payment_mode || 'UPI',
+            `Paid for ${formatedItemDetails.mrIds}`,
+            expId,
+         ]);
+         const vendor_payment_id = vendorSql.insertId;
+         const [getRemainingDetails] = await connPool.execute(
+            `SELECT * FROM material_payment_remaining mpr LEFT JOIN material_payment_remaining_items mpri ON mpri.rm_id=mpr.rm_id  LEFT JOIN material_item_list mil ON mil.mr_item_id=mpri.item_id WHERE mpr.rm_id = ?;`,
+            [rm_id]
+         );
          await connPool.commit();
-         connPool.release();
-         return { success: true };
+         return { success: true, rm_id: getRemainingDetails };
       } catch (err) {
          await connPool.rollback();
          throw err;
@@ -89,22 +108,6 @@ class MaterialRemainingModel {
       }
    }
    static async updateRemainingPaymentsStatus(rm_id, rm_status, rm_date) {
-      function formatItemData(rows) {
-         if (!rows || rows.length === 0) return '';
-         const names = new Set();
-         const vendorIds = new Set();
-         const mrIds = new Set();
-         rows.forEach((row) => {
-            names.add(row.mr_item_name || '');
-            vendorIds.add(row.vendor_id ?? '');
-            mrIds.add(row.mr_r_id ?? '');
-         });
-         return {
-            itemNames: [...names].join(', '),
-            vendorIds: [...vendorIds].join(', '),
-            mrIds: [...mrIds].join(', '),
-         };
-      }
       const connPool = await pool.getConnection();
       await connPool.beginTransaction();
       try {
@@ -137,10 +140,7 @@ class MaterialRemainingModel {
                await connPool.execute(updateMaterialItemList, values);
             }
          }
-         console.log(_getSelectedItemsDetails);
-         const out_SelectedItemsData = formatItemData(_getSelectedItemsDetails);
-
-         console.log(out_SelectedItemsData);
+         const out_SelectedItemsData = this.formatItemData(_getSelectedItemsDetails);
 
          // Insert in expenses
          // --------------------------------------------------
@@ -148,11 +148,11 @@ class MaterialRemainingModel {
          const [expResult] = await connPool.execute(expSql, [
             `Auto-Created For ${out_SelectedItemsData.itemNames} To Vendor ${out_SelectedItemsData.vendorIds}`,
             remaining,
-            payment_mode||'UPI',
-            note||`For Material request ID ${out_SelectedItemsData.mrIds}`,
+            payment_mode || 'UPI',
+            note || `For Material request ID ${out_SelectedItemsData.mrIds}`,
             rm_date || new Date(),
-            expense_category||"Material Payment",
-            project_id ||"Material Payment",
+            expense_category || 'Material Payment',
+            project_id || 'Material Payment',
          ]);
          const expId = expResult.insertId;
 
@@ -160,7 +160,7 @@ class MaterialRemainingModel {
          // ---------------------------------------------------
          const vendorSql = `INSERT INTO vendor_payments (pay_vendor_id, pay_project_id, pay_amount, pay_mode, pay_note, pay_exp_id) VALUES (?, ?, ?, ?, ?, ?) `;
          await connPool.execute(vendorSql, [
-           _getSelectedItemsDetails,
+            _getSelectedItemsDetails,
             data.project_id,
             data.remaining,
             data.payment_mode,
@@ -179,7 +179,7 @@ class MaterialRemainingModel {
          connPool.release();
       }
    }
-      static async removeRemainingForMaterial(rm_id) {
+   static async removeRemainingForMaterial(rm_id) {
       const connPool = await pool.getConnection();
       // await connPool.beginTransaction();
       try {
