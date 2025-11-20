@@ -1,0 +1,22 @@
+meta {
+  name: status_payment_status
+  type: http
+  seq: 1
+}
+
+put {
+  url: {{URL.Core}}material_req/status/material_payment/:mr_item_id
+  body: json
+  auth: none
+}
+
+params:path {
+  mr_item_id: 113
+}
+
+body:json {
+  {
+    "payment_status": "completed",
+    "payment_date":"13/20/2025"
+  }
+}

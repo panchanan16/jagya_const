@@ -25,7 +25,7 @@ class ProjectModel {
    }
 
    static async findAll() {
-      const query = 'SELECT * FROM projects';
+      const query = 'SELECT p.*,c.client_name FROM projects p LEFT JOIN clients c ON c.client_id=p.pro_client_r_id ORDER BY p.pro_id DESC;';
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query);
