@@ -3,8 +3,10 @@ const collectionModel = require('@/models/entityModels/collectionModel');
 class CollectionController {
    // Fetch all collections
    static async findAll(req, res) {
+      const { from_date, to_date } = req.query;
       try {
-         const collections = await collectionModel.findAll();
+         const collections = await collectionModel.findAll(from_date, to_date);
+
          return res.status(200).send({ status: true, msg: 'Collections retrieved successfully', data: collections });
       } catch (error) {
          console.error('Error fetching collections:', error);
@@ -34,7 +36,14 @@ class CollectionController {
          return res.status(400).send({ status: false, msg: 'All required fields must be provided', data: null });
       }
       try {
-         const newCollection = await collectionModel.create(col_amount, col_mode, col_remark, col_date, col_project_id,col_project_phase);
+         const newCollection = await collectionModel.create(
+            col_amount,
+            col_mode,
+            col_remark,
+            col_date,
+            col_project_id,
+            col_project_phase
+         );
          return res.status(201).send({ status: true, msg: 'Collection created successfully', data: newCollection });
       } catch (error) {
          console.error('Error creating collection:', error);
