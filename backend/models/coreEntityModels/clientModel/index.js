@@ -26,7 +26,7 @@ class ClientModel {
       const query = `
             SELECT c.client_id, c.client_name, p.pro_id, p.pro_ref_no, p.pro_name 
             FROM clients c
-            LEFT JOIN projects p ON c.client_id = p.pro_client_r_id WHERE client_id=?`;
+            RIGHT JOIN projects p ON c.client_id = p.pro_client_r_id WHERE client_id=?`;
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query, [client_id]);

@@ -9492,3 +9492,14 @@
 20251121	19:08:07	48406c3c-bd55-4273-bff0-a35364f75f16	GET	undefined	/api/v1/entity/collection/readAll
 20251121	19:09:04	060aa4b4-5e9d-4ed6-9a74-1e67ee135830	GET	undefined	/api/v1/entity/collection/readAll?from_date=2023-01-01&to_date=2023-12-31
 20251121	19:09:14	8ee23579-91b1-4a91-8b99-c57ed6f12963	GET	undefined	/api/v1/entity/collection/readAll?from_date=2023-01-01&to_date=2023-12-31
+20251121	21:25:04	f0c00178-d10d-4324-9026-631f498fd2de	GET	undefined	/api/v1/core/client/get_ProjectInfo
+20251121	21:25:12	a8b97e8b-4f67-4c4d-ab48-e1cc87d1d29e	GET	undefined	/api/v1/core/client/get_clientProject?client_id=35
+20251121	21:25:25	dcbde761-c29c-47b9-8419-662c99278381	GET	undefined	/api/v1/core/client/get_clientProject?client_id=27
+20251121	21:25:30	b39e2652-aecc-42a3-a4aa-344cb128d374	GET	undefined	/api/v1/core/client/get_clientProject?client_id=28
+20251121	21:26:16	9cc41044-5139-4825-9d60-42de23e7a75b	GET	undefined	/api/v1/core/client/get_clientProject?client_id=53
+20251121	21:26:24	a616c4e9-4162-4a41-8444-a03dc0055722	GET	undefined	/api/v1/core/client/get_clientProject?client_id=51
+20251121	21:26:38	91302572-edf5-4eb8-9f85-32412d3b0fed	GET	undefined	/api/v1/core/client/get_clientProject?client_id=46
+20251121	21:27:19	33ec2e54-ff27-4af6-a812-dc9aedb07f00	GET	undefined	/api/v1/core/client/get_clientProject?client_id=37
+20251121	21:28:11	4849e574-a0a2-4fdc-bb10-2b52148b0cff	GET	undefined	/api/v1/core/client/get_clientProject?client_id=37
+20251121	21:28:13	ef03adb3-3e7b-4813-b29c-2ff44cbbc795	GET	undefined	/api/v1/core/client/get_clientProject?client_id=37
+20251121	21:28:13	c54da3d5-f20b-42e8-bff3-55f2e5cfd7c3	GET	undefined	/api/v1/core/client/get_clientProject?client_id=37
