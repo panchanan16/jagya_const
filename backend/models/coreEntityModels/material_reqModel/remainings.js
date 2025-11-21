@@ -96,8 +96,7 @@ class MaterialRemainingModel {
    static async getRemainingByProject(pro_id) {
       const connPool = await pool.getConnection();
       try {
-         const query =
-            'SELECT * FROM material_payment_remaining mpr LEFT JOIN material_payment_remaining_items mpri ON mpri.rm_id=mpr.rm_id  LEFT JOIN material_item_list mil ON mil.mr_item_id=mpri.item_id WHERE project_id = ?';
+         const query = 'SELECT mpr.*,mpri.*,mil.*,v.vendor_name,mr.material_ref_no FROM material_payment_remaining mpr LEFT JOIN material_payment_remaining_items mpri ON mpri.rm_id=mpr.rm_id  LEFT JOIN material_item_list mil ON mil.mr_item_id=mpri.item_id LEFT JOIN vendors v ON v.vendor_id=mil.vendor_id LEFT JOIN material_requests mr ON mil.mr_r_id = mr.mr_r_id  WHERE project_id = ?';
          const [result] = await connPool.query(query, [pro_id]);
          return result;
       } catch (error) {

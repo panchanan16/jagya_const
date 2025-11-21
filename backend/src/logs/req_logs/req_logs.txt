@@ -9503,3 +9503,5 @@
 20251121	21:28:11	4849e574-a0a2-4fdc-bb10-2b52148b0cff	GET	undefined	/api/v1/core/client/get_clientProject?client_id=37
 20251121	21:28:13	ef03adb3-3e7b-4813-b29c-2ff44cbbc795	GET	undefined	/api/v1/core/client/get_clientProject?client_id=37
 20251121	21:28:13	c54da3d5-f20b-42e8-bff3-55f2e5cfd7c3	GET	undefined	/api/v1/core/client/get_clientProject?client_id=37
+20251121	21:28:55	f2038683-8f02-459d-a8e7-3b0533610f33	GET	undefined	/api/v1/core/material_req/remaining/readAll/11
+20251121	21:38:52	7cf358a9-6ce4-4590-9534-2d0f55aab423	GET	undefined	/api/v1/core/material_req/remaining/readAll/11
