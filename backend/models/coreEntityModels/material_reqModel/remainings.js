@@ -67,11 +67,14 @@ class MaterialRemainingModel {
             data.pro_id,
          ]);
          const expId = expResult.insertId;
-
+         await conn.query(
+            `INSERT INTO relations (entity_a, entity_a_id, entity_b, entity_b_id, relation_type) VALUES (?,?,?,?,?)`,
+            ['expenses', expId, 'material_payment_remaining', rm_id, 'mr_payment_relation_remaining']
+         );
          //  vendor_payment entry
          // ---------------------------------------------------
          const vendorSql = `INSERT INTO vendor_payments (pay_vendor_id, pay_project_id, pay_amount, pay_mode, pay_note, pay_exp_id) VALUES (?, ?, ?, ?, ?, ?) `;
-         await connPool.execute(vendorSql, [
+         const [vendorPayResult] = await connPool.execute(vendorSql, [
             AllItemDetails[0].vendor_id,
             data.pro_id,
             data.paid_amount,
@@ -79,7 +82,11 @@ class MaterialRemainingModel {
             `Paid for ${formatedItemDetails.mrIds}`,
             expId,
          ]);
-         const vendor_payment_id = vendorSql.insertId;
+         const vendor_payment_id = vendorPayResult.insertId;
+         await conn.query(
+            `INSERT INTO relations (entity_a, entity_a_id, entity_b, entity_b_id, relation_type) VALUES (?,?,?,?,?)`,
+            ['vendor_payments', vendor_payment_id, 'material_payment_remaining', rm_id, 'mr_payment_relation_remaining']
+         );
          const [getRemainingDetails] = await connPool.execute(
             `SELECT * FROM material_payment_remaining mpr LEFT JOIN material_payment_remaining_items mpri ON mpri.rm_id=mpr.rm_id  LEFT JOIN material_item_list mil ON mil.mr_item_id=mpri.item_id WHERE mpr.rm_id = ?;`,
             [rm_id]
@@ -96,7 +103,8 @@ class MaterialRemainingModel {
    static async getRemainingByProject(pro_id) {
       const connPool = await pool.getConnection();
       try {
-         const query = 'SELECT mpr.*,mpri.*,mil.*,v.vendor_name,mr.material_ref_no FROM material_payment_remaining mpr LEFT JOIN material_payment_remaining_items mpri ON mpri.rm_id=mpr.rm_id  LEFT JOIN material_item_list mil ON mil.mr_item_id=mpri.item_id LEFT JOIN vendors v ON v.vendor_id=mil.vendor_id LEFT JOIN material_requests mr ON mil.mr_r_id = mr.mr_r_id  WHERE project_id = ?';
+         const query =
+            'SELECT mpr.*,mpri.*,mil.*,v.vendor_name,mr.material_ref_no FROM material_payment_remaining mpr LEFT JOIN material_payment_remaining_items mpri ON mpri.rm_id=mpr.rm_id  LEFT JOIN material_item_list mil ON mil.mr_item_id=mpri.item_id LEFT JOIN vendors v ON v.vendor_id=mil.vendor_id LEFT JOIN material_requests mr ON mil.mr_r_id = mr.mr_r_id  WHERE project_id = ?';
          const [result] = await connPool.query(query, [pro_id]);
          return result;
       } catch (error) {
@@ -106,7 +114,7 @@ class MaterialRemainingModel {
          connPool.release();
       }
    }
-   static async updateRemainingPaymentsStatus(rm_id, rm_status, rm_date) {
+   static async updateRemainingPaymentsStatus(rm_id, rm_status, rm_date,data={}) {
       const connPool = await pool.getConnection();
       await connPool.beginTransaction();
       try {
@@ -139,6 +147,10 @@ class MaterialRemainingModel {
                await connPool.execute(updateMaterialItemList, values);
             }
          }
+           const [_getSelectedRM_ID] = await connPool.execute(
+            'SELECT remaining,project_id FROM material_payment_remaining WHERE rm_id = ?',
+            [rm_id]
+         );
          const out_SelectedItemsData = this.formatItemData(_getSelectedItemsDetails);
 
          // Insert in expenses
@@ -146,27 +158,36 @@ class MaterialRemainingModel {
          const expSql = `INSERT INTO expenses (exp_name, exp_amount, exp_mode, exp_remark, exp_date, exp_category, exp_project_ref) VALUES (?, ?, ?, ?, ?, ?, ?) `;
          const [expResult] = await connPool.execute(expSql, [
             `Auto-Created For ${out_SelectedItemsData.itemNames} To Vendor ${out_SelectedItemsData.vendorIds}`,
-            remaining,
-            payment_mode || 'UPI',
-            note || `For Material request ID ${out_SelectedItemsData.mrIds}`,
-            rm_date || new Date(),
-            expense_category || 'Material Payment',
-            project_id || 'Material Payment',
+            _getSelectedRM_ID[0].remaining,
+            data.payment_mode || 'UPI',
+            data.note || `For Material request ID ${out_SelectedItemsData.mrIds}`,
+            data.rm_date || new Date(),
+            data.expense_category || 'Material Payment',
+            _getSelectedRM_ID[0].project_id,
          ]);
          const expId = expResult.insertId;
-
+         await connPool.query(
+            `INSERT INTO relations (entity_a, entity_a_id, entity_b, entity_b_id, relation_type) VALUES (?,?,?,?,?)`,
+            ['expenses', expId, 'material_payment_remaining', rm_id, 'mr_payment_remaining_Status_update']
+         );
          //  vendor_payment entry
          // ---------------------------------------------------
+         console.log(out_SelectedItemsData.vendorIds);
+         
          const vendorSql = `INSERT INTO vendor_payments (pay_vendor_id, pay_project_id, pay_amount, pay_mode, pay_note, pay_exp_id) VALUES (?, ?, ?, ?, ?, ?) `;
-         await connPool.execute(vendorSql, [
-            _getSelectedItemsDetails,
-            data.project_id,
-            data.remaining,
-            data.payment_mode,
-            data.note,
+         const [vendorPayResult] = await connPool.execute(vendorSql, [
+            _getSelectedItemsDetails[0].vendor_id,
+            _getSelectedRM_ID[0].project_id,
+            _getSelectedRM_ID[0].remaining,
+            data.payment_mode || 'UPI',
+            data.note || `For Material request ID ${out_SelectedItemsData.mrIds}`,
             expId,
          ]);
-
+         let vendor_payment_id = vendorPayResult.insertId;
+         await connPool.query(
+            `INSERT INTO relations (entity_a, entity_a_id, entity_b, entity_b_id, relation_type) VALUES (?,?,?,?,?)`,
+            ['vendor_payments', vendor_payment_id, 'material_payment_remaining', rm_id, 'mr_payment_remaining_Status_update']
+         );
          await connPool.commit();
          connPool.release();
          return { success: true };
