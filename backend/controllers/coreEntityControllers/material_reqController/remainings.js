@@ -75,6 +75,8 @@ class MaterialRemainingController {
                item_amount: item.item_amount,
                item_mr_id: item.item_mr_id,
                payment_status: item.payment_status,
+               vendor_name: item.vendor_name,
+               material_ref_no: item.material_ref_no,
             });
          });
          return res.status(200).send({ status: true, msg: 'Remaining retrived!', data: Object.values(reArrange_data) });
@@ -111,7 +113,7 @@ class MaterialRemainingController {
          return res.status(200).send({
             status: true,
             msg: 'Remaining removed successfully!',
-            data: null,
+            data: {rm_id},
          });
       } catch (error) {
          console.error('Error updating removeRemainingForMaterial:', error);

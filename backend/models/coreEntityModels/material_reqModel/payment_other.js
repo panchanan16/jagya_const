@@ -9,11 +9,15 @@ class MaterialPaymentsModel {
             'SELECT mr_item_id, mr_r_id, mr_item_amount, mr_item_amount, mr_project_r_id, vendor_id, mr_item_name FROM material_item_list WHERE mr_item_id = ?',
             [mr_item_id]
          );
+         if(itemRows.mr_item_amount=='0'||itemRows.mr_item_amount==null){
+           return { success: false,msg:'Amount not set By Finance Dept.' };
+         }
          if (itemRows.length === 0) throw new Error('Item not found');
          const item = itemRows[0];
-         await conn.query('UPDATE material_item_list SET payment_status=?, payment_date=? WHERE mr_item_id=?', [
+         await conn.query('UPDATE material_item_list SET payment_status=?, payment_date=?,payment_mode=? WHERE mr_item_id=?', [
             payment_status,
             payment_date,
+            payment_mode || 'UPI',
             mr_item_id,
          ]);
          let expenseId,
@@ -24,7 +28,7 @@ class MaterialPaymentsModel {
                `${item.mr_item_name} purchase`,
                item.mr_item_amount || 0,
                payment_mode || 'UPI',
-               'MR payment For mr_r_id' + mr_r_id,
+               'MR payment For mr_r_id' + item.mr_r_id,
                payment_date,
                'Materials',
                item.mr_project_r_id,

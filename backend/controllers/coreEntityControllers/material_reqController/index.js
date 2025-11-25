@@ -171,6 +171,7 @@ class MaterialItemUpdateController {
                vendor_name: item.vendor_name,
                mr_delivery_status: item.mr_delivery_status,
                payment_status: item.payment_status,
+               payment_mode: item.payment_mode,
                payment_date: item.payment_date,
             });
          });
