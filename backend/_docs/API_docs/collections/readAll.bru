@@ -5,12 +5,12 @@ meta {
 }
 
 get {
-  url: {{URL.Entity}}collection/readAll
+  url: {{URL.Entity}}collection/readAll?from_date=2023-01-01&to_date=2023-12-31
   body: none
   auth: none
 }
 
 params:query {
-  ~from_date: 2023-01-01
-  ~to_date: 2023-12-31
+  from_date: 2023-01-01
+  to_date: 2023-12-31
 }

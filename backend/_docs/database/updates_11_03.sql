@@ -36,3 +36,18 @@ CREATE TABLE `material_payment_remaining_items` (
 
 -- 20/11/2025-- 13:15
 ALTER TABLE `material_item_list` ADD `payment_mode` VARCHAR(55) NULL DEFAULT NULL AFTER `payment_status`;
+
+ALTER TABLE `expenses` CHANGE `exp_date` `exp_date` VARCHAR(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL;
+
+CREATE TABLE `relations` (
+ `rel_id` bigint NOT NULL AUTO_INCREMENT,
+ `entity_a` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+ `entity_a_id` bigint DEFAULT NULL,
+ `entity_b` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+ `entity_b_id` bigint DEFAULT NULL,
+ `relation_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+ `meta_data` varchar(155) DEFAULT NULL,
+ `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+ `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ PRIMARY KEY (`rel_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
