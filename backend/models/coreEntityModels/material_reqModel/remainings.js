@@ -51,6 +51,9 @@ class MaterialRemainingModel {
             const itemValues = AllItemDetails.map((i) => [rm_id, i.mr_item_id, i.mr_r_id]);
             await connPool.query(itemSql, [itemValues]);
          }
+          const UpdateStatus = `UPDATE material_item_list SET payment_status='${data.payment_status || 'remaining'}' WHERE mr_item_id IN  (${data.items.join(',')} )`;
+         const [UpdateStatusOut] = await connPool.execute(UpdateStatus);
+   
 
          const formatedItemDetails = await this.formatItemData(AllItemDetails);
 
