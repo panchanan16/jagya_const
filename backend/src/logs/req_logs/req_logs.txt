@@ -16754,6 +16754,7 @@
 20251124	22:01:13	56b2eb3b-aa0c-41b6-bf08-4dbfd2e8dbeb	PUT	undefined	/api/v1/core/material_req/remaining/update_status/4
 20251124	22:02:21	3a299187-4e69-422e-8d16-0888ffa0b98f	PUT	undefined	/api/v1/core/material_req/remaining/update_status/4
 20251124	22:03:21	bcfc999e-a244-4cb1-addf-1b77ada6fddd	PUT	undefined	/api/v1/core/material_req/remaining/update_status/4
+<<<<<<< HEAD
 >>>>>>> 0a85cd49c7ecb9df1ac3b085725505394e7b5b1c
 20251125	13:09:23	04e77a1a-70d6-4556-a736-f525cf4c7e50	GET	http://127.0.0.1:5173	/api/v1/api/client?page=3&pageSize=10
 20251125	13:09:23	1e498236-d9a5-4eae-a5f1-f0d3460d5a76	GET	http://127.0.0.1:5173	/api/v1/api/client?page=1&pageSize=10
@@ -17118,3 +17119,51 @@
 20251125	23:56:55	40e79bf2-af3b-488e-ba7c-7c1233ce0d83	GET	http://127.0.0.1:5173	/api/v1/core/project/get_project_detail/34
 20251125	23:56:55	ae546c67-d279-442e-89a3-94690a20d4d5	GET	http://127.0.0.1:5173	/api/v1/api/project?page=1&pageSize=10
 20251125	23:56:55	03801ede-d6bf-43ca-b67f-86a2af2b5c0d	GET	http://127.0.0.1:5173	/api/v1/core/project/get_project_detail/34
+=======
+>>>>>>> 97aec0efd170f08f287c40c371685a70f0962c17
+20251126	21:13:53	24678c8a-6375-4871-9ff7-91a27d4b8695	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
+20251126	21:19:11	6ac827f7-e7af-458f-b2c2-67dd31d1a4dd	GET	http://127.0.0.1:5173	/api/v1/api/client?page=1&pageSize=10
+20251126	21:19:11	21ffc6ba-f5d7-4f1c-a7b0-586555516ea8	GET	http://127.0.0.1:5173	/api/v1/api/client?page=3&pageSize=10
+20251126	21:19:13	6fc2d0b5-1711-46ea-ad79-b1841e4a377e	GET	http://127.0.0.1:5173	/api/v1/api/client?page=3&pageSize=10
+20251126	21:19:13	c086aef2-384c-4b84-8713-0446a0f65b66	GET	http://127.0.0.1:5173	/api/v1/api/client?page=1&pageSize=10
+20251126	21:19:18	d36a072f-0cd7-4a43-aedd-5b7fd2346e26	GET	http://127.0.0.1:5173	/api/v1/core/client/get_clientProject?client_id=62
+20251126	21:19:18	a8a9b0f3-ef37-40dd-8452-120dfb752bed	GET	http://127.0.0.1:5173	/api/v1/core/client/get_ProjectInfo?pro_ref_id=JGCP00015
+20251126	21:20:55	b607e5cf-3edd-4c32-a8e2-504a1471d014	GET	http://127.0.0.1:5173	/api/v1/core/material_req/realAll_by_ProId/34
+20251126	21:20:57	a09adaa3-02c8-4a99-b7f9-80d20770d968	GET	http://127.0.0.1:5173	/api/v1/core/material_req/remaining/readAll/34
+20251126	21:21:17	f20f9c78-d006-43f5-a4e8-83bd1114380c	GET	http://127.0.0.1:5173	/api/v1/core/material_req/remaining/readAll/34
+20251126	21:22:05	8d9ff071-be92-4aa3-bd97-12167efb4581	GET	http://127.0.0.1:5173	/api/v1/core/material_req/remaining/readAll/34
+20251126	21:24:08	a1af8c57-6013-4b80-b5a9-a90a6d8c182c	GET	http://127.0.0.1:5173	/api/v1/core/material_req/remaining/readAll/34
+20251126	21:26:16	8dc454f5-1070-4252-8bd1-005bf97b0cbd	GET	http://127.0.0.1:5173	/api/v1/core/client/get_clientProject?client_id=62
+20251126	21:26:16	85b58f84-6042-4aaf-aa5c-74d9e2da4aa5	GET	http://127.0.0.1:5173	/api/v1/core/client/get_ProjectInfo?pro_ref_id=JGCP00015
+20251126	21:26:17	ae8be62e-bc13-43fa-999a-3d191ba5450e	GET	http://127.0.0.1:5173	/api/v1/core/material_req/realAll_by_ProId/34
+20251126	21:26:27	c59080c5-8669-4e71-948b-306bf1125533	POST	http://127.0.0.1:5173	/api/v1/core/material_req/remaining/create/32
+20251126	21:26:32	97d47d10-e648-4d01-a881-be5aa3b866a1	GET	http://127.0.0.1:5173	/api/v1/api/client?page=3&pageSize=10
+20251126	21:26:32	1cb0a38a-810b-4c42-957e-801df4ee7025	GET	http://127.0.0.1:5173	/api/v1/core/client/get_clientProject?client_id=62
+20251126	21:26:32	ce5c1747-4638-4b3f-9176-9976a5d6cc1a	GET	http://127.0.0.1:5173	/api/v1/api/client?page=1&pageSize=10
+20251126	21:26:32	ad8dd8b2-3103-4b1d-bf15-5cf1d7ed6a27	GET	http://127.0.0.1:5173	/api/v1/core/client/get_ProjectInfo?pro_ref_id=JGCP00015
+20251126	21:26:33	7a145f78-5736-40ca-b0ef-c71536b69f44	GET	http://127.0.0.1:5173	/api/v1/core/material_req/realAll_by_ProId/34
+20251126	21:27:38	e13401c6-ed8e-4525-9863-a38f154b1f55	GET	http://127.0.0.1:5173	/api/v1/core/material_req/remaining/readAll/34
+20251126	21:27:45	fd62004e-f75c-4586-844b-e71e9a219cf9	GET	http://127.0.0.1:5173	/api/v1/api/client?page=3&pageSize=10
+20251126	21:27:45	730e337d-7ab2-4f3b-8a73-918b55b2e854	GET	http://127.0.0.1:5173	/api/v1/core/client/get_clientProject?client_id=62
+20251126	21:27:45	0c15e77d-d9e5-4e7b-8c97-a6a9ac613612	GET	http://127.0.0.1:5173	/api/v1/api/client?page=1&pageSize=10
+20251126	21:27:45	ecf90c68-c7ce-4e8b-aed1-bc5208fc2474	GET	http://127.0.0.1:5173	/api/v1/core/client/get_ProjectInfo?pro_ref_id=JGCP00015
+20251126	21:27:47	50a34c30-2f3b-4c12-8fd5-b2c9e0720f01	GET	http://127.0.0.1:5173	/api/v1/core/material_req/realAll_by_ProId/34
+20251126	21:28:20	cab13b13-ae9f-40e5-a1e0-afe0d681de46	GET	http://127.0.0.1:5173	/api/v1/api/project?page=1&pageSize=10
+20251126	21:28:20	9b726773-d958-4d9e-8480-00d9dda27a44	GET	http://127.0.0.1:5173	/api/v1/core/project/get_project_detail/34
+20251126	21:28:23	153e59c9-27be-4188-a7b0-79772b53be72	GET	http://127.0.0.1:5173	/api/v1/api/client?page=1&pageSize=10
+20251126	21:28:23	013b3e07-d4f2-480d-9517-f7890e0b4989	GET	http://127.0.0.1:5173	/api/v1/core/client/get_clientProject?client_id=62
+20251126	21:28:23	3da88c5f-480b-45c5-a467-e7a8055c783d	GET	http://127.0.0.1:5173	/api/v1/core/client/get_ProjectInfo?pro_ref_id=JGCP00015
+20251126	21:28:46	7791f631-bea3-4106-9ad9-e7e3fdabb01d	GET	undefined	/api/v1/core/material_req/realAll_by_ProId/34
+20251126	21:29:48	73ad0346-fdfb-43a0-84c0-4144d90844d9	GET	http://127.0.0.1:5173	/api/v1/entity/collection/readAll
+20251126	21:29:48	c44eefb9-e81c-424b-ba74-3b165a261ca5	GET	http://127.0.0.1:5173	/api/v1/entity/phase/readAll
+20251126	21:29:51	32bdb62f-656b-439a-806a-e62742862ede	GET	http://127.0.0.1:5173	/api/v1/search?query=JGCP00015&type=project&pageSize=50
+20251126	21:29:54	4a75e4d7-fee4-4655-bd7e-b7ce43b04d0d	GET	http://127.0.0.1:5173	/api/v1/api/client?page=1&pageSize=10
+20251126	21:29:54	f92de0ed-a38f-49eb-8fa2-e87794451a73	GET	http://127.0.0.1:5173	/api/v1/core/client/get_clientProject?client_id=62
+20251126	21:29:54	f7f96fe2-06cd-4e61-974e-f3750c6aae06	GET	http://127.0.0.1:5173	/api/v1/core/client/get_ProjectInfo?pro_ref_id=JGCP00015
+20251126	21:30:02	fcc61749-ef26-4c22-af13-b7db9b3e633f	GET	http://127.0.0.1:5173	/api/v1/entity/collection/readAll
+20251126	21:30:11	72bbd277-009e-4b63-8dc5-023f93b3bc88	GET	http://127.0.0.1:5173	/api/v1/entity/collection/readAll
+20251126	21:30:17	5fdf6455-9eb5-4f72-9d2f-75c7db180be9	GET	http://127.0.0.1:5173	/api/v1/entity/collection/readAll
+20251126	21:31:54	8b251750-fa38-4963-8828-f90452b78622	GET	http://127.0.0.1:5173	/api/v1/entity/phase/readAll
+20251126	21:32:01	1affcb23-f46f-4ec7-86b4-ae8ffc304230	GET	http://127.0.0.1:5173	/api/v1/entity/material_req/readAll
+20251126	21:32:04	8c0eaaa7-f076-4209-8324-40d7e8a4152a	GET	http://127.0.0.1:5173	/api/v1/core/material_req/realAll_by_materialId/24
+20251126	21:32:14	265ffffa-f8b6-49bd-8fc6-05bc91a17ddd	GET	http://127.0.0.1:5173	/api/v1/core/material_req/realAll_by_materialId/23

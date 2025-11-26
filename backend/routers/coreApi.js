@@ -71,6 +71,8 @@ coreRouter.get('/core/contractorPayment/readAll', contractorPaymentCoreControlle
 
 // [Project phase]-----------
 coreRouter.post('/core/project_phase/update_status', projectPhaseCoreController.updatePhaseStatus);
+coreRouter.get('/core/project_phase/getPhase_list/:pro_id', projectPhaseCoreController.getProject_PhaseList);
+
 
 // [Analytics  phase]-----------
 // coreRouter.post('/core/project_phase/update_status', analyticsCoreController.updatePhaseStatus);
