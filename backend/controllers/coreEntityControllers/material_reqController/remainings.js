@@ -10,7 +10,7 @@ class MaterialRemainingController {
          if (!affectedRows) {
             return res.status(404).send({ status: false, msg: 'No records found to update.', data: null });
          }
-          const reArrange_data = {};
+         const reArrange_data = {};
          affectedRows.rm_id.forEach((item) => {
             const key = `${item.rm_id}-${item.payment_mode}-${item.total_amount}`;
             if (!reArrange_data[key]) {
@@ -96,7 +96,7 @@ class MaterialRemainingController {
          return res.status(200).send({
             status: true,
             msg: 'Remaining Status successfully!',
-            data: null,
+            data: { rm_id },
          });
       } catch (error) {
          console.error('Error updating createRemainingForMaterial:', error);
@@ -113,7 +113,7 @@ class MaterialRemainingController {
          return res.status(200).send({
             status: true,
             msg: 'Remaining removed successfully!',
-            data: null,
+            data: { rm_id },
          });
       } catch (error) {
          console.error('Error updating removeRemainingForMaterial:', error);

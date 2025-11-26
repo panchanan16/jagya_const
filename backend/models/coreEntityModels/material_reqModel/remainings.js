@@ -67,7 +67,7 @@ class MaterialRemainingModel {
             data.pro_id,
          ]);
          const expId = expResult.insertId;
-         await conn.query(
+         await connPool.query(
             `INSERT INTO relations (entity_a, entity_a_id, entity_b, entity_b_id, relation_type) VALUES (?,?,?,?,?)`,
             ['expenses', expId, 'material_payment_remaining', rm_id, 'mr_payment_relation_remaining']
          );
@@ -83,7 +83,7 @@ class MaterialRemainingModel {
             expId,
          ]);
          const vendor_payment_id = vendorPayResult.insertId;
-         await conn.query(
+         await connPool.query(
             `INSERT INTO relations (entity_a, entity_a_id, entity_b, entity_b_id, relation_type) VALUES (?,?,?,?,?)`,
             ['vendor_payments', vendor_payment_id, 'material_payment_remaining', rm_id, 'mr_payment_relation_remaining']
          );

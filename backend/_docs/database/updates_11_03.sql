@@ -3,7 +3,7 @@ ALTER TABLE `material_item_list` ADD `payment_date` VARCHAR(55) NULL DEFAULT NUL
 
 ALTER TABLE material_item_list ADD updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
 
-	CREATE TABLE `material_payment_remaining` (
+CREATE TABLE `material_payment_remaining` (
  `rm_id` bigint NOT NULL AUTO_INCREMENT,
  `mr_r_id` bigint DEFAULT NULL,
  `payment_mode` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
@@ -39,7 +39,7 @@ ALTER TABLE `material_item_list` ADD `payment_mode` VARCHAR(55) NULL DEFAULT NUL
 
 ALTER TABLE `expenses` CHANGE `exp_date` `exp_date` VARCHAR(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL;
 
-	CREATE TABLE `relations` (
+CREATE TABLE `relations` (
  `rel_id` bigint NOT NULL AUTO_INCREMENT,
  `entity_a` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
  `entity_a_id` bigint DEFAULT NULL,
