@@ -9603,3 +9603,14 @@
 20251126	11:57:48	4a8e7fa8-cce1-4b01-8c72-7e8fd0d76369	GET	undefined	/api/v1/core/project_phase/getPhase_list/9
 20251126	11:59:22	3702bc64-9122-42de-a983-8b73d4193743	GET	undefined	/api/v1/core/project_phase/getPhase_list/9
 20251126	12:07:28	f00f350d-e58a-482e-9e74-97d97881b23c	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
+20251126	12:18:01	767d5ba2-dada-48cc-9130-48709b531fe0	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
+20251126	12:19:24	972482e5-d806-4b6d-a027-40fd10c83e2d	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
+20251126	12:19:45	11fa2a52-1703-4226-984a-35ebedf59177	GET	undefined	/api/v1/core/client/get_lastRef
+20251126	12:19:49	9250363d-6210-461e-a749-626256d43c86	GET	undefined	/api/v1/entity/collection/readAll?from_date=2023-01-01&to_date=2023-12-31
+20251126	12:33:30	220e868c-8c14-4e91-8f88-4673f5bd9c84	GET	undefined	/api/v1/entity/collection/readAll?from_date=2023-01-01&to_date=2023-12-31
+20251126	12:34:10	7014d832-0222-43fa-b6cb-09d568697e7c	GET	undefined	/api/v1/entity/collection/readAll?from_date=2024-01-01&to_date=2025-12-31
+20251126	12:36:22	b6ab2166-ca88-4f4c-9316-175663eeb8bd	GET	undefined	/api/v1/entity/collection/readAll?from_date=2024-01-01&to_date=2025-12-30
+20251126	12:36:52	834e46b6-2120-49ca-b955-bef934b38ef1	GET	undefined	/api/v1/entity/collection/readAll?from_date=2024-01-01&to_date=2025-12-30
+20251126	12:37:22	a7f8c7dd-970b-4c2b-9bdf-bccf5fdf5ba8	GET	undefined	/api/v1/entity/collection/readAll?to_date=2025-12-30
+20251126	12:37:27	4b172223-4128-483e-bb05-2a2b0cc4ab3d	GET	undefined	/api/v1/entity/collection/readAll?to_date=2025-12-30
+20251126	12:37:37	30294150-b76d-4604-a67c-ff5699e34f0c	GET	undefined	/api/v1/entity/collection/readAll?from_date=2024-01-01
