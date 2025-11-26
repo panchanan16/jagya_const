@@ -16754,3 +16754,11 @@
 20251124	22:01:13	56b2eb3b-aa0c-41b6-bf08-4dbfd2e8dbeb	PUT	undefined	/api/v1/core/material_req/remaining/update_status/4
 20251124	22:02:21	3a299187-4e69-422e-8d16-0888ffa0b98f	PUT	undefined	/api/v1/core/material_req/remaining/update_status/4
 20251124	22:03:21	bcfc999e-a244-4cb1-addf-1b77ada6fddd	PUT	undefined	/api/v1/core/material_req/remaining/update_status/4
+20251126	20:58:30	0b1b687b-962d-41ca-acd0-e9afe2362d16	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
+20251126	21:00:36	ae62f6ba-8a70-47e8-8180-0826e6c053a4	GET	undefined	/api/v1/core/vendor/get_vendor_payment_purchase?vendor_id=14
+20251126	21:01:09	98f63c2e-7c4d-4250-9638-e37b2718782f	GET	undefined	/api/v1/entity/collection/readAll
+20251126	21:05:59	20157e4f-9d6c-4ee7-8eff-ffe08f6e1c11	GET	undefined	/api/v1/core/material_req/remaining/readAll/32
+20251126	21:06:02	5007e88b-2a63-4496-8a96-f745552ed421	GET	undefined	/api/v1/core/material_req/remaining/readAll/14
+20251126	21:06:05	c881d63d-042e-490b-9803-2cba1bba0c80	GET	undefined	/api/v1/core/material_req/remaining/readAll/17
+20251126	21:06:10	6db4035d-2004-4d87-a6d7-7f3f4098b5d5	GET	undefined	/api/v1/core/material_req/remaining/readAll/11
+20251126	21:06:44	81bdc4b7-7701-4465-9b44-aaac2df10881	GET	undefined	/api/v1/core/material_req/remaining/readAll/11
