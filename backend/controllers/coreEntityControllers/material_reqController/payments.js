@@ -8,7 +8,7 @@ class MaterialPaymentsController {
       const connPool = await pool.getConnection();
 
       const { mr_item_id } = req.params;
-      const { payment_status,payment_mode, payment_date } = req.body;
+      const { payment_status, payment_mode, payment_date } = req.body;
       try {
          const affectedRows = await coreMaterialRequestModel.updateMrPaymentStatus(
             mr_item_id,
@@ -19,7 +19,7 @@ class MaterialPaymentsController {
          if (affectedRows === 0) {
             return res.status(404).send({ status: false, msg: 'No records found to update.', data: null });
          }
-         if (affectedRows.success==false) {
+         if (affectedRows.success == false) {
             return res.status(404).send({ status: false, msg: affectedRows.msg, data: null });
          }
          return res.status(200).send({

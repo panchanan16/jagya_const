@@ -179,8 +179,6 @@ class MaterialRemainingModel {
          );
          //  vendor_payment entry
          // ---------------------------------------------------
-         console.log(out_SelectedItemsData.vendorIds);
-
          const vendorSql = `INSERT INTO vendor_payments (pay_vendor_id, pay_project_id, pay_amount, pay_mode, pay_note, pay_exp_id) VALUES (?, ?, ?, ?, ?, ?) `;
          const [vendorPayResult] = await connPool.execute(vendorSql, [
             _getSelectedItemsDetails[0].vendor_id,
