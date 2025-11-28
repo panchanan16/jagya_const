@@ -12,42 +12,42 @@ class CollectionsModel {
    }
 
    // Get all collectionss
-   static async findAll(from_date, to_date) {
-   let query = `
-      SELECT collections.*, projects.pro_name, c.client_name
-      FROM collections
-      JOIN projects ON collections.col_project_id = projects.pro_ref_no
-      LEFT JOIN clients c ON c.client_id = projects.pro_client_r_id
-   `;
+static async findAll(from_date, to_date) {
+  let query = `
+    SELECT collections.*, projects.pro_name, c.client_name
+    FROM collections
+    JOIN projects ON collections.col_project_id = projects.pro_id
+    LEFT JOIN clients c ON c.client_id = projects.pro_client_r_id
+  `;
 
-   const params = [];
+  const params = [];
 
-   if (from_date && to_date) {
-      query += ` WHERE DATE(collections.col_date) BETWEEN ? AND ? `;
-      params.push(from_date, to_date);
+  if (from_date && to_date) {
+    query += ` WHERE DATE(collections.col_date) BETWEEN ? AND ? `;
+    params.push(from_date, to_date);
 
-   } else if (from_date) {
-      query += ` WHERE DATE(collections.col_date) >= ? `;
-      params.push(from_date);
+  } else if (from_date) {
+    query += ` WHERE DATE(collections.col_date) >= ? `;
+    params.push(from_date);
 
-   } else if (to_date) {
-      query += ` WHERE DATE(collections.col_date) <= ? `;
-      params.push(to_date);
-   }
+  } else if (to_date) {
+    query += ` WHERE DATE(collections.col_date) <= ? `;
+    params.push(to_date);
+  }
 
-   query += ` ORDER BY collections.col_id DESC;`;
+  query += ` ORDER BY collections.col_id DESC`;
 
-   const connPool = await pool.getConnection();
+  const connPool = await pool.getConnection();
 
-   try {
-      const [rows] = await connPool.query(query, params);
-      return rows;
-   } catch (error) {
-      console.error('Error retrieving all collections:', error);
-      throw error;
-   } finally {
-      connPool.release();
-   }
+  try {
+    const [rows] = await connPool.query(query, params);
+    return rows;
+  } catch (err) {
+    console.error("Error retrieving all collections:", err);
+    throw err;
+  } finally {
+    connPool.release();
+  }
 }
 
 
