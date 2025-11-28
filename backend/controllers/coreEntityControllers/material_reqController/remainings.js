@@ -72,7 +72,7 @@ class MaterialRemainingController {
                mr_pri_id: item.mr_pri_id,
                item_id: item.item_id,
                item_name: item.mr_item_name,
-               item_amount: item.item_amount,
+               item_amount: item.mr_item_amount,
                item_mr_id: item.item_mr_id,
                payment_status: item.payment_status,
                vendor_name: item.vendor_name,
