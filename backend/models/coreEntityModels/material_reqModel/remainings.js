@@ -51,9 +51,8 @@ class MaterialRemainingModel {
             const itemValues = AllItemDetails.map((i) => [rm_id, i.mr_item_id, i.mr_r_id]);
             await connPool.query(itemSql, [itemValues]);
          }
-          const UpdateStatus = `UPDATE material_item_list SET payment_status='${data.payment_status || 'remaining'}' WHERE mr_item_id IN  (${data.items.join(',')} )`;
+         const UpdateStatus = `UPDATE material_item_list SET payment_status='${data.payment_status || 'remaining'}' WHERE mr_item_id IN  (${data.items.join(',')} )`;
          const [UpdateStatusOut] = await connPool.execute(UpdateStatus);
-   
 
          const formatedItemDetails = await this.formatItemData(AllItemDetails);
 
@@ -117,7 +116,7 @@ class MaterialRemainingModel {
          connPool.release();
       }
    }
-   static async updateRemainingPaymentsStatus(rm_id, rm_status, rm_date,data={}) {
+   static async updateRemainingPaymentsStatus(rm_id, rm_status, rm_date, data = {}) {
       const connPool = await pool.getConnection();
       await connPool.beginTransaction();
       try {
@@ -144,13 +143,18 @@ class MaterialRemainingModel {
 
          if (_getSelectedItems?.length > 0) {
             const updateMaterialItemList =
-               'UPDATE material_item_list SET payment_status = ?, payment_date=? WHERE mr_item_id = ?;';
-            const itemValues = _getSelectedItems.map((i) => [rm_status, rm_date || new Date(), i.item_id]);
+               'UPDATE material_item_list SET payment_status = ?, payment_date=?,payment_mode=? WHERE mr_item_id = ?;';
+            const itemValues = _getSelectedItems.map((i) => [
+               rm_status,
+               rm_date || new Date(),
+               data.payment_mode || 'UPI',
+               i.item_id,
+            ]);
             for (const values of itemValues) {
                await connPool.execute(updateMaterialItemList, values);
             }
          }
-           const [_getSelectedRM_ID] = await connPool.execute(
+         const [_getSelectedRM_ID] = await connPool.execute(
             'SELECT remaining,project_id FROM material_payment_remaining WHERE rm_id = ?',
             [rm_id]
          );
@@ -176,7 +180,7 @@ class MaterialRemainingModel {
          //  vendor_payment entry
          // ---------------------------------------------------
          console.log(out_SelectedItemsData.vendorIds);
-         
+
          const vendorSql = `INSERT INTO vendor_payments (pay_vendor_id, pay_project_id, pay_amount, pay_mode, pay_note, pay_exp_id) VALUES (?, ?, ?, ?, ?, ?) `;
          const [vendorPayResult] = await connPool.execute(vendorSql, [
             _getSelectedItemsDetails[0].vendor_id,
@@ -189,7 +193,13 @@ class MaterialRemainingModel {
          let vendor_payment_id = vendorPayResult.insertId;
          await connPool.query(
             `INSERT INTO relations (entity_a, entity_a_id, entity_b, entity_b_id, relation_type) VALUES (?,?,?,?,?)`,
-            ['vendor_payments', vendor_payment_id, 'material_payment_remaining', rm_id, 'mr_payment_remaining_Status_update']
+            [
+               'vendor_payments',
+               vendor_payment_id,
+               'material_payment_remaining',
+               rm_id,
+               'mr_payment_remaining_Status_update',
+            ]
          );
          await connPool.commit();
          connPool.release();
@@ -204,14 +214,42 @@ class MaterialRemainingModel {
    }
    static async removeRemainingForMaterial(rm_id) {
       const connPool = await pool.getConnection();
-      // await connPool.beginTransaction();
+      await connPool.beginTransaction();
       try {
+         const GetItemsInfo = `SELECT item_id FROM material_payment_remaining_items WHERE rm_id =?`;
+         const [GetItemsInfos] = await connPool.execute(GetItemsInfo, [rm_id]);
+         if (GetItemsInfos.length === 0) {
+            throw new Error('No items found for given item_ids');
+         }
+
+         const sql = `UPDATE material_item_list SET payment_status='pending', payment_date='',payment_mode=''  WHERE mr_item_id IN (${GetItemsInfos.map((e) => e.item_id)})`;
+         const [AllItemDetails] = await connPool.execute(sql);
+
+         const selectRelation = `SELECT * FROM relations WHERE entity_b='material_payment_remaining' AND entity_b_id=${rm_id};`;
+         const [selectedRelation] = await connPool.execute(selectRelation);
+
+         console.log(selectedRelation);
+
+         for (const row of selectedRelation) {
+            const { entity_a, entity_a_id } = row;
+            console.log(entity_a, entity_a_id);
+
+            if (entity_a === 'expenses') {
+               await connPool.query(`DELETE FROM expenses WHERE exp_id = ?`, [entity_a_id]);
+            }
+            if (entity_a === 'vendor_payments') {
+               await connPool.query(`DELETE FROM vendor_payments WHERE pay_id = ?`, [entity_a_id]);
+            }
+            await connPool.query(`DELETE FROM relations WHERE rel_id = ?`, [row.rel_id]);
+         }
+
          const query = 'DELETE FROM material_payment_remaining WHERE rm_id = ?;';
          const [result] = await connPool.query(query, [rm_id]);
-         // await connPool.commit();
+
+         await connPool.commit();
          return { success: true };
       } catch (error) {
-         // await connPool.rollback();
+         await connPool.rollback();
          console.error('Error updating mr_delivery_status:', error);
          throw error;
       } finally {
