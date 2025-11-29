@@ -1,0 +1,22 @@
+meta {
+  name: get_all_remaining
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{URL.Core}}material_req/remaining/readAll/:pro_id
+  body: json
+  auth: none
+}
+
+params:path {
+  pro_id: 11
+}
+
+body:json {
+  {
+    "payment_status": "completed",
+    "payment_date":"13/20/2025"
+  }
+}

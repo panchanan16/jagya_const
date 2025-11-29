@@ -39,7 +39,7 @@ const entityQueries = {
         b_email LIKE ?
     `,
   },
-  clients: {
+  client: {
     sql: `
       SELECT * 
       FROM clients
@@ -59,7 +59,7 @@ const entityQueries = {
         client_email LIKE ?
     `,
   },
-  contractors: {
+  contractor: {
     sql: `
       SELECT * 
       FROM contractors
@@ -131,7 +131,7 @@ const entityQueries = {
         mr_phase LIKE ?
     `,
   },
-  projects: {
+  project: {
     sql: `
       SELECT * 
       FROM projects
@@ -149,7 +149,7 @@ const entityQueries = {
         pro_sitedesc LIKE ?
     `,
   },
-  vendors: {
+  vendor: {
     sql: `
       SELECT * 
       FROM vendors

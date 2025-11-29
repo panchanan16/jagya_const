@@ -12,7 +12,7 @@ class ClientModel {
       this.clientEmail = clientEmail;
    }
    static async findAll() {
-      const query = 'SELECT * FROM clients';
+      const query = 'SELECT * FROM clients ORDER BY client_id DESC;';
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query);

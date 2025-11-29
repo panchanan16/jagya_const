@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 14, 2025 at 12:54 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Nov 29, 2025 at 12:12 PM
+-- Server version: 8.0.40
+-- PHP Version: 8.3.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `branch_auth` (
-  `br_a_id` int(11) NOT NULL,
-  `br_r_id` int(11) NOT NULL,
-  `br_user_id` varchar(255) NOT NULL,
-  `br_password` varchar(255) NOT NULL,
-  `br_token` varchar(255) DEFAULT NULL,
-  `br_isactive` int(2) NOT NULL DEFAULT 1
+  `br_a_id` int NOT NULL,
+  `br_r_id` int NOT NULL,
+  `br_user_id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `br_password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `br_token` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `br_isactive` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -50,25 +50,25 @@ INSERT INTO `branch_auth` (`br_a_id`, `br_r_id`, `br_user_id`, `br_password`, `b
 --
 
 CREATE TABLE `branch_clients` (
-  `b_client_id` bigint(20) NOT NULL,
-  `b_r_id` int(11) NOT NULL,
-  `b_client_name` varchar(200) DEFAULT NULL,
-  `b_client_ref_no` varchar(200) DEFAULT NULL,
-  `b_client_contact` varchar(15) DEFAULT NULL,
-  `b_client_alt_contact` varchar(15) DEFAULT NULL,
-  `b_client_address` varchar(300) DEFAULT NULL,
-  `b_project_name` varchar(255) DEFAULT NULL,
-  `b_client_email` varchar(80) DEFAULT NULL,
-  `b_client_housetype` varchar(100) DEFAULT NULL,
-  `b_client_rcctype` varchar(100) DEFAULT NULL,
-  `b_client_totalcost` bigint(20) DEFAULT NULL,
-  `b_client_advancepayment` int(50) DEFAULT NULL,
-  `b_client_sitedesc` varchar(300) DEFAULT NULL,
-  `b_client_duration` varchar(100) DEFAULT NULL,
-  `b_client_commision` int(11) DEFAULT 1,
-  `b_admin_approval` tinyint(1) DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `approved_at` varchar(155) DEFAULT NULL
+  `b_client_id` bigint NOT NULL,
+  `b_r_id` int NOT NULL,
+  `b_client_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_ref_no` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_contact` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_alt_contact` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_address` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_project_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_email` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_housetype` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_rcctype` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_totalcost` bigint DEFAULT NULL,
+  `b_client_advancepayment` int DEFAULT NULL,
+  `b_client_sitedesc` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_duration` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_client_commision` int DEFAULT '1',
+  `b_admin_approval` tinyint(1) DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `approved_at` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -76,8 +76,6 @@ CREATE TABLE `branch_clients` (
 --
 
 INSERT INTO `branch_clients` (`b_client_id`, `b_r_id`, `b_client_name`, `b_client_ref_no`, `b_client_contact`, `b_client_alt_contact`, `b_client_address`, `b_project_name`, `b_client_email`, `b_client_housetype`, `b_client_rcctype`, `b_client_totalcost`, `b_client_advancepayment`, `b_client_sitedesc`, `b_client_duration`, `b_client_commision`, `b_admin_approval`, `created_at`, `approved_at`) VALUES
-(5, 3, 'Acme Corporation', 'ACME-2023-0015', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', NULL, 'info@acmecorp.com', 'Warehouse', 'Pre-engineered Steel', 500000, 150000, 'Large open area, flat terrain.', '6 months', 0, NULL, '2025-05-16 11:44:00', '2025-05-16 17:44:04'),
-(8, 3, 'Acme Corporation', 'ACME-2023-00d15', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', NULL, 'info@acmecorp.com', 'Warehouse', 'Pre-engineered Steel', 500000, 150000, 'Large open area, flat terrain.', '6 months', 0, 1, '2025-05-16 11:44:00', '2025-05-16 17:46:37'),
 (11, 3, 'Acme Corporation', 'ACME-2023-00d5', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', NULL, 'info@acmecorp.com', 'Warehouse', 'Pre-engineered Steel', 500000, 150000, 'Large open area, flat terrain.', '6 months', 0, 1, '2025-05-16 11:44:00', '2025-05-16 17:53:22'),
 (13, 3, 'Acme Corporation', 'ACME-2023-005', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', NULL, 'info@acmecorp.com', 'Warehouse', 'Pre-engineered Steel', 500000, 150000, 'Large open area, flat terrain.', '6 months', 0, 1, '2025-05-16 11:44:00', '2025-05-16 17:54:03'),
 (15, 3, 'Acme Corporation', 'ACME-2023-05', '555-100-1001', '555-200-2001', '100 Industry Lane, Anytown', NULL, 'info@acmecorp.com', 'Warehouse', 'Pre-engineered Steel', 500000, 150000, 'Large open area, flat terrain.', '6 months', 0, 1, '2025-05-16 11:44:00', NULL),
@@ -108,14 +106,14 @@ INSERT INTO `branch_clients` (`b_client_id`, `b_r_id`, `b_client_name`, `b_clien
 --
 
 CREATE TABLE `branch_data` (
-  `br_id` int(11) NOT NULL,
-  `b_name` varchar(200) DEFAULT NULL,
-  `b_location` varchar(300) DEFAULT NULL,
-  `b_head` varchar(100) DEFAULT NULL,
-  `b_contact_number` varchar(15) DEFAULT NULL,
-  `b_alt_number` varchar(15) DEFAULT NULL,
-  `b_email` varchar(80) DEFAULT NULL,
-  `b_commision` int(11) NOT NULL DEFAULT 1
+  `br_id` int NOT NULL,
+  `b_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_location` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_head` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_contact_number` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_alt_number` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_email` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `b_commision` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -137,13 +135,13 @@ INSERT INTO `branch_data` (`br_id`, `b_name`, `b_location`, `b_head`, `b_contact
 --
 
 CREATE TABLE `clients` (
-  `client_id` bigint(20) NOT NULL,
-  `client_name` varchar(200) DEFAULT NULL,
-  `client_ref_no` varchar(200) NOT NULL,
-  `client_contact` varchar(15) DEFAULT NULL,
-  `client_alt_contact` varchar(15) DEFAULT NULL,
-  `client_address` varchar(300) DEFAULT NULL,
-  `client_email` varchar(80) DEFAULT NULL
+  `client_id` bigint NOT NULL,
+  `client_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `client_ref_no` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `client_contact` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `client_alt_contact` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `client_address` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `client_email` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -176,13 +174,13 @@ INSERT INTO `clients` (`client_id`, `client_name`, `client_ref_no`, `client_cont
 --
 
 CREATE TABLE `collections` (
-  `col_id` int(155) NOT NULL,
-  `col_amount` varchar(55) DEFAULT NULL,
-  `col_mode` varchar(55) DEFAULT NULL,
-  `col_remark` varchar(255) DEFAULT NULL,
-  `col_date` varchar(20) DEFAULT NULL,
-  `col_project_id` varchar(55) NOT NULL,
-  `col_project_phase` varchar(155) DEFAULT NULL
+  `col_id` int NOT NULL,
+  `col_amount` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `col_mode` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `col_remark` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `col_date` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `col_project_id` varchar(55) COLLATE utf8mb4_general_ci NOT NULL,
+  `col_project_phase` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -195,10 +193,20 @@ INSERT INTO `collections` (`col_id`, `col_amount`, `col_mode`, `col_remark`, `co
 (4, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
 (5, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
 (6, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
-(7, '5000', 'upi', '', '2025-04-06', '35', NULL),
+(7, '5000', 'upi', '', '2025-11-06', '35', NULL),
 (8, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
 (9, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', NULL),
-(10, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', 'phase1');
+(10, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', 'PRJ1001', 'phase1'),
+(11, '5000', 'Cash', 'asdfasdf', '2025-11-02', 'JGCP0005', 'Phase 33'),
+(12, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', '11', 'phase1'),
+(13, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', '11', 'phase1'),
+(14, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', '11', 'phase1'),
+(15, '1500', 'Bank Transfer', 'Advance payment for materials', '2023-10-26', '11', 'phase1'),
+(16, '1500', 'Bank Transfer', 'Advance payment for materials', '2024-10-26', '11', 'phase1'),
+(17, '1500', 'Bank Transfer', 'Advance payment for materials', '2024-05-26', '11', 'phase1'),
+(18, '1500', 'Bank Transfer', 'Advance payment for materials', '2025-05-26', '11', 'phase1'),
+(19, '1500', 'Bank Transfer', 'Advance payment for materials', '2025-11-26', '11', 'phase1'),
+(20, '1500', 'Bank Transfer', 'Advance payment for materials', '2025-11-06', '11', 'phase1');
 
 -- --------------------------------------------------------
 
@@ -207,12 +215,12 @@ INSERT INTO `collections` (`col_id`, `col_amount`, `col_mode`, `col_remark`, `co
 --
 
 CREATE TABLE `contractors` (
-  `con_id` int(20) NOT NULL,
-  `con_name` varchar(200) DEFAULT NULL,
-  `con_contact` varchar(20) DEFAULT NULL,
-  `con_alt_contact` varchar(20) DEFAULT NULL,
-  `con_address` varchar(300) DEFAULT NULL,
-  `con_email` varchar(80) DEFAULT NULL
+  `con_id` int NOT NULL,
+  `con_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `con_contact` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `con_alt_contact` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `con_address` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `con_email` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -233,13 +241,13 @@ INSERT INTO `contractors` (`con_id`, `con_name`, `con_contact`, `con_alt_contact
 --
 
 CREATE TABLE `contractor_payments` (
-  `pay_id` int(20) NOT NULL,
-  `pay_con_id` int(20) DEFAULT NULL,
-  `pay_project_id` bigint(20) DEFAULT NULL,
-  `pay_amount` varchar(50) DEFAULT NULL,
-  `pay_mode` varchar(155) DEFAULT NULL,
-  `pay_note` varchar(255) DEFAULT NULL,
-  `pay_exp_id` int(20) DEFAULT NULL
+  `pay_id` int NOT NULL,
+  `pay_con_id` int DEFAULT NULL,
+  `pay_project_id` bigint DEFAULT NULL,
+  `pay_amount` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pay_mode` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pay_note` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pay_exp_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -282,15 +290,15 @@ INSERT INTO `contractor_payments` (`pay_id`, `pay_con_id`, `pay_project_id`, `pa
 --
 
 CREATE TABLE `expenses` (
-  `exp_id` int(155) NOT NULL,
-  `exp_name` varchar(255) DEFAULT NULL,
-  `exp_amount` varchar(55) DEFAULT NULL,
-  `exp_mode` varchar(55) DEFAULT NULL,
-  `exp_remark` varchar(255) DEFAULT NULL,
-  `exp_date` varchar(11) DEFAULT NULL,
-  `exp_category` varchar(155) DEFAULT NULL,
-  `exp_project_ref` varchar(155) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `exp_id` int NOT NULL,
+  `exp_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_amount` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_mode` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_remark` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_date` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_category` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_project_ref` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -335,7 +343,17 @@ INSERT INTO `expenses` (`exp_id`, `exp_name`, `exp_amount`, `exp_mode`, `exp_rem
 (37, 'march expense 1', '20000', 'UPI', 'Bob da record', '2025-04-25', 'Project', NULL, '2025-05-11 08:05:36'),
 (38, 'Material Purchase', '2500', 'Credit Card', 'Purchase of cement and bricks', '2023-10-26', 'Construction Materials', 'Supplier A', '2025-05-11 08:05:36'),
 (39, 'march expense 1', '20000', 'UPI', 'Bob da record', '2025-04-25', 'Project', NULL, '2025-05-11 08:06:52'),
-(40, 'Material Purchase', '2500', 'Credit Card', 'Purchase of cement and bricks', '2023-10-26', 'Construction Materials', 'Supplier A', '2025-05-11 08:06:52');
+(40, 'Material Purchase', '2500', 'Credit Card', 'Purchase of cement and bricks', '2023-10-26', 'Construction Materials', 'Supplier A', '2025-05-11 08:06:52'),
+(41, 'Cement purchase', '0', 'Cash', 'Auto-created for MR payment', '13/20/2025', 'Materials', '11', '2025-11-16 06:13:49'),
+(45, 'undefined purchase', '1000', 'upi', 'Paid to Vendor undefined for mr_id undefined', '10/2/2025', 'Material Payment', '11', '2025-11-20 07:21:57'),
+(46, 'Cement purchase', '0', 'cheque', 'MR payment For mr_r_id17', '13/20/2025', 'Materials', '11', '2025-11-20 07:49:30'),
+(47, 'Cement purchase', '0', 'cheque', 'MR payment For mr_r_id17', '13/20/2025', 'Materials', '11', '2025-11-20 07:57:23'),
+(48, 'Cement purchase', '0', 'cheque', 'MR payment For mr_r_id17', '13/20/2025', 'Materials', '11', '2025-11-20 07:57:31'),
+(51, 'Cement purchase', '5000', 'cheque', 'MR payment For mr_r_id17', '13/20/2025', 'Materials', '11', '2025-11-24 15:53:41'),
+(52, 'Cement purchase', '5000', 'cheque', 'MR payment For mr_r_id17', '13/20/2025', 'Materials', '11', '2025-11-24 15:55:23'),
+(53, 'Cement purchase', '5000', 'cheque', 'MR payment For mr_r_id17', '13/20/2025', 'Materials', '11', '2025-11-24 15:56:05'),
+(54, 'Cement purchase', '5000', 'cheque', 'MR payment For mr_r_id17', '13/20/2025', 'Materials', '11', '2025-11-24 15:56:27'),
+(62, 'Auto-Created For undefined To Vendor undefined', '500', 'UPI', 'For Material request ID undefined', '2025-11-24 22:03:21', 'Material Payment', '11', '2025-11-24 16:33:21');
 
 -- --------------------------------------------------------
 
@@ -344,11 +362,11 @@ INSERT INTO `expenses` (`exp_id`, `exp_name`, `exp_amount`, `exp_mode`, `exp_rem
 --
 
 CREATE TABLE `expense_item` (
-  `exp_item_id` int(20) NOT NULL,
-  `exp_item_name` varchar(255) DEFAULT NULL,
-  `exp_item_quantity` varchar(255) DEFAULT NULL,
-  `exp_item_rate` varchar(255) DEFAULT NULL,
-  `exp_ref_id` int(20) DEFAULT NULL
+  `exp_item_id` int NOT NULL,
+  `exp_item_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_item_quantity` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_item_rate` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `exp_ref_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -369,12 +387,12 @@ INSERT INTO `expense_item` (`exp_item_id`, `exp_item_name`, `exp_item_quantity`,
 --
 
 CREATE TABLE `finance_dep` (
-  `fd_id` int(11) NOT NULL,
-  `fd_name` varchar(100) NOT NULL,
-  `fd_contact` varchar(13) NOT NULL,
-  `fd_alt_contact` varchar(13) DEFAULT NULL,
-  `fd_address` varchar(300) DEFAULT NULL,
-  `fd_email` varchar(100) DEFAULT NULL
+  `fd_id` int NOT NULL,
+  `fd_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `fd_contact` varchar(13) COLLATE utf8mb4_general_ci NOT NULL,
+  `fd_alt_contact` varchar(13) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fd_address` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fd_email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -391,12 +409,12 @@ INSERT INTO `finance_dep` (`fd_id`, `fd_name`, `fd_contact`, `fd_alt_contact`, `
 --
 
 CREATE TABLE `finance_dep_auth` (
-  `fd_a_id` int(11) NOT NULL,
-  `fd_r_id` int(11) NOT NULL,
-  `fd_user_id` varchar(100) DEFAULT NULL,
-  `fd_password` varchar(255) DEFAULT NULL,
-  `fd_token` varchar(455) DEFAULT NULL,
-  `fd_isactive` int(2) NOT NULL DEFAULT 1
+  `fd_a_id` int NOT NULL,
+  `fd_r_id` int NOT NULL,
+  `fd_user_id` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fd_password` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fd_token` varchar(455) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fd_isactive` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -413,26 +431,28 @@ INSERT INTO `finance_dep_auth` (`fd_a_id`, `fd_r_id`, `fd_user_id`, `fd_password
 --
 
 CREATE TABLE `invoice` (
-  `invoice_id` bigint(20) NOT NULL,
-  `invoice_no` varchar(50) DEFAULT NULL,
-  `invoice_date` varchar(20) DEFAULT NULL,
-  `payment_status` varchar(20) DEFAULT NULL,
-  `amount` varchar(50) DEFAULT NULL,
-  `gst_rate` varchar(50) DEFAULT NULL,
-  `discount` varchar(50) DEFAULT NULL,
-  `total` varchar(50) DEFAULT NULL,
-  `client_contact` varchar(50) DEFAULT NULL,
-  `client_address` varchar(50) DEFAULT NULL,
-  `client_id` bigint(20) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `invoice_id` bigint NOT NULL,
+  `invoice_no` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `invoice_date` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `payment_status` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `amount` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `gst_rate` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `discount` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `total` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `client_contact` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `client_address` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `client_id` bigint DEFAULT NULL,
+  `cliend_ref_id` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `invoice`
 --
 
-INSERT INTO `invoice` (`invoice_id`, `invoice_no`, `invoice_date`, `payment_status`, `amount`, `gst_rate`, `discount`, `total`, `client_contact`, `client_address`, `client_id`, `created_at`) VALUES
-(1, 'INV-2024-001', '2024-05-06', 'unpaid', '10000', '18', '500', '11300', '9876543210', 'Guwahati, Assam', 101, '2025-05-11 08:05:36');
+INSERT INTO `invoice` (`invoice_id`, `invoice_no`, `invoice_date`, `payment_status`, `amount`, `gst_rate`, `discount`, `total`, `client_contact`, `client_address`, `client_id`, `cliend_ref_id`, `created_at`) VALUES
+(1, 'INV-2024-001', '2024-05-06', 'unpaid', '10000', '18', '500', '11300', '9876543210', 'Guwahati, Assam', 35, 'adad', '2025-05-11 08:05:36'),
+(7, 'INV-2024-001', '2024-05-06', 'unpaid', '10000', '18', '500', '11300', '9876543210', 'Guwahati, Assam', 101, 'sasdf546', '2025-09-07 05:37:44');
 
 -- --------------------------------------------------------
 
@@ -441,12 +461,12 @@ INSERT INTO `invoice` (`invoice_id`, `invoice_no`, `invoice_date`, `payment_stat
 --
 
 CREATE TABLE `invoice_items` (
-  `invoice_item_id` bigint(20) NOT NULL,
-  `inv_item_name` varchar(155) DEFAULT NULL,
-  `inv_item_quantity` varchar(50) DEFAULT NULL,
-  `inv_item_rate` varchar(50) DEFAULT NULL,
-  `inv_item_amount` varchar(50) DEFAULT NULL,
-  `invoice_id` bigint(20) NOT NULL
+  `invoice_item_id` bigint NOT NULL,
+  `inv_item_name` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `inv_item_quantity` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `inv_item_rate` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `inv_item_amount` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `invoice_id` bigint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -454,8 +474,10 @@ CREATE TABLE `invoice_items` (
 --
 
 INSERT INTO `invoice_items` (`invoice_item_id`, `inv_item_name`, `inv_item_quantity`, `inv_item_rate`, `inv_item_amount`, `invoice_id`) VALUES
-(0, 'Steel Rod', '10', '100', '1000', 1),
-(0, 'Cement Bag', '20', '200', '4000', 1);
+(1, 'Steel Rod', '10', '100', '1000', 1),
+(2, 'Cement Bag', '20', '200', '4000', 1),
+(3, 'Steel Rod', '10', '100', '1000', 7),
+(4, 'Cement Bag', '20', '200', '4000', 7);
 
 -- --------------------------------------------------------
 
@@ -464,12 +486,12 @@ INSERT INTO `invoice_items` (`invoice_item_id`, `inv_item_name`, `inv_item_quant
 --
 
 CREATE TABLE `labours` (
-  `lab_id` int(20) NOT NULL,
-  `lab_name` varchar(200) DEFAULT NULL,
-  `lab_contact` varchar(20) DEFAULT NULL,
-  `lab_alt_contact` varchar(20) DEFAULT NULL,
-  `lab_address` varchar(300) DEFAULT NULL,
-  `lab_email` varchar(80) DEFAULT NULL
+  `lab_id` int NOT NULL,
+  `lab_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lab_contact` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lab_alt_contact` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lab_address` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lab_email` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -496,36 +518,98 @@ INSERT INTO `labours` (`lab_id`, `lab_name`, `lab_contact`, `lab_alt_contact`, `
 --
 
 CREATE TABLE `material_item_list` (
-  `mr_item_id` bigint(20) NOT NULL,
-  `mr_r_id` bigint(20) DEFAULT NULL,
-  `mr_project_r_id` bigint(20) NOT NULL,
-  `mr_item_name` varchar(255) DEFAULT NULL,
-  `mr_item_quantity` varchar(55) DEFAULT NULL,
-  `mr_item_amount` varchar(55) DEFAULT NULL,
-  `mr_item_date` varchar(20) DEFAULT NULL,
-  `md_approval` tinyint(1) DEFAULT 0,
-  `fd_approval` tinyint(1) DEFAULT 0,
-  `vendor_id` int(155) DEFAULT NULL,
-  `mr_delivery_status` tinyint(1) DEFAULT 0
+  `mr_item_id` bigint NOT NULL,
+  `mr_r_id` bigint DEFAULT NULL,
+  `mr_project_r_id` bigint NOT NULL,
+  `mr_item_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mr_item_quantity` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mr_item_amount` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mr_item_date` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `md_approval` tinyint(1) DEFAULT '0',
+  `fd_approval` tinyint(1) DEFAULT '0',
+  `vendor_id` int DEFAULT NULL,
+  `mr_delivery_status` tinyint(1) DEFAULT '0',
+  `payment_status` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `payment_mode` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `payment_date` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `material_item_list`
 --
 
-INSERT INTO `material_item_list` (`mr_item_id`, `mr_r_id`, `mr_project_r_id`, `mr_item_name`, `mr_item_quantity`, `mr_item_amount`, `mr_item_date`, `md_approval`, `fd_approval`, `vendor_id`, `mr_delivery_status`) VALUES
-(37, 13, 11, 'Cement', '20', NULL, NULL, 0, 0, 14, 0),
-(38, 13, 11, 'atta', '20', NULL, NULL, 0, 0, 14, 0),
-(39, 13, 11, 'Cement', '20', NULL, NULL, 0, 0, 14, 0),
-(40, 13, 11, 'atta', '20', NULL, NULL, 0, 0, 14, 0),
-(102, 15, 11, 'Cement', '20', NULL, NULL, 0, 0, NULL, 0),
-(103, 15, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0),
-(104, 15, 11, 'Cement', '20', NULL, NULL, 0, 0, NULL, 0),
-(105, 15, 11, 'atta', '20', NULL, NULL, 0, 0, NULL, 0),
-(113, 17, 11, 'Cement', '20', NULL, NULL, 0, 0, 14, 0),
-(114, 17, 11, 'atta', '20', NULL, NULL, 0, 0, 14, 0),
-(115, 17, 11, 'Cement', '20', NULL, NULL, 0, 0, 14, 0),
-(116, 17, 11, 'atta', '20', NULL, NULL, 0, 0, 14, 0);
+INSERT INTO `material_item_list` (`mr_item_id`, `mr_r_id`, `mr_project_r_id`, `mr_item_name`, `mr_item_quantity`, `mr_item_amount`, `mr_item_date`, `md_approval`, `fd_approval`, `vendor_id`, `mr_delivery_status`, `payment_status`, `payment_mode`, `payment_date`, `updated_at`) VALUES
+(117, 15, 11, 'Cement', '20', '5000', NULL, 0, 1, NULL, 0, 'pending', '', '', '2025-11-28 05:46:38'),
+(118, 15, 11, 'atta', '20', '1500', NULL, 0, 1, NULL, 0, NULL, NULL, NULL, '2025-11-04 15:18:14'),
+(119, 15, 11, 'Cement', '20', '2000', NULL, 0, 1, NULL, 0, NULL, NULL, NULL, '2025-11-04 15:18:14'),
+(120, 15, 11, 'atta', '20', '1500', NULL, 0, 1, NULL, 0, NULL, NULL, NULL, '2025-11-04 15:18:14'),
+(125, 13, 11, 'Cement', '20', '2000', NULL, 0, 1, 14, 0, NULL, NULL, NULL, '2025-11-04 15:18:14'),
+(126, 13, 11, 'atta', '20', '1500', NULL, 0, 1, 14, 0, 'pending', '', '', '2025-11-28 06:03:49'),
+(127, 13, 11, 'Cement', '20', '2000', NULL, 0, 1, 14, 0, NULL, NULL, NULL, '2025-11-04 15:18:14'),
+(128, 13, 11, 'atta', '20', '1500', NULL, 0, 1, 14, 0, NULL, NULL, NULL, '2025-11-04 15:18:14'),
+(133, 17, 11, 'Cement', '20', '5000', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-11-29 11:58:15'),
+(134, 17, 11, 'atta', '20', '1500', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-11-29 11:58:15'),
+(135, 17, 11, 'Cement', '20', '2000', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-11-29 11:58:15'),
+(136, 17, 11, 'atta', '20', '1500', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-11-29 11:58:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `material_payment_remaining`
+--
+
+CREATE TABLE `material_payment_remaining` (
+  `rm_id` bigint NOT NULL,
+  `mr_r_id` bigint DEFAULT NULL,
+  `payment_mode` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `remaining` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `total_amount` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `rm_status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `rm_date` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `project_id` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `material_payment_remaining`
+--
+
+INSERT INTO `material_payment_remaining` (`rm_id`, `mr_r_id`, `payment_mode`, `remaining`, `total_amount`, `rm_status`, `rm_date`, `created_at`, `updated_at`, `project_id`) VALUES
+(5, NULL, 'upi', '500', '1500', 'remainings', '10/2/2025', '2025-11-17 20:19:03', '2025-11-17 20:19:03', 11),
+(14, NULL, 'upi', '500', '1500', 'remainings', '10/2/2025', '2025-11-20 12:51:57', '2025-11-20 12:51:57', 11),
+(15, NULL, 'upi', '500', '1500', 'remainings', '10/2/2025', '2025-11-20 12:55:54', '2025-11-20 12:55:54', 11),
+(16, NULL, 'upi', '500', '1500', 'remainings', '10/2/2025', '2025-11-20 12:58:42', '2025-11-20 12:58:42', 11),
+(17, NULL, 'upi', '500', '1500', 'remainings', '10/2/2025', '2025-11-20 12:59:30', '2025-11-20 12:59:30', 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `material_payment_remaining_items`
+--
+
+CREATE TABLE `material_payment_remaining_items` (
+  `mr_pri_id` int NOT NULL,
+  `rm_id` bigint NOT NULL,
+  `item_id` bigint DEFAULT NULL,
+  `item_mr_id` bigint DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `material_payment_remaining_items`
+--
+
+INSERT INTO `material_payment_remaining_items` (`mr_pri_id`, `rm_id`, `item_id`, `item_mr_id`) VALUES
+(10, 5, 126, 13),
+(34, 14, 117, 15),
+(35, 14, 126, 13),
+(37, 15, 117, 15),
+(38, 15, 126, 13),
+(40, 16, 117, 15),
+(41, 16, 126, 13),
+(43, 17, 117, 15),
+(44, 17, 126, 13);
 
 -- --------------------------------------------------------
 
@@ -534,12 +618,12 @@ INSERT INTO `material_item_list` (`mr_item_id`, `mr_r_id`, `mr_project_r_id`, `m
 --
 
 CREATE TABLE `material_requests` (
-  `mr_r_id` bigint(20) NOT NULL,
-  `material_ref_no` varchar(55) DEFAULT NULL,
-  `mr_project_id` bigint(20) DEFAULT NULL,
-  `mr_phase` varchar(155) DEFAULT NULL,
-  `mr_date` varchar(55) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `mr_r_id` bigint NOT NULL,
+  `material_ref_no` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mr_project_id` bigint DEFAULT NULL,
+  `mr_phase` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mr_date` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -548,7 +632,6 @@ CREATE TABLE `material_requests` (
 
 INSERT INTO `material_requests` (`mr_r_id`, `material_ref_no`, `mr_project_id`, `mr_phase`, `mr_date`, `created_at`) VALUES
 (1, 'JGCMRQ0001', 12, 'installment', '<date>', '2025-04-05 13:13:06'),
-(9, NULL, 9, 'Phase 1', '2025-04-03', '2025-04-06 13:42:03'),
 (10, 'JGCMRQ0001', 9, 'Phase 1', '2025-04-03', '2025-04-06 13:48:40'),
 (11, 'JGCMRQ0002', 9, 'Phase 1', '2025-04-03', '2025-04-06 13:49:59'),
 (12, 'JGCMRQ0003', 9, 'Phase 1', '2025-04-03', '2025-04-08 02:04:00'),
@@ -564,15 +647,15 @@ INSERT INTO `material_requests` (`mr_r_id`, `material_ref_no`, `mr_project_id`, 
 --
 
 CREATE TABLE `notifications` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `message` text NOT NULL,
-  `type` enum('info','warning','error','success','system') NOT NULL DEFAULT 'info',
-  `is_read` tinyint(1) DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `message` text COLLATE utf8mb4_general_ci NOT NULL,
+  `type` enum('info','warning','error','success','system') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'info',
+  `is_read` tinyint(1) DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `expires_at` timestamp NULL DEFAULT NULL,
-  `metadata` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`metadata`))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `metadata` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin
+) ;
 
 -- --------------------------------------------------------
 
@@ -581,11 +664,11 @@ CREATE TABLE `notifications` (
 --
 
 CREATE TABLE `notification_recipients` (
-  `id` int(11) NOT NULL,
-  `notification_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `role` varchar(50) DEFAULT NULL,
-  `is_read` tinyint(1) DEFAULT 0,
+  `id` int NOT NULL,
+  `notification_id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `role` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `is_read` tinyint(1) DEFAULT '0',
   `read_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -596,9 +679,9 @@ CREATE TABLE `notification_recipients` (
 --
 
 CREATE TABLE `particles` (
-  `particle_id` int(20) NOT NULL,
-  `particle_name` varchar(200) DEFAULT NULL,
-  `particle_price` varchar(50) DEFAULT NULL
+  `particle_id` int NOT NULL,
+  `particle_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `particle_price` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -618,9 +701,9 @@ INSERT INTO `particles` (`particle_id`, `particle_name`, `particle_price`) VALUE
 --
 
 CREATE TABLE `phases` (
-  `phase_id` int(11) NOT NULL,
-  `phase_name` varchar(100) DEFAULT NULL,
-  `phase_alt_name` varchar(100) DEFAULT NULL
+  `phase_id` int NOT NULL,
+  `phase_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `phase_alt_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -628,15 +711,8 @@ CREATE TABLE `phases` (
 --
 
 INSERT INTO `phases` (`phase_id`, `phase_name`, `phase_alt_name`) VALUES
-(2, 'Phase 2', 'sub_phase_ascmigv'),
 (3, 'Phase 33', 'phase_alt_name 1'),
-(4, 'Phase 44', 'phase_alt_name 1'),
-(5, 'Phase 44', 'phase_alt_name 1'),
-(6, 'Phase 44', 'phase_alt_name 1'),
-(7, 'Phase 44', 'phase_alt_name 1'),
-(8, 'Phase 44', 'phase_alt_name 1'),
-(9, 'Phase 44', 'phase_alt_name 1'),
-(10, 'Phase 44', 'phase_alt_name 1');
+(12, 'new work', NULL);
 
 -- --------------------------------------------------------
 
@@ -645,18 +721,18 @@ INSERT INTO `phases` (`phase_id`, `phase_name`, `phase_alt_name`) VALUES
 --
 
 CREATE TABLE `projects` (
-  `pro_id` bigint(20) NOT NULL,
-  `pro_client_r_id` bigint(20) NOT NULL,
-  `pro_name` varchar(200) DEFAULT NULL,
-  `pro_ref_no` varchar(200) NOT NULL,
-  `pro_housetype` varchar(100) DEFAULT NULL,
-  `pro_rcctype` varchar(100) DEFAULT NULL,
-  `pro_sitedesc` varchar(300) DEFAULT NULL,
-  `pro_duration` varchar(100) DEFAULT NULL,
-  `pro_totalcost` bigint(20) DEFAULT NULL,
-  `pro_advancepayment` int(11) DEFAULT NULL,
-  `pro_own` varchar(55) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `pro_id` bigint NOT NULL,
+  `pro_client_r_id` bigint NOT NULL,
+  `pro_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pro_ref_no` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `pro_housetype` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pro_rcctype` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pro_sitedesc` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pro_duration` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pro_totalcost` bigint DEFAULT NULL,
+  `pro_advancepayment` int DEFAULT NULL,
+  `pro_own` varchar(55) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -667,7 +743,7 @@ INSERT INTO `projects` (`pro_id`, `pro_client_r_id`, `pro_name`, `pro_ref_no`, `
 (9, 35, 'Lakeview Resort', 'JGCP0002', 'Bungalow Resort', 'Timber and Stone', 'Scenic lakefront, hilly terrain.', '15 months', 1800000, 540000, NULL, '2025-04-05 13:13:56'),
 (10, 35, 'Lakeview Resort', 'JGCP0003', 'Bungalow Resort', 'Timber and Stone', 'Scenic lakefront, hilly terrain.', '15 months', 1800000, 540000, NULL, '2025-04-05 13:13:56'),
 (11, 35, 'Lakeview Resort', 'JGCP0004', 'Bungalow Resort', 'Timber and Stone', 'Scenic lakefront, hilly terrain.', '15 months', 1800000, 540000, NULL, '2025-04-05 13:13:56'),
-(12, 35, 'Lakeview Resort', 'JGCP0005', 'Bungalow Resort', 'Timber and Stone', 'Scenic lakefront, hilly terrain.', '15 months', 1800000, 540000, NULL, '2025-04-05 13:13:56'),
+(12, 35, 'Lakeview Resort 44', 'JGCP0005', 'Bungalow Resort', 'Timber and Stone', 'Scenic lakefront, hilly terrain.', '15 months', 1800000, 540000, NULL, '2025-04-05 13:13:56'),
 (13, 35, 'Lakeview Resort', 'JGCP0006', 'Bungalow Resort', 'Timber and Stone', 'Scenic lakefront, hilly terrain.', '15 months', 1800000, 540000, NULL, '2025-04-05 13:13:56'),
 (14, 35, 'Lakeview Resort', 'JGCP0007', 'Bungalow Resort', 'Timber and Stone', 'Scenic lakefront, hilly terrain.', '15 months', 1800000, 540000, NULL, '2025-04-05 13:13:56'),
 (15, 35, 'Lakeview Resort', 'JGCP0008', 'Bungalow Resort', 'Timber and Stone', 'Scenic lakefront, hilly terrain.', '15 months', 1800000, 540000, NULL, '2025-04-05 13:13:56'),
@@ -691,20 +767,23 @@ INSERT INTO `projects` (`pro_id`, `pro_client_r_id`, `pro_name`, `pro_ref_no`, `
 --
 
 CREATE TABLE `project_contractor` (
-  `pro_con_id` bigint(20) NOT NULL,
-  `pro_id` bigint(20) NOT NULL,
-  `con_id` int(20) DEFAULT NULL,
-  `pro_phase` varchar(255) DEFAULT NULL,
-  `pro_sub_phase` varchar(255) DEFAULT NULL
+  `pro_con_id` bigint NOT NULL,
+  `pro_id` bigint NOT NULL,
+  `con_id` int DEFAULT NULL,
+  `pro_phase` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pro_sub_phase` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `project_contractor`
 --
 
-INSERT INTO `project_contractor` (`pro_con_id`, `pro_id`, `con_id`, `pro_phase`, `pro_sub_phase`) VALUES
-(3, 9, 5, 'Phase 1', 'Subphase A'),
-(4, 9, 5, 'Phase 1', 'Subphase A');
+INSERT INTO `project_contractor` (`pro_con_id`, `pro_id`, `con_id`, `pro_phase`, `pro_sub_phase`, `created_at`) VALUES
+(3, 9, 5, 'Phase 1', 'Subphase A', '2025-09-05 22:14:58'),
+(4, 9, 5, 'Phase 1', 'Subphase A', '2025-09-05 22:14:58'),
+(5, 9, 1, 'Phase 33', NULL, '2025-09-30 21:22:09'),
+(6, 28, 2, 'Phase 33', NULL, '2025-11-14 17:43:32');
 
 -- --------------------------------------------------------
 
@@ -713,11 +792,11 @@ INSERT INTO `project_contractor` (`pro_con_id`, `pro_id`, `con_id`, `pro_phase`,
 --
 
 CREATE TABLE `project_docs` (
-  `pro_doc_id` int(11) NOT NULL,
-  `pro_r_id` bigint(20) NOT NULL,
-  `pro_doc_url` varchar(200) NOT NULL,
-  `pro_doc_name` varchar(155) DEFAULT NULL,
-  `pro_doc_type` varchar(50) DEFAULT NULL
+  `pro_doc_id` int NOT NULL,
+  `pro_r_id` bigint NOT NULL,
+  `pro_doc_url` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
+  `pro_doc_name` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pro_doc_type` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -726,13 +805,11 @@ CREATE TABLE `project_docs` (
 
 INSERT INTO `project_docs` (`pro_doc_id`, `pro_r_id`, `pro_doc_url`, `pro_doc_name`, `pro_doc_type`) VALUES
 (3, 9, 'public/project/files/file-86ca5128-2b99-44c4-8e87-9b029b805b41-1747033432513.pdf', NULL, '0'),
-(7, 9, 'public/project/files/file-f0aa20a7-4a43-4a85-b32b-2adb1369d79f-1747034744129.pdf', NULL, NULL),
 (8, 9, 'public/project/files/file-6f2e0810-4d9b-4ee8-a087-303faea57edc-1747034744280.pdf', NULL, NULL),
 (9, 9, 'public/project/files/file-7c36bbaa-867b-4294-971b-48277fe7897a-1747034744352.pdf', NULL, NULL),
 (10, 9, 'public/project/files/file-470b5035-2187-43b5-afe4-0c24e0a0df7f-1747034744493.pdf', NULL, NULL),
 (11, 9, 'public/project/files/file-bb095eba-bb46-4011-b883-6708e6f05339-1747034744592.pdf', NULL, NULL),
-(13, 9, 'public/project/images/image-34a17113-af97-4cc2-a081-60dab46dfa57-1747035464281.jpg', NULL, NULL),
-(14, 9, 'public/project/images/image-3ede4f51-4719-43b8-8303-c066bfda3732-1747631257823.jpg', 'WhatsApp Image  at', 'doc_image');
+(13, 9, 'public/project/images/image-34a17113-af97-4cc2-a081-60dab46dfa57-1747035464281.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -741,12 +818,12 @@ INSERT INTO `project_docs` (`pro_doc_id`, `pro_r_id`, `pro_doc_url`, `pro_doc_na
 --
 
 CREATE TABLE `project_phase` (
-  `pro_phase_id` int(20) NOT NULL,
-  `phase_id` int(155) NOT NULL,
-  `pro_id` bigint(20) NOT NULL,
-  `pro_phase_status` varchar(255) NOT NULL,
-  `pro_phase_deadline` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `pro_phase_id` int NOT NULL,
+  `phase_id` int NOT NULL,
+  `pro_id` bigint NOT NULL,
+  `pro_phase_status` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `pro_phase_deadline` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -758,7 +835,8 @@ INSERT INTO `project_phase` (`pro_phase_id`, `phase_id`, `pro_id`, `pro_phase_st
 (6, 3, 9, 'Completed', '2025-06-30', '2025-05-09 17:03:06'),
 (7, 3, 9, 'Not Started', '2025-06-30', '2025-05-09 17:03:15'),
 (8, 3, 9, 'Not Started', '2025-06-30', '2025-05-10 14:03:34'),
-(9, 3, 9, 'Not Started', '2025-06-30', '2025-05-11 08:05:36');
+(9, 3, 9, 'Not Started', '2025-06-30', '2025-05-11 08:05:36'),
+(10, 12, 28, 'Completed', '2025-11-14', '2025-11-14 12:13:22');
 
 -- --------------------------------------------------------
 
@@ -767,12 +845,12 @@ INSERT INTO `project_phase` (`pro_phase_id`, `phase_id`, `pro_id`, `pro_phase_st
 --
 
 CREATE TABLE `project_subphase` (
-  `pro_subphase_id` int(20) NOT NULL,
-  `pro_id` bigint(20) NOT NULL,
-  `pro_phase` int(20) DEFAULT NULL,
-  `pro_subphase` varchar(255) DEFAULT NULL,
-  `deadline` varchar(155) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `pro_subphase_id` int NOT NULL,
+  `pro_id` bigint NOT NULL,
+  `pro_phase` int DEFAULT NULL,
+  `pro_subphase` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `deadline` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -788,13 +866,43 @@ INSERT INTO `project_subphase` (`pro_subphase_id`, `pro_id`, `pro_phase`, `pro_s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `relations`
+--
+
+CREATE TABLE `relations` (
+  `rel_id` bigint NOT NULL,
+  `entity_a` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `entity_a_id` bigint DEFAULT NULL,
+  `entity_b` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `entity_b_id` bigint DEFAULT NULL,
+  `relation_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `meta_data` varchar(155) DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `relations`
+--
+
+INSERT INTO `relations` (`rel_id`, `entity_a`, `entity_a_id`, `entity_b`, `entity_b_id`, `relation_type`, `meta_data`, `created_at`, `updated_at`) VALUES
+(1, 'expenses', 51, 'vendor_payments', NULL, 'mr_payment_relation', NULL, '2025-11-24 21:23:41', '2025-11-24 21:23:41'),
+(2, 'expenses', 52, 'vendor_payments', NULL, 'mr_payment_relation', NULL, '2025-11-24 21:25:23', '2025-11-24 21:25:23'),
+(3, 'expenses', 53, 'vendor_payments', NULL, 'mr_payment_relation', NULL, '2025-11-24 21:26:05', '2025-11-24 21:26:05'),
+(4, 'expenses', 54, 'vendor_payments', 187, 'mr_payment_relation', NULL, '2025-11-24 21:26:27', '2025-11-24 21:26:27'),
+(12, 'expenses', 62, 'material_payment_remaining', 4, 'mr_payment_remaining_Status_update', NULL, '2025-11-24 22:03:21', '2025-11-24 22:03:21'),
+(13, 'vendor_payments', 189, 'material_payment_remaining', 4, 'mr_payment_remaining_Status_update', NULL, '2025-11-24 22:03:21', '2025-11-24 22:03:21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sub_phases`
 --
 
 CREATE TABLE `sub_phases` (
-  `sub_phase_id` int(11) NOT NULL,
-  `sub_phase_name` varchar(100) DEFAULT NULL,
-  `sub_phase_alt_name` varchar(100) DEFAULT NULL
+  `sub_phase_id` int NOT NULL,
+  `sub_phase_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sub_phase_alt_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -824,12 +932,12 @@ INSERT INTO `sub_phases` (`sub_phase_id`, `sub_phase_name`, `sub_phase_alt_name`
 --
 
 CREATE TABLE `superviser` (
-  `sup_id` int(11) NOT NULL,
-  `sup_name` varchar(100) NOT NULL,
-  `sup_email` varchar(155) DEFAULT NULL,
-  `sup_contact` varchar(13) NOT NULL,
-  `sup_alt_contact` varchar(13) DEFAULT NULL,
-  `sup_address` varchar(300) DEFAULT NULL
+  `sup_id` int NOT NULL,
+  `sup_name` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `sup_email` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sup_contact` varchar(13) COLLATE utf8mb4_general_ci NOT NULL,
+  `sup_alt_contact` varchar(13) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sup_address` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -853,12 +961,12 @@ INSERT INTO `superviser` (`sup_id`, `sup_name`, `sup_email`, `sup_contact`, `sup
 --
 
 CREATE TABLE `superviser_auth` (
-  `sup_a_id` int(11) NOT NULL,
-  `sup_r_id` int(11) NOT NULL,
-  `sup_user_id` varchar(100) DEFAULT NULL,
-  `sup_password` varchar(300) DEFAULT NULL,
-  `sup_token` varchar(300) DEFAULT NULL,
-  `sup_isactive` int(2) NOT NULL DEFAULT 1
+  `sup_a_id` int NOT NULL,
+  `sup_r_id` int NOT NULL,
+  `sup_user_id` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sup_password` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sup_token` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `sup_isactive` int NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -875,12 +983,12 @@ INSERT INTO `superviser_auth` (`sup_a_id`, `sup_r_id`, `sup_user_id`, `sup_passw
 --
 
 CREATE TABLE `super_admin` (
-  `su_id` int(11) NOT NULL,
-  `su_name` varchar(200) DEFAULT NULL,
-  `su_email` varchar(155) DEFAULT NULL,
-  `su_contact` varchar(15) DEFAULT NULL,
-  `su_alt_contact` varchar(155) DEFAULT NULL,
-  `su_address` varchar(155) DEFAULT NULL
+  `su_id` int NOT NULL,
+  `su_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `su_email` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `su_contact` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `su_alt_contact` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `su_address` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -907,12 +1015,12 @@ INSERT INTO `super_admin` (`su_id`, `su_name`, `su_email`, `su_contact`, `su_alt
 --
 
 CREATE TABLE `super_admin_auth` (
-  `su_a_id` int(11) NOT NULL,
-  `su_r_id` int(11) NOT NULL,
-  `su_user_id` varchar(80) DEFAULT NULL,
-  `su_password` varchar(300) DEFAULT NULL,
-  `su_token` varchar(400) DEFAULT NULL,
-  `su_isactive` tinyint(1) DEFAULT 1
+  `su_a_id` int NOT NULL,
+  `su_r_id` int NOT NULL,
+  `su_user_id` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `su_password` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `su_token` varchar(400) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `su_isactive` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -920,17 +1028,7 @@ CREATE TABLE `super_admin_auth` (
 --
 
 INSERT INTO `super_admin_auth` (`su_a_id`, `su_r_id`, `su_user_id`, `su_password`, `su_token`, `su_isactive`) VALUES
-(6, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiam9obkBleGFtcGxlLmNvbSIsImlhdCI6MTc0NzM5ODk3MSwiZXhwIjoxNzQ5OTkwOTcxfQ.IzMFEBbQASyFBejmhUT0ODE0YEX0xIHUeznBoGrEUyc', 1),
-(7, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(8, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(9, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(10, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(11, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(12, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(13, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(14, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(15, 7, 'deka@example.com', '$2a$12$aIwIqfY2u58c2U846bxcHeGw1qfMq1AaLGuBYNjhVtLVr.7N3QNkm', NULL, 1),
-(16, 22, NULL, NULL, NULL, 1);
+(6, 7, 'user7@example.com', '$2a$12$nMK8C6IfJ1PXBwRVNTKx5.ytYBFt0Hln9k4RgSkJz7g3p3/jqJnrm', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjdAZXhhbXBsZS5jb20iLCJpYXQiOjE3NjM4Nzg2MzksImV4cCI6MTc2NjQ3MDYzOX0.VsyPXfF0Ob0F7TcjTXJMH6J5KpLm0NZnBi7ZGPYp0g4', 1);
 
 -- --------------------------------------------------------
 
@@ -939,14 +1037,14 @@ INSERT INTO `super_admin_auth` (`su_a_id`, `su_r_id`, `su_user_id`, `su_password
 --
 
 CREATE TABLE `vendors` (
-  `vendor_id` int(20) NOT NULL,
-  `vendor_ref_no` varchar(155) DEFAULT NULL,
-  `vendor_name` varchar(200) DEFAULT NULL,
-  `vendor_contact` varchar(20) DEFAULT NULL,
-  `vendor_alt_contact` varchar(20) DEFAULT NULL,
-  `vendor_address` varchar(300) DEFAULT NULL,
-  `vendor_email` varchar(80) DEFAULT NULL,
-  `vendor_status` varchar(80) DEFAULT 'open'
+  `vendor_id` int NOT NULL,
+  `vendor_ref_no` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `vendor_name` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `vendor_contact` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `vendor_alt_contact` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `vendor_address` varchar(300) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `vendor_email` varchar(80) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `vendor_status` varchar(80) COLLATE utf8mb4_general_ci DEFAULT 'open'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -964,14 +1062,9 @@ INSERT INTO `vendors` (`vendor_id`, `vendor_ref_no`, `vendor_name`, `vendor_cont
 (22, 'JGCV0001', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
 (23, 'JGCV0001', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
 (24, 'JGCV0001', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
-(25, 'JGCV0001', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
-(26, 'JGCV0001', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
 (27, 'JGCV0002', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
 (28, 'JGCV0003', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
-(29, 'JGCV0004', NULL, NULL, NULL, NULL, NULL, NULL),
-(30, 'JGCV0005', NULL, NULL, NULL, NULL, NULL, NULL),
-(31, 'JGCV0006', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open'),
-(32, 'JGCV0007', NULL, NULL, NULL, NULL, NULL, 'open');
+(31, 'JGCV0006', 'ABC Supplies', '2147483647', '1234567890', '123 Supply St, City, Country', 'contact@abcsupplies.com', 'open');
 
 -- --------------------------------------------------------
 
@@ -980,13 +1073,13 @@ INSERT INTO `vendors` (`vendor_id`, `vendor_ref_no`, `vendor_name`, `vendor_cont
 --
 
 CREATE TABLE `vendor_payments` (
-  `pay_id` int(20) NOT NULL,
-  `pay_vendor_id` int(20) DEFAULT NULL,
-  `pay_project_id` bigint(20) DEFAULT NULL,
-  `pay_amount` varchar(50) DEFAULT NULL,
-  `pay_mode` varchar(155) DEFAULT NULL,
-  `pay_note` varchar(255) DEFAULT NULL,
-  `pay_exp_id` int(20) DEFAULT NULL
+  `pay_id` int NOT NULL,
+  `pay_vendor_id` int DEFAULT NULL,
+  `pay_project_id` bigint DEFAULT NULL,
+  `pay_amount` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pay_mode` varchar(155) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pay_note` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `pay_exp_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -996,9 +1089,19 @@ CREATE TABLE `vendor_payments` (
 INSERT INTO `vendor_payments` (`pay_id`, `pay_vendor_id`, `pay_project_id`, `pay_amount`, `pay_mode`, `pay_note`, `pay_exp_id`) VALUES
 (27, 14, 11, '4574', NULL, '748574', 20),
 (30, 14, 11, '4574', NULL, '748574', 21),
-(143, NULL, 9, '50000', NULL, 'fo 3 truck red soil', 9),
-(152, NULL, 9, '50000', NULL, 'fo 3 truck red soil', 10),
-(176, NULL, 9, '50000', NULL, 'fo 3 truck red soil', 11);
+(143, 14, 9, '50000', NULL, 'fo 3 truck red soil', 9),
+(152, 14, 9, '50000', NULL, 'fo 3 truck red soil', 10),
+(176, 14, 9, '50000', NULL, 'fo 3 truck red soil', 11),
+(177, 14, 11, '0', 'Cash', 'Auto created from MR payment', 41),
+(178, 14, 11, '1000', 'upi', 'Paid for undefined', 45),
+(179, 14, 11, '0', 'cheque', 'Auto created from MR payment', 46),
+(180, 14, 11, '0', 'cheque', 'Auto created from MR payment', 47),
+(181, 14, 11, '0', 'cheque', 'Auto created from MR payment', 48),
+(184, 14, 11, '5000', 'cheque', 'Auto created from MR payment', 51),
+(185, 14, 11, '5000', 'cheque', 'Auto created from MR payment', 52),
+(186, 14, 11, '5000', 'cheque', 'Auto created from MR payment', 53),
+(187, 14, 11, '5000', 'cheque', 'Auto created from MR payment', 54),
+(189, 14, 11, '500', 'UPI', 'For Material request ID undefined', 62);
 
 --
 -- Indexes for dumped tables
@@ -1085,7 +1188,14 @@ ALTER TABLE `finance_dep_auth`
 -- Indexes for table `invoice`
 --
 ALTER TABLE `invoice`
-  ADD PRIMARY KEY (`invoice_id`);
+  ADD PRIMARY KEY (`invoice_id`),
+  ADD KEY `client_id` (`client_id`);
+
+--
+-- Indexes for table `invoice_items`
+--
+ALTER TABLE `invoice_items`
+  ADD PRIMARY KEY (`invoice_item_id`);
 
 --
 -- Indexes for table `labours`
@@ -1101,6 +1211,22 @@ ALTER TABLE `material_item_list`
   ADD KEY `material_item_list_ibfk_1` (`mr_project_r_id`),
   ADD KEY `vendor_id` (`vendor_id`),
   ADD KEY `mr_r_id` (`mr_r_id`);
+
+--
+-- Indexes for table `material_payment_remaining`
+--
+ALTER TABLE `material_payment_remaining`
+  ADD PRIMARY KEY (`rm_id`),
+  ADD KEY `mr_r_id` (`mr_r_id`),
+  ADD KEY `project_id` (`project_id`);
+
+--
+-- Indexes for table `material_payment_remaining_items`
+--
+ALTER TABLE `material_payment_remaining_items`
+  ADD PRIMARY KEY (`mr_pri_id`),
+  ADD KEY `item_id` (`item_id`),
+  ADD KEY `material_payment_remaining_items_ibfk_2` (`rm_id`);
 
 --
 -- Indexes for table `material_requests`
@@ -1175,6 +1301,12 @@ ALTER TABLE `project_subphase`
   ADD KEY `pro_phase` (`pro_phase`);
 
 --
+-- Indexes for table `relations`
+--
+ALTER TABLE `relations`
+  ADD PRIMARY KEY (`rel_id`);
+
+--
 -- Indexes for table `sub_phases`
 --
 ALTER TABLE `sub_phases`
@@ -1229,187 +1361,211 @@ ALTER TABLE `vendor_payments`
 -- AUTO_INCREMENT for table `branch_auth`
 --
 ALTER TABLE `branch_auth`
-  MODIFY `br_a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `br_a_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `branch_clients`
 --
 ALTER TABLE `branch_clients`
-  MODIFY `b_client_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `b_client_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `branch_data`
 --
 ALTER TABLE `branch_data`
-  MODIFY `br_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `br_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `client_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `client_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `collections`
 --
 ALTER TABLE `collections`
-  MODIFY `col_id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `col_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `contractors`
 --
 ALTER TABLE `contractors`
-  MODIFY `con_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `con_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `contractor_payments`
 --
 ALTER TABLE `contractor_payments`
-  MODIFY `pay_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `pay_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `exp_id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `exp_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `expense_item`
 --
 ALTER TABLE `expense_item`
-  MODIFY `exp_item_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `exp_item_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `finance_dep`
 --
 ALTER TABLE `finance_dep`
-  MODIFY `fd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `fd_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `finance_dep_auth`
 --
 ALTER TABLE `finance_dep_auth`
-  MODIFY `fd_a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `fd_a_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `invoice_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `invoice_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `invoice_items`
+--
+ALTER TABLE `invoice_items`
+  MODIFY `invoice_item_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `labours`
 --
 ALTER TABLE `labours`
-  MODIFY `lab_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `lab_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `material_item_list`
 --
 ALTER TABLE `material_item_list`
-  MODIFY `mr_item_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `mr_item_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+
+--
+-- AUTO_INCREMENT for table `material_payment_remaining`
+--
+ALTER TABLE `material_payment_remaining`
+  MODIFY `rm_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `material_payment_remaining_items`
+--
+ALTER TABLE `material_payment_remaining_items`
+  MODIFY `mr_pri_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `material_requests`
 --
 ALTER TABLE `material_requests`
-  MODIFY `mr_r_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `mr_r_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `notification_recipients`
 --
 ALTER TABLE `notification_recipients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `particles`
 --
 ALTER TABLE `particles`
-  MODIFY `particle_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `particle_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `phases`
 --
 ALTER TABLE `phases`
-  MODIFY `phase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `phase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `pro_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `pro_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `project_contractor`
 --
 ALTER TABLE `project_contractor`
-  MODIFY `pro_con_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pro_con_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `project_docs`
 --
 ALTER TABLE `project_docs`
-  MODIFY `pro_doc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `pro_doc_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `project_phase`
 --
 ALTER TABLE `project_phase`
-  MODIFY `pro_phase_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `pro_phase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `project_subphase`
 --
 ALTER TABLE `project_subphase`
-  MODIFY `pro_subphase_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `pro_subphase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `relations`
+--
+ALTER TABLE `relations`
+  MODIFY `rel_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `sub_phases`
 --
 ALTER TABLE `sub_phases`
-  MODIFY `sub_phase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `sub_phase_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `superviser`
 --
 ALTER TABLE `superviser`
-  MODIFY `sup_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `sup_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `superviser_auth`
 --
 ALTER TABLE `superviser_auth`
-  MODIFY `sup_a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sup_a_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `super_admin`
 --
 ALTER TABLE `super_admin`
-  MODIFY `su_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `su_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `super_admin_auth`
 --
 ALTER TABLE `super_admin_auth`
-  MODIFY `su_a_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `su_a_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `vendors`
 --
 ALTER TABLE `vendors`
-  MODIFY `vendor_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `vendor_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `vendor_payments`
 --
 ALTER TABLE `vendor_payments`
-  MODIFY `pay_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `pay_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=194;
 
 --
 -- Constraints for dumped tables
@@ -1454,6 +1610,20 @@ ALTER TABLE `material_item_list`
   ADD CONSTRAINT `material_item_list_ibfk_1` FOREIGN KEY (`mr_project_r_id`) REFERENCES `projects` (`pro_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `material_item_list_ibfk_2` FOREIGN KEY (`vendor_id`) REFERENCES `vendors` (`vendor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `material_item_list_ibfk_3` FOREIGN KEY (`mr_r_id`) REFERENCES `material_requests` (`mr_r_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `material_payment_remaining`
+--
+ALTER TABLE `material_payment_remaining`
+  ADD CONSTRAINT `material_payment_remaining_ibfk_1` FOREIGN KEY (`mr_r_id`) REFERENCES `material_requests` (`mr_r_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `material_payment_remaining_ibfk_3` FOREIGN KEY (`project_id`) REFERENCES `projects` (`pro_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `material_payment_remaining_items`
+--
+ALTER TABLE `material_payment_remaining_items`
+  ADD CONSTRAINT `material_payment_remaining_items_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `material_item_list` (`mr_item_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `material_payment_remaining_items_ibfk_2` FOREIGN KEY (`rm_id`) REFERENCES `material_payment_remaining` (`rm_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `material_requests`

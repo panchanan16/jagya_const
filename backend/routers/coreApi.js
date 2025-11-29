@@ -7,6 +7,8 @@ const ProjectCoreController = require('@/controllers/coreEntityControllers/proje
 const VendorCoreController = require('@/controllers/coreEntityControllers/vendorController');
 const ExpenseCoreController = require('@/controllers/coreEntityControllers/expenseController');
 const MaterialCoreController = require('@/controllers/coreEntityControllers/material_reqController');
+const MaterialPaymentCoreController = require('@/controllers/coreEntityControllers/material_reqController/payments.js');
+const MaterialRemainCoreController = require('@/controllers/coreEntityControllers/material_reqController/remainings.js');
 const UsersCoreController = require('@/controllers/coreEntityControllers/usersController');
 const BranchClientsCoreController = require('@/controllers/coreEntityControllers/branch_clientController');
 const contractorPaymentCoreController = require('@/controllers/coreEntityControllers/contractorPaymentController');
@@ -35,12 +37,22 @@ coreRouter.get('/core/project/get_contactor_project/:con_id', ProjectCoreControl
 coreRouter.post('/core/material_req/create', MaterialCoreController.insertMaterialRequestWithItems);
 coreRouter.get('/core/material_req/readAll', MaterialCoreController.readAll);
 coreRouter.get('/core/material_req/realAll_by_materialId/:id', MaterialCoreController.findAllByMatrialReqId);
+coreRouter.get('/core/material_req/realAll_by_ProId/:id', MaterialCoreController.findAllMatrialReqByProjectId);
 coreRouter.put('/core/material_req/update', MaterialCoreController.updateMaterialItemList);
 
 coreRouter.put('/core/material_req/update_by_materialId', MaterialCoreController.updateMaterialItemList);
 coreRouter.get('/core/material_req/status/finance_dep/:mr_item_id', MaterialCoreController.updateFdApproval);
 coreRouter.get('/core/material_req/status/material_dep/:mr_item_id', MaterialCoreController.updateMdApproval);
-coreRouter.get('/core/material_req/status/material_delivery/:mr_item_id',MaterialCoreController.updateMrDeliveryStatus);
+coreRouter.put('/core/material_req/status/material_delivery/:mr_item_id', MaterialCoreController.updateMrDeliveryStatus);
+
+coreRouter.put('/core/material_req/status/material_payment/:mr_item_id', MaterialPaymentCoreController.updateMrPaymentStatus);
+
+coreRouter.get('/core/material_req/remaining/readAll/:pro_id', MaterialRemainCoreController.getRemainingByProject);
+coreRouter.post('/core/material_req/remaining/create/:pro_id', MaterialRemainCoreController.createRemainingForMaterial);
+coreRouter.put('/core/material_req/remaining/update_status/:rm_id', MaterialRemainCoreController.updateRemainingPaymentsStatus);
+coreRouter.delete('/core/material_req/remaining/remove/:rm_id', MaterialRemainCoreController.removeRemainingForMaterial);
+
+
 
 // [User]-----------
 coreRouter.post('/core/users/create/:role', UsersCoreController.create);
@@ -59,6 +71,8 @@ coreRouter.get('/core/contractorPayment/readAll', contractorPaymentCoreControlle
 
 // [Project phase]-----------
 coreRouter.post('/core/project_phase/update_status', projectPhaseCoreController.updatePhaseStatus);
+coreRouter.get('/core/project_phase/getPhase_list/:pro_id', projectPhaseCoreController.getProject_PhaseList);
+
 
 // [Analytics  phase]-----------
 // coreRouter.post('/core/project_phase/update_status', analyticsCoreController.updatePhaseStatus);

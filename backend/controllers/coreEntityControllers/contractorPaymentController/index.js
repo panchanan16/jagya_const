@@ -12,7 +12,7 @@ class ContractorsCorePaymentController {
             payments:data[1],
             projects:data[2],
          }
-         return res.status(200).send({ status: true, msg: 'Contractors retrieved successfully', details });
+         return res.status(200).send({ status: true, msg: 'Contractors retrieved successfully', data:details });
       } catch (error) {
          console.error('Error fetching contractors:', error);
          return res.status(500).send({ status: false, msg: 'Internal Server Error' });
