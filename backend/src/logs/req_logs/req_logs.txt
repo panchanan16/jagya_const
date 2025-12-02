@@ -18017,3 +18017,11 @@
 20251129	17:41:59	f2f3aad3-6886-4f33-9e3a-e6c2318c7c44	DELETE	http://127.0.0.1:5173	/api/v1/entity/phase/remove
 20251129	17:42:01	bdcba0bb-b466-4604-ac79-1e59322806ef	GET	http://127.0.0.1:5173	/api/v1/core/users/readAll/super_admin
 >>>>>>> de931d06653677985fa69c48c838c6e0b8ecd722
+20251202	21:02:15	cf271862-b3d5-4572-a069-013ab65b75cc	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/23
+20251202	21:04:13	22bbe0d6-b0e6-4e4f-a753-83bfc19bb83b	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251202	21:06:01	0a735a93-55fc-425b-970e-f9c2b1b8d660	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251202	21:07:25	c2d63801-8065-4615-8a20-7d0408ddfe73	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251202	21:07:49	efed7796-4c2e-4b8c-9021-0a6e8d918435	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251202	21:08:16	e0d491ae-83ff-43c3-804a-276fc1030890	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251202	21:08:20	e51fc342-e358-441f-a113-fd6228081777	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251202	21:08:45	5b426bb3-4980-4997-925e-bb53f7203eb5	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
