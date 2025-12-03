@@ -18065,3 +18065,12 @@
 20251203	15:15:05	e88500e8-ed7d-4dc1-a4cc-2755812d0a99	PUT	http://127.0.0.1:5173	/api/v1/core/material_req/update
 20251203	15:15:09	bc1b56e8-9a35-407b-ba0d-be4819e0db1b	PUT	http://127.0.0.1:5173	/api/v1/core/material_req/update
 20251203	15:15:12	018b6ec2-684a-4bb8-8085-d8121a07b3f0	PUT	http://127.0.0.1:5173	/api/v1/core/material_req/update
+20251203	18:00:13	020df417-8733-4019-9d52-7757b4953f73	GET	undefined	/api/v1/core/project_phase/getPhase_list/9
+20251203	18:01:57	dc41882d-a1ab-4cf0-96bb-6ad905f1a0d9	GET	undefined	/api/v1/core/project_phase/getPhase_list/17
+20251203	18:02:42	8a8a0dba-0dc2-46ce-93d6-38b959575098	GET	undefined	/api/v1/core/project_phase/realAll/17
+20251203	18:03:30	1c10df33-f5f3-4c9c-a18e-edc61cdbfb0f	GET	undefined	/api/v1/core/project_phase/realAll/17
+20251203	18:04:57	34efb80f-4d70-47e0-a414-1102ae38d532	GET	undefined	/api/v1/entity/project_phase/readAll
+20251203	18:05:02	e1dbaecd-39e0-475c-92d8-8a35fd5ef8f2	GET	undefined	/api/v1/core/project_phase/realAll/17
+20251203	18:05:21	0eefcad2-1b57-46b6-bc0f-dd6de3fa7473	GET	undefined	/api/v1/core/project_phase/realAll/17
+20251203	18:05:38	78c7b865-fa12-4bc3-a8da-ce6940d69d84	GET	undefined	/api/v1/core/project_phase/realAll/9
+20251203	18:05:51	32385b6f-c198-405f-a70b-ac3f0b85dc99	GET	undefined	/api/v1/core/project_phase/realAll/17
