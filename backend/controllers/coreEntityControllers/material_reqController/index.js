@@ -130,19 +130,19 @@ class MaterialItemUpdateController {
       const { id } = req.params;
       try {
          const requests = await coreMaterialRequestModel.findAll_materialItems_ByMatrialReqId(id);
-         const sendData = requests[0][0]
+         const sendData = requests[0][0];
          return res.status(200).send({
             status: true,
             msg: 'Material requests retrieved successfully',
             data: {
-               mr_r_id:sendData?.mr_r_id,
+               mr_r_id: sendData?.mr_r_id,
                mr_project_id: sendData?.pro_client_r_id,
                pro_name: sendData.pro_name,
-               client_name: sendData.client_name, 
-               mr_phase: sendData.mr_phase, 
-               mr_date: sendData.mr_date, 
+               client_name: sendData.client_name,
+               mr_phase: sendData.mr_phase,
+               mr_date: sendData.mr_date,
                pro_ref_no: sendData.pro_ref_no,
-               materialItemsData: requests[1]
+               materialItemsData: requests[1],
             },
          });
       } catch (error) {

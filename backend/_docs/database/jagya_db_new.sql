@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 29, 2025 at 12:12 PM
+-- Generation Time: Dec 03, 2025 at 09:46 AM
 -- Server version: 8.0.40
 -- PHP Version: 8.3.16
 
@@ -548,10 +548,9 @@ INSERT INTO `material_item_list` (`mr_item_id`, `mr_r_id`, `mr_project_r_id`, `m
 (126, 13, 11, 'atta', '20', '1500', NULL, 0, 1, 14, 0, 'pending', '', '', '2025-11-28 06:03:49'),
 (127, 13, 11, 'Cement', '20', '2000', NULL, 0, 1, 14, 0, NULL, NULL, NULL, '2025-11-04 15:18:14'),
 (128, 13, 11, 'atta', '20', '1500', NULL, 0, 1, 14, 0, NULL, NULL, NULL, '2025-11-04 15:18:14'),
-(133, 17, 11, 'Cement', '20', '5000', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-11-29 11:58:15'),
-(134, 17, 11, 'atta', '20', '1500', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-11-29 11:58:15'),
-(135, 17, 11, 'Cement', '20', '2000', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-11-29 11:58:15'),
-(136, 17, 11, 'atta', '20', '1500', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-11-29 11:58:15');
+(149, 17, 13, 'Cement', '20', '5000', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-12-03 09:45:12'),
+(150, 17, 13, 'atta', '20', '1500', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-12-03 09:45:12'),
+(151, 17, 13, 'Cement', '20', '2000', NULL, 0, 0, 14, 0, NULL, NULL, NULL, '2025-12-03 09:45:12');
 
 -- --------------------------------------------------------
 
@@ -1028,7 +1027,7 @@ CREATE TABLE `super_admin_auth` (
 --
 
 INSERT INTO `super_admin_auth` (`su_a_id`, `su_r_id`, `su_user_id`, `su_password`, `su_token`, `su_isactive`) VALUES
-(6, 7, 'user7@example.com', '$2a$12$nMK8C6IfJ1PXBwRVNTKx5.ytYBFt0Hln9k4RgSkJz7g3p3/jqJnrm', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjdAZXhhbXBsZS5jb20iLCJpYXQiOjE3NjM4Nzg2MzksImV4cCI6MTc2NjQ3MDYzOX0.VsyPXfF0Ob0F7TcjTXJMH6J5KpLm0NZnBi7ZGPYp0g4', 1);
+(6, 7, 'user7@example.com', '$2a$12$nMK8C6IfJ1PXBwRVNTKx5.ytYBFt0Hln9k4RgSkJz7g3p3/jqJnrm', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoidXNlcjdAZXhhbXBsZS5jb20iLCJpYXQiOjE3NjQ3NTQ3NzcsImV4cCI6MTc2NzM0Njc3N30.-nfuj_FBHFHPK2xzlLGq_O-9hGLyNQMUBd4o5vVxSSg', 1);
 
 -- --------------------------------------------------------
 
@@ -1445,7 +1444,7 @@ ALTER TABLE `labours`
 -- AUTO_INCREMENT for table `material_item_list`
 --
 ALTER TABLE `material_item_list`
-  MODIFY `mr_item_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `mr_item_id` bigint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=152;
 
 --
 -- AUTO_INCREMENT for table `material_payment_remaining`
