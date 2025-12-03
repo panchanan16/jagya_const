@@ -5,9 +5,13 @@ meta {
 }
 
 get {
-  url: {{URL.Entity}}phase/readAll
+  url: {{URL.Entity}}phase/readAll?pro_id=9
   body: none
   auth: none
+}
+
+params:query {
+  pro_id: 9
 }
 
 body:json {

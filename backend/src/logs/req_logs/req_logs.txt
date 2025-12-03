@@ -18074,3 +18074,15 @@
 20251203	18:05:21	0eefcad2-1b57-46b6-bc0f-dd6de3fa7473	GET	undefined	/api/v1/core/project_phase/realAll/17
 20251203	18:05:38	78c7b865-fa12-4bc3-a8da-ce6940d69d84	GET	undefined	/api/v1/core/project_phase/realAll/9
 20251203	18:05:51	32385b6f-c198-405f-a70b-ac3f0b85dc99	GET	undefined	/api/v1/core/project_phase/realAll/17
+20251203	21:27:07	d4f61d7f-770a-4764-b5c0-dc5b571dd3c4	GET	undefined	/api/v1/entity/phase/readAll
+20251203	21:27:54	3cb9b679-1e22-42c1-81c6-59a9d7811466	GET	undefined	/api/v1/entity/phase/readAll
+20251203	21:28:11	71912bf0-8acd-44a2-a788-6e1da0524930	GET	undefined	/api/v1/entity/phase/readAll
+20251203	21:29:42	8923c9f7-3397-4b0d-bb99-b14ed018fb74	GET	undefined	/api/v1/entity/phase/readAll
+20251203	21:30:11	1b3d9e58-5653-48d3-90d6-37685e539a1c	GET	undefined	/api/v1/entity/phase/readAll
+20251203	21:30:37	ac8a6297-c157-4ca6-bbbc-b71ce6e149f4	GET	undefined	/api/v1/entity/phase/readAll
+20251203	21:31:04	4f6d323e-953c-4a8f-b485-959e4827924a	GET	undefined	/api/v1/entity/phase/readAll
+20251203	21:31:18	e254feb2-1f98-45ce-a45f-07ad57fbf0e1	GET	undefined	/api/v1/entity/phase/readAll
+20251203	21:31:36	8cd00652-dbb5-45f9-8765-1bf6f3d62110	GET	undefined	/api/v1/entity/phase/readAll?pro_id=9
+20251203	21:31:43	ca46220a-598a-4471-a156-2552da0b3c54	GET	undefined	/api/v1/entity/phase/readAll?pro_id=11
+20251203	21:31:46	3958ba17-47e7-4865-ae59-561391189ea2	GET	undefined	/api/v1/entity/phase/readAll?pro_id=9
+20251203	21:34:09	119d9253-82ff-4740-8c97-8dd06754abbf	GET	undefined	/api/v1/entity/phase/readAll?pro_id=9

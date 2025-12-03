@@ -2,12 +2,23 @@ const PhasesModel = require('@/models/entityModels/phaseModel');
 
 class PhasesController {
   static async findAll(req, res) {
-    try {
-      const phases = await PhasesModel.findAll();
-      res.status(200).send({ status: true, msg: 'Phases retrieved successfully', data: phases });
-    } catch (error) {
-      res.status(500).send({ status: false, msg: 'Failed to retrieve phases', data: null });
-    }
+     try {
+         const { pro_id } = req.query;
+         const rows = await PhasesModel.findAll(pro_id);
+         console.log(rows);
+         
+         if (!rows) {
+            return res.status(404).json({ status: false, msg: 'phase not found or status unchanged' });
+         }
+         return res.status(200).json({
+            status: true,
+            msg: 'phase retrived! ',
+            data:rows,
+         });
+      } catch (error) {
+         console.error('Error updating project phase status:', error);
+         return res.status(500).json({ status: false, msg: 'Internal Server Error' });
+      }
   }
 
   static async findOne(req, res) {
