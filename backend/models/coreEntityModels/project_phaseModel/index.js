@@ -21,10 +21,11 @@ class projectModel {
    static async getProject_PhaseList(pro_id) {
       const connPool = await pool.getConnection();
       try {
-         const [result] = await connPool.query('SELECT p.phase_name,pp.* FROM project_phase pp LEFT JOIN phases p ON pp.phase_id=p.phase_id  WHERE pro_id =?;', [
+         let [result] = await connPool.query('SELECT p.phase_name,pp.* FROM project_phase pp LEFT JOIN phases p ON pp.phase_id=p.phase_id  WHERE pro_id =?;', [
            pro_id,
-         ]);
-         
+         ]);         
+         if (!result.length>0) {
+            [result] = await connPool.query('SELECT * FROM phases')}
          return result;
       } catch (error) {
          console.error('Error updating pro_phase_status:', error);
