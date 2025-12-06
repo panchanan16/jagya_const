@@ -136,7 +136,7 @@ class MaterialItemUpdateController {
             msg: 'Material requests retrieved successfully',
             data: {
                mr_r_id: sendData?.mr_r_id,
-               mr_project_id: sendData?.pro_client_r_id,
+               mr_project_id: sendData?.mr_project_id,
                pro_name: sendData.pro_name,
                client_name: sendData.client_name,
                mr_phase: sendData.mr_phase,

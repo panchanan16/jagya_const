@@ -18086,3 +18086,7 @@
 20251203	21:31:43	ca46220a-598a-4471-a156-2552da0b3c54	GET	undefined	/api/v1/entity/phase/readAll?pro_id=11
 20251203	21:31:46	3958ba17-47e7-4865-ae59-561391189ea2	GET	undefined	/api/v1/entity/phase/readAll?pro_id=9
 20251203	21:34:09	119d9253-82ff-4740-8c97-8dd06754abbf	GET	undefined	/api/v1/entity/phase/readAll?pro_id=9
+20251204	21:45:05	c7de5fa0-ab08-4967-8be6-93aa8a428b13	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251204	21:46:49	b17ae34f-62b8-453d-98df-e111688987ed	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251204	21:47:52	e50d1a50-f7aa-4dbd-8c3b-c9125040f0df	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
+20251204	21:47:54	088a43a2-fcef-49d7-91df-a48aef6f7cbc	GET	undefined	/api/v1/core/material_req/realAll_by_materialId/17
