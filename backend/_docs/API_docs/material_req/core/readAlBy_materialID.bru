@@ -1,0 +1,15 @@
+meta {
+  name: readAlBy_materialID
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{URL.Core}}material_req/realAll_by_materialId/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 17
+}
