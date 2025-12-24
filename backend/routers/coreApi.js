@@ -3,6 +3,7 @@ require('module-alias/register');
 const express = require('express');
 const coreRouter = express.Router();
 const ClientCoreController = require('@/controllers/coreEntityControllers/clientController/index.js');
+const CollectionCoreController = require('@/controllers/coreEntityControllers/collectionController');
 const ProjectCoreController = require('@/controllers/coreEntityControllers/projectController');
 const VendorCoreController = require('@/controllers/coreEntityControllers/vendorController');
 const ExpenseCoreController = require('@/controllers/coreEntityControllers/expenseController');
@@ -19,6 +20,11 @@ const AnalyticsCoreController = require('@/controllers/coreEntityControllers/ana
 coreRouter.get('/core/client/get_lastRef', ClientCoreController.getClientsLastRef);
 coreRouter.get('/core/client/get_clientProject', ClientCoreController.getClientProjects);
 coreRouter.get('/core/client/get_ProjectInfo', ClientCoreController.getProject_Col_Exp);
+
+// [COLLECTION]-----------
+coreRouter.get('/core/collection/get_ProjectInfo/:pro_id', CollectionCoreController.getCollectionDetailsBy_project);
+
+
 
 // [VENDOR]-----------
 coreRouter.get('/core/vendor/get_lastRef', VendorCoreController.getVendorLastRef);
