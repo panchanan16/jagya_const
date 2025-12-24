@@ -16,14 +16,20 @@ auth:bearer {
 
 body:json {
   {
-    "id":7,
-    "user_id": "user7@example.com",
-    "password": "1234567",
-    "cpassword": "1234567"
+    "id":23,
+    "user_id": "mintu@gmail.com",
+    "password": "12345678",
+    "cpassword": "12345678"
   }
 }
 
 assert {
   ~status: isBoolean
   ~msg: isString
+}
+
+docs {
+    "su_id": 24, 
+  
+  Here id in the body is su_id;
 }
