@@ -8,7 +8,7 @@ const financeControllers = require('@/controllers/authControllers/finance');
 const branchControllers = require('@/controllers/authControllers/branch');
 
 const roleControllerMap = {
-   'super-admin': superAdminControllers,
+   'super_admin': superAdminControllers,
    'supervisor': superviserControllers,
    'finance': financeControllers,
    'branch': branchControllers,
