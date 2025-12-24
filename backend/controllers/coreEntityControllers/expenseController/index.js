@@ -70,12 +70,26 @@ class ExpenseCoreController {
          contractorPaymentModel.create(
             exp.pay_con_id,
             exp.pay_project_id,
+            exp.pay_date || new Date(), 
+
             exp.pay_amount,
-            exp.pay_note,
+            exp_mode,
+            exp.pay_note || null,
             expenseId,
-            exp_mode
+
+            exp.pay_total_bill || null,
+            exp.pay_tds || null,
+            exp.pay_payable || null,
+            exp.pay_previous || null,
+            exp.pay_grand_total || null,
+            exp.pay_pending || null,
+
+            exp.pay_labour || null,
+            exp.pay_work_status || null,
+            exp.pay_sqft || null
          )
       );
+
       return Promise.all(promises);
    }
 

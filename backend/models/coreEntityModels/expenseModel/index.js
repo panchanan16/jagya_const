@@ -52,7 +52,7 @@ class ExpenseModel {
          await conn.beginTransaction();
          await conn.query(
             'UPDATE expenses SET exp_name=?, exp_amount=?, exp_remark=?, exp_date=?,exp_mode=? WHERE exp_id=?',
-            [exp_name, exp_amount, exp_remark, exp_date, exp_mode , expId]
+            [exp_name, exp_amount, exp_remark, exp_date, exp_mode, expId]
          );
          await conn.query('DELETE FROM contractor_payments WHERE pay_exp_id=?', [expId]);
          await conn.query('DELETE FROM vendor_payments WHERE pay_exp_id=?', [expId]);
