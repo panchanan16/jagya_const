@@ -14,3 +14,6 @@ ADD pay_labour VARCHAR(155) NULL AFTER pay_pending,
 ADD pay_work_status VARCHAR(255) NULL AFTER pay_labour,
 ADD pay_sqft VARCHAR(50) NULL AFTER pay_work_status,
 ADD created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP AFTER pay_sqft;
+
+
+ALTER TABLE `collections` ADD `col_value` VARCHAR(155) NULL DEFAULT NULL AFTER `col_date`;

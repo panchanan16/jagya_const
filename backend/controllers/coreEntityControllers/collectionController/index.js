@@ -5,36 +5,42 @@ class collectionsCoreController {
       const projectInfo = data[0][0]; // project details
       const payments = data[1]; // collections
 
-      console.log(data);
-      
       const totalCost = Number(projectInfo.pro_totalcost);
 
-      const phases = payments.reduce((acc, item) => {
+      const phaseMap = payments.reduce((acc, item) => {
          const phase = item.col_project_phase;
-         const pct = Number(item.col_pct || 0);
+         const amount = Number(item.col_amount ?? 0);
+
+         console.log(acc, item);
 
          if (!acc[phase]) {
             acc[phase] = {
                phase,
-               total_pct: 0,
+               // total_pct: 0,
                phase_amount: 0,
                payment_status: 'pending',
                payments: [],
             };
          }
-
-         acc[phase].total_pct += pct;
+console.log(
+  payments.map(p => ({
+    col_id: p.col_id,
+    col_amount: p.col_amount,
+    typeof_amount: typeof p.col_amount
+  }))
+);
+         acc[phase].phase_amount += amount;
 
          acc[phase].payments.push({
             col_id: item.col_id,
             type: item.col_type,
-            pct,
+            // amount: item.col_amount,
+            amount,
             mode: item.col_mode,
             remark: item.col_remark,
             date: item.col_date,
          });
 
-         // 🔹 Payment status logic
          if (item.col_type === 'full payment' || item.col_type === 'partial completed') {
             acc[phase].payment_status = 'completed';
          }
@@ -42,9 +48,8 @@ class collectionsCoreController {
          return acc;
       }, {});
 
-      // Calculate phase amount
-      Object.values(phases).forEach((phase) => {
-         phase.phase_amount = (totalCost * phase.total_pct) / 100;
+      const phases = Object.values(phaseMap).map((phase) => {
+         return { ...phase };
       });
 
       return {
@@ -56,11 +61,12 @@ class collectionsCoreController {
          phases,
       };
    }
+
    static async getCollectionDetailsBy_project(req, res) {
       try {
          const { pro_id } = req.params;
          const data = await collectionModel.getCollectionDetailsBy_project(pro_id);
-         const organizeData = collectionsCoreController.organizeProjectPayments(data)
+         const organizeData = collectionsCoreController.organizeProjectPayments(data);
          return res.status(200).send({
             status: true,
             msg: 'Project Collections info retrieved successfully',

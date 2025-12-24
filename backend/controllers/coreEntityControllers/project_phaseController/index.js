@@ -25,7 +25,8 @@ class projectPhaseCoreController {
       try {
          const { pro_id } = req.params;
          if (!pro_id) {
-            return res.status(400).json({ status: false, msg: 'pro_id required' });
+            // return res.status(400).json({ status: false, msg: 'pro_id required' });
+            pro_id =undefined
          }
          const rows = await projectPhaseCoreModel.getProject_PhaseList(pro_id);
          console.log(rows);

@@ -1,14 +1,17 @@
 function organizeByPhase(data) {
-   return data.reduce((result, item) => {
+   const phaseMap = data.reduce((result, item) => {
       const phase = item.col_project_phase;
 
       if (!result[phase]) {
          result[phase] = {
             phase,
+            pro_id: item.pro_id,
+            pro_ref_no: item.pro_ref_no,
             project_name: item.pro_name,
             client_name: item.client_name,
             total_amount: 0,
-            total_pct: 0,
+            total_pct: item.col_pct,
+            col_value: item.col_value,
             payment_status: 'pending',
             payments: [],
             payment_summary: {
@@ -20,7 +23,7 @@ function organizeByPhase(data) {
       }
 
       const amount = Number(item.col_amount || 0);
-      const pct = Number(item.col_pct || 0);
+      // const pct = Number(item.col_pct || 0);
 
       result[phase].payments.push({
          col_id: item.col_id,
@@ -28,14 +31,14 @@ function organizeByPhase(data) {
          mode: item.col_mode,
          type: item.col_type,
          category: item.col_category,
-         pct,
+         // pct,
          remark: item.col_remark,
          date: item.col_date,
          created_at: item.created_at,
       });
 
       result[phase].total_amount += amount;
-      result[phase].total_pct += pct;
+      // result[phase].total_pct += pct;
 
       if (item.col_type === 'full payment') {
          result[phase].payment_summary.full_payment += amount;
@@ -45,12 +48,18 @@ function organizeByPhase(data) {
          result[phase].payment_summary.partial_completed += amount;
       }
 
-      if (item.col_type === 'full payment' || item.col_type === 'partial completed') {
+      if (
+         item.col_type === 'full payment' ||
+         item.col_type === 'partial completed'
+      ) {
          result[phase].payment_status = 'completed';
       }
 
       return result;
    }, {});
+
+   return Object.values(phaseMap);
 }
+
 
 module.exports = organizeByPhase;

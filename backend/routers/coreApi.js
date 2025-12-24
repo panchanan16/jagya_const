@@ -24,8 +24,6 @@ coreRouter.get('/core/client/get_ProjectInfo', ClientCoreController.getProject_C
 // [COLLECTION]-----------
 coreRouter.get('/core/collection/get_ProjectInfo/:pro_id', CollectionCoreController.getCollectionDetailsBy_project);
 
-
-
 // [VENDOR]-----------
 coreRouter.get('/core/vendor/get_lastRef', VendorCoreController.getVendorLastRef);
 coreRouter.get('/core/vendor/get_vendor_payment_purchase', VendorCoreController.getVendor_Purch_Payment);

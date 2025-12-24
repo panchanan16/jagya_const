@@ -8,11 +8,13 @@ class CollectionsModel {
       let query = `
         SELECT 
           collections.*,
-          projects.pro_name,
+          p.pro_id,
+          p.pro_name,
+          p.pro_ref_no,
           c.client_name
         FROM collections
-        JOIN projects ON collections.col_project_id = projects.pro_id
-        LEFT JOIN clients c ON c.client_id = projects.pro_client_r_id
+        JOIN projects p ON collections.col_project_id = p.pro_id
+        LEFT JOIN clients c ON c.client_id = p.pro_client_r_id
       `;
 
       const params = [];
@@ -80,8 +82,9 @@ class CollectionsModel {
           col_project_phase,
           col_type,
           col_category,
-          col_pct
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+          col_pct,
+          col_value
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)
       `;
 
       const connPool = await pool.getConnection();
@@ -96,6 +99,7 @@ class CollectionsModel {
             col_type,
             col_category,
             col_pct,
+            col_value
          ]);
 
          if (result.affectedRows > 0) {
@@ -110,6 +114,7 @@ class CollectionsModel {
                col_type,
                col_category,
                col_pct,
+               col_value
             };
          }
       } catch (error) {
@@ -131,7 +136,8 @@ class CollectionsModel {
       col_project_phase,
       col_type,
       col_category,
-      col_pct
+      col_pct,
+      col_value
    ) {
       const query = `
         UPDATE collections SET
@@ -143,7 +149,8 @@ class CollectionsModel {
           col_project_phase = ?,
           col_type = ?,
           col_category = ?,
-          col_pct = ?
+          col_pct = ?,
+          col_value =?,
         WHERE col_id = ?
       `;
 
@@ -159,6 +166,7 @@ class CollectionsModel {
             col_type,
             col_category,
             col_pct,
+            col_value,
             col_id,
          ]);
 

@@ -62,6 +62,7 @@ class CollectionController {
          col_type,
          col_category,
          col_pct,
+         col_value
       } = req.body;
 
       if (!col_amount || !col_mode || !col_date || !col_project_id) {
@@ -82,7 +83,8 @@ class CollectionController {
             col_project_phase,
             col_type,
             col_category,
-            col_pct
+            col_pct,
+            col_value
          );
 
          return res.status(201).send({
@@ -113,6 +115,7 @@ class CollectionController {
          col_type,
          col_category,
          col_pct,
+         col_value
       } = req.body;
 
       if (!col_id || !col_amount || !col_mode || !col_date || !col_project_id) {
@@ -134,7 +137,8 @@ class CollectionController {
             col_project_phase,
             col_type,
             col_category,
-            col_pct
+            col_pct,
+            col_value
          );
 
          if (!isUpdated) {
