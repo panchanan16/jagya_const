@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 20250506	01:10:42	81aa34fc-45b2-43f8-a559-820f1c5fe940	POST	undefined	/api/auth/login/super-admin
 20250506	01:10:55	989123d5-fe54-4968-a6c8-0cbc56102e75	GET	undefined	/api/v1/core/users/readAll?role=super_admin
 20250506	01:13:18	730df28f-913f-4bbd-9511-e2515b20db88	GET	http://127.0.0.1:5173	/api/v1/entity/collection/readAll
@@ -19139,3 +19140,51 @@
 20251224	17:25:36	ddaf4666-355d-4400-ba70-d215520648d4	POST	http://127.0.0.1:5173	/api/v1/core/finance/login
 20251224	17:25:36	e7a8c668-7bdb-4049-ba97-0d741c84f975	GET	http://127.0.0.1:5173	/api/v1/api/project?page=1&pageSize=10
 20251224	17:25:39	aa229d79-de9a-4012-a41c-c227b664993f	GET	http://127.0.0.1:5173	/api/v1/entity/material_req/readAll
+=======
+20251223	11:04:55	a8040794-0ff4-495b-b9c0-82a6abc1b75e	POST	http://127.0.0.1:5173	/api/v1/core/super-admin/login
+20251223	11:04:56	4eac5176-b885-433a-9f09-9c2d1e322d2a	GET	http://127.0.0.1:5173	/api/v1/api/project?page=3&pageSize=10
+20251223	11:04:56	de02328d-7e21-40ac-af3f-3708aab1ac26	GET	http://127.0.0.1:5173	/api/v1/api/project?page=1&pageSize=10
+20251223	11:05:00	ff6f37ff-5f13-4088-a140-10d8bcc5ccb8	GET	http://127.0.0.1:5173	/api/v1/api/client?page=1&pageSize=10
+20251223	11:05:02	5c6873f6-51ea-4b47-89c7-1e260d8cd052	GET	http://127.0.0.1:5173	/api/v1/entity/vendor/readAll
+20251223	11:05:22	1cefe166-c04e-4a28-b4cc-ba9486421d7f	GET	http://127.0.0.1:5173	/api/v1/entity/collection/readAll
+20251223	11:52:20	8089f9d9-602b-471a-8939-35553c914a9d	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=5
+20251223	12:01:54	ec2dd6a4-8156-483f-806c-f51dfa825b4d	GET	undefined	/api/v1/entity/contractorPayment/readOne
+20251223	12:01:58	2c3083c0-a39f-4207-8413-b8e00a53c9b2	GET	undefined	/api/v1/core/contractorPayment/readAll?pay_con_id=5
+20251223	13:02:11	bd8d60eb-76f0-4a08-ace2-cf4667e369db	GET	http://127.0.0.1:5173	/api/v1/entity/collection/readAll
+20251223	13:36:48	59d057c3-911d-4216-bc94-f84d2997e86d	GET	undefined	/api/v1/core/expense/get_expense_details/11
+20251224	12:01:59	87c85eee-e6e0-4e3d-828c-4fbcf96e7a24	GET	undefined	/api/v1/entity/collection/readAll?from_date=2025-10-29&to_date=2025-11-30
+20251224	12:02:02	544941f2-b39c-4e7a-9dc0-7e933452296d	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:19:27	2eb0da66-a413-4d55-ad98-7ea0d8ba2550	POST	undefined	/api/v1/entity/collection/create
+20251224	12:22:30	5b3a130c-2eb0-43b0-93e0-d1488ed619c4	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:24:45	0ec4dc58-3df7-4919-a176-d1fb81944bb9	POST	undefined	/api/v1/entity/collection/create
+20251224	12:24:45	aaec73b7-8c91-4f4d-a76e-4baf478a31b3	POST	undefined	/api/v1/entity/collection/create
+20251224	12:24:48	ad317e5a-53e4-44d3-bb87-2f7144f2f319	POST	undefined	/api/v1/entity/collection/create
+20251224	12:24:49	dcd79f31-6560-485b-8093-ddee5ac11a71	POST	undefined	/api/v1/entity/collection/create
+20251224	12:25:15	9f2297bf-2aad-41f1-878f-f9dc6b0bc71a	POST	undefined	/api/v1/entity/collection/create
+20251224	12:26:23	b3c302f5-4d0e-4944-aba8-3fc52b84b7c3	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:41:16	ad5a9836-b867-4fe1-a494-b88474c990b4	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:41:44	ad26a54d-bd01-45f9-b2f9-7b5e7c4afca2	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:43:55	b0ed2b47-928a-40cf-b447-34bc20691c7d	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:44:46	adddf62d-1a93-47bb-9a87-ff37f9c7243c	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:48:00	fe75f22f-aee6-4119-bb7f-a11ecc6d2ad3	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:48:02	b87221bb-b91b-46aa-a34f-ddd4657d6b5c	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:48:15	583b1d60-28be-408d-b472-7d1206fd1550	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:48:34	3efb76df-a627-4f07-b7b3-ea87b5e8f17b	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:49:17	bee40f83-69f6-4ca9-9a48-9792dc754a85	GET	undefined	/api/v1/entity/collection/readAll
+20251224	12:50:24	e260eeed-6f5e-417d-8b59-84837838ed8c	GET	undefined	/api/v1/entity/collection/readOne
+20251224	13:22:20	04359f8f-66ee-4aa1-9827-64e1cc77bee9	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:22:57	7dbcb6be-7682-449d-95b6-ab2d48b0fa25	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:23:21	f3ed1bbd-a943-47aa-9c26-270a1bde508f	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:23:38	ada297ec-6e2d-40fb-b90b-115fc4925a9d	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:26:35	2ced9e2c-77a2-4f83-8a29-329f09492dc4	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:26:36	832abed2-f57e-4119-819b-e7b6aa74caad	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:27:46	2d08de89-b06c-4837-8210-77a5e9372a4c	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:27:47	641bf22c-1bd3-4978-aab7-e00b48eeda09	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:29:12	a8424240-9569-4677-9ebc-ffd5ce3051c7	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:29:57	f953b4c7-a55f-49a0-bda1-fb9f06c81583	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:36:11	54dc5866-e24e-4e9e-be0c-5e3c4d0cb864	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:36:25	a04e7c5c-e399-4dd8-bde0-b67464a6b186	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:36:44	862a9ab8-4943-496e-b32c-ca6effef3a58	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:38:10	56869c12-232a-40a2-a426-51569f9c2924	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+20251224	13:38:31	0a5e8297-5e6f-4fcb-b8ad-7101ee118744	GET	undefined	/api/v1/core/collection/get_ProjectInfo/11
+>>>>>>> 7d461f563df2e947e21e3617f9e5d50f14ff531c

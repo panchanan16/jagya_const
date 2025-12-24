@@ -1,0 +1,15 @@
+meta {
+  name: get_ProjectInfo
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{URL.Core}}collection/get_ProjectInfo/:pro_id
+  body: none
+  auth: none
+}
+
+params:path {
+  pro_id: 11
+}

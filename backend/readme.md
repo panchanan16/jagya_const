@@ -29,3 +29,5 @@ Explanation of the folder structure:
     .env.local:  Contains environment-specific variables for development enviornment
     package.json: Contains project metadata, dependencies, and scripts.
     README.md: Provides an overview of the project, instructions for installation, and usage information.
+
+

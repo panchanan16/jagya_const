@@ -144,9 +144,10 @@ class MaterialItemUpdateModel {
    static async findAll_materialItems_ByMatrialReqId(mr_r_id) {
       const query =
          'SELECT p.pro_name,p.pro_ref_no,p.pro_client_r_id ,c.client_name, material_requests.mr_project_id, material_requests.mr_phase, material_requests.mr_date,material_requests.mr_r_id FROM `material_requests` JOIN projects p ON p.pro_id = material_requests.mr_project_id JOIN clients c ON c.client_id =p.pro_client_r_id WHERE material_requests.mr_r_id=?;SELECT ml.*,v.vendor_name FROM material_item_list ml LEFT JOIN vendors v ON v.vendor_id=ml.vendor_id WHERE mr_r_id=?';
+         // 'SELECT p.pro_name,p.pro_ref_no,p.pro_client_r_id,material_requests.mr_project_id,c.client_name,material_requests.mr_phase,material_requests.mr_date,material_requests.mr_r_id FROM `material_requests` JOIN projects p ON p.pro_id = material_requests.mr_project_id JOIN clients c ON c.client_id =p.pro_client_r_id WHERE material_requests.mr_r_id=?;SELECT ml.*,v.vendor_name FROM material_item_list ml LEFT JOIN vendors v ON v.vendor_id=ml.vendor_id WHERE mr_r_id=?';
       const connPool = await pool.getConnection();
       try {
-         const [rows] = await connPool.query(query, [mr_r_id, mr_r_id]);
+         const [rows] = await connPool.query(query, [mr_r_id, mr_r_id])
          return rows;
       } catch (error) {
          console.error('Error retrieving all material items:', error);
