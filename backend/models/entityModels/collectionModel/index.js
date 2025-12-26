@@ -4,7 +4,7 @@ const pool = require('@/config/dbConfig');
 
 class CollectionsModel {
    // Get all collections
-   static async findAll(from_date, to_date) {
+   static async findAll(from_date, to_date, getBy_pro_id) {
       let query = `
         SELECT 
           collections.*,
@@ -27,6 +27,9 @@ class CollectionsModel {
       } else if (to_date) {
          query += ` WHERE DATE(collections.col_date) <= ? `;
          params.push(to_date);
+      } else if (getBy_pro_id) {
+         query += ` WHERE collections.col_project_id = ? `;
+         params.push(getBy_pro_id);
       }
 
       query += ` ORDER BY collections.col_id DESC`;
@@ -36,7 +39,6 @@ class CollectionsModel {
          const [rows] = await connPool.query(query, params);
          console.log(rows);
          return rows;
-         
       } catch (err) {
          console.error('Error retrieving all collections:', err);
          throw err;
@@ -47,7 +49,13 @@ class CollectionsModel {
 
    // Get single collection
    static async findOne(col_id) {
-      const query = `SELECT * FROM collections WHERE col_id = ?`;
+      const query = ` SELECT collections.*, p.pro_id,
+          p.pro_name,
+          p.pro_ref_no,
+          c.client_name
+        FROM collections
+        JOIN projects p ON collections.col_project_id = p.pro_id
+        LEFT JOIN clients c ON c.client_id = p.pro_client_r_id WHERE collections.col_id = ?`;
       const connPool = await pool.getConnection();
       try {
          const [rows] = await connPool.query(query, [col_id]);
@@ -99,7 +107,7 @@ class CollectionsModel {
             col_type,
             col_category,
             col_pct,
-            col_value
+            col_value,
          ]);
 
          if (result.affectedRows > 0) {
@@ -114,7 +122,7 @@ class CollectionsModel {
                col_type,
                col_category,
                col_pct,
-               col_value
+               col_value,
             };
          }
       } catch (error) {

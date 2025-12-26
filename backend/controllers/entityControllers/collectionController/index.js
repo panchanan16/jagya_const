@@ -1,13 +1,13 @@
 const collectionModel = require('@/models/entityModels/collectionModel');
-const organizeByPhase = require('@/utils/functions/collectionsOrganizer')
+const organizeByPhase = require('@/utils/functions/collectionsOrganizer');
 
 class CollectionController {
    // Fetch all collections
    static async findAll(req, res) {
-      const { from_date, to_date } = req.query;
+      const { from_date, to_date, getBy_pro_id, showListView } = req.query;
       try {
-         const collections = await collectionModel.findAll(from_date, to_date);
-         const organizedData = await organizeByPhase(collections);
+         const collections = await collectionModel.findAll(from_date, to_date, getBy_pro_id);
+         const organizedData = showListView === 'true' ? collections : await organizeByPhase(collections);
          return res.status(200).send({
             status: true,
             msg: 'Collections retrieved successfully',
@@ -62,7 +62,7 @@ class CollectionController {
          col_type,
          col_category,
          col_pct,
-         col_value
+         col_value,
       } = req.body;
 
       if (!col_amount || !col_mode || !col_date || !col_project_id) {
@@ -115,7 +115,7 @@ class CollectionController {
          col_type,
          col_category,
          col_pct,
-         col_value
+         col_value,
       } = req.body;
 
       if (!col_id || !col_amount || !col_mode || !col_date || !col_project_id) {
